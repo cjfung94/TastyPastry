@@ -1,9 +1,9 @@
 # cs389s2021team4
 
-**Name: **
-TastyPastry
+**Name:**
+"TastyPastry"
 
-**Team: **
+**Team:**
 Jorge Esquivel 
 Gal Foox 
 Xue Yue Fung (CJ)
