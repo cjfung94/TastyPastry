@@ -1,8 +1,13 @@
 # cs389s2021team4
 
-**TastyPastry**
+**Name: TastyPastry**
 
-**Team** 
+**Team:
+Esquivel, Jorge
+Foox, Gal
+Fung, Xue Yue
+Kalodkina, Maryia
+** 
 
 **App description**
 
