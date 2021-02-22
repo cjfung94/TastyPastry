@@ -4,10 +4,10 @@
 "TastyPastry"
 
 **Team:**
-Jorge Esquivel 
-Gal Foox 
-Xue Yue Fung (CJ)
-Maryia Kalodkina 
+* Jorge Esquivel 
+* Gal Foox 
+* Xue Yue Fung (CJ)
+* Maryia Kalodkina 
 
 **App description**
 
