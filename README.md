@@ -2,12 +2,7 @@
 
 **Name: TastyPastry**
 
-**Team:
-Esquivel, Jorge
-Foox, Gal
-Fung, Xue Yue
-Kalodkina, Maryia
-** 
+**Team: \n Jorge Esquivel \n Gal Foox \n Xue Yue Fung (CJ) \n Maryia Kalodkina** 
 
 **App description**
 
