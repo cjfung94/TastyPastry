@@ -1,6 +1,6 @@
 # cs389s2021team4
 
-**App name**
+**TastyPastry**
 
 **Team** 
 
