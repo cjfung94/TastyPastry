@@ -11,7 +11,7 @@
 
 **App description**
 
-**Idea Proposal**
+**Idea Proposal(https://docs.google.com/document/d/13b1pzBJSbs-C4DUQ_D-Zo6fiSPpdRpsG/edit)**
 
 **Calendar**
 
