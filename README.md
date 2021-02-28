@@ -17,7 +17,9 @@
 
 **[Product Backlog (Draft)](https://docs.google.com/spreadsheets/d/1XJsuP673qQWtqFeexj1-ckAGnXtApbehGOfuTYK7cYU/edit#gid=8)**
 
-**Architecture & Design**
+**Architecture & Design:**
+* [Wireframes of the App](https://drive.google.com/drive/u/0/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI)
+* [UML of the App](https://drive.google.com/drive/u/0/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI)
 
 **Content**
 
