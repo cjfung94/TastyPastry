@@ -15,7 +15,7 @@
 
 **Calendar**
 
-**[Product Backlog (Draft)](https://docs.google.com/spreadsheets/d/1XJsuP673qQWtqFeexj1-ckAGnXtApbehGOfuTYK7cYU/edit#gid=8)**
+**[Product Backlog](https://docs.google.com/spreadsheets/d/1XJsuP673qQWtqFeexj1-ckAGnXtApbehGOfuTYK7cYU/edit#gid=8)**
 
 **Architecture & Design:**
 * [Requirements Discovery Part 1 (Users)](https://docs.google.com/document/d/1CXc8VuJnNqZo1TADJ18F0ZM8K2cH1K9Pb8XjaXjqVPw/edit?usp=sharing)
