@@ -26,7 +26,7 @@
 
 
 **Content**
-* [Technology Used](https://docs.google.com/document/d/1iPHIRzXQnFM5aeie4EMuK2dKnxRj9SVyrYORjK5YzVs/edit?usp=sharing)
+
 
 **Sprint 1**
 
@@ -58,3 +58,14 @@
 **Communications**
 
 **Tools**
+* Collaboration
+  * Discord
+  * Slack
+  * Zoom
+  * Google Drive
+  * GitHub
+* Design
+  * Cacoo
+  * Eclipse
+* Technical
+  Android Studio
