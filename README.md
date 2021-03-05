@@ -24,6 +24,7 @@
 * [Requirements Discovery Part 4 (Wireframes/Sketch)](https://drive.google.com/drive/u/0/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI) 
 * [Requirements Discovery Part 5 (Backlog)](https://docs.google.com/spreadsheets/d/1XJsuP673qQWtqFeexj1-ckAGnXtApbehGOfuTYK7cYU/edit#gid=8)
 
+* [Use Case](https://drive.google.com/drive/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI)
 
 **Content**
 
