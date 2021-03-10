@@ -4,10 +4,10 @@
 "TastyPastry"
 
 **Team:**
-* Jorge Esquivel 
-* Gal Foox 
-* Xue Yue Fung (CJ)
-* Maryia Kalodkina 
+* Jorge Esquivel - Content Manager 
+* Gal Foox - Documentation Manager 
+* Xue Yue Fung (CJ) - Product Owner
+* Maryia Kalodkina - Scrum Master
 
 **App description**
 
