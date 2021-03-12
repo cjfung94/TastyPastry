@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "884900870759",
+    "project_id": "authentication-669d9",
+    "storage_bucket": "authentication-669d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884900870759:android:6a8797bc613172eeb532c2",
+        "android_client_info": {
+          "package_name": "com.example.tastypastry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884900870759-rbsn76fr6k6qrj10vtq60rhif6vd2i8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2E4inAybbRPRsuPAdfNrx7NuGVNo2BkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884900870759-rbsn76fr6k6qrj10vtq60rhif6vd2i8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
