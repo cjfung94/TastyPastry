@@ -1,25 +1,39 @@
 # cs389s2021team4
 
-**App name**
+**Name:**
+"TastyPastry"
 
-**Team** 
+**Team:**
+* Jorge Esquivel - Content Manager 
+* Gal Foox - Documentation Manager 
+* Xue Yue Fung (CJ) - Product Owner
+* Maryia Kalodkina - Scrum Master
 
 **App description**
 
-**Idea Proposal**
+**[Idea Proposal](https://docs.google.com/document/d/13b1pzBJSbs-C4DUQ_D-Zo6fiSPpdRpsG/edit)**
 
 **Calendar**
 
-**Product Backlog**
+**[Product Backlog](https://docs.google.com/spreadsheets/d/1XJsuP673qQWtqFeexj1-ckAGnXtApbehGOfuTYK7cYU/edit#gid=8)**
 
-**Architecture & Design**
+**Architecture & Design:**
+* [Requirements Discovery Part 1 (Users)](https://docs.google.com/document/d/1CXc8VuJnNqZo1TADJ18F0ZM8K2cH1K9Pb8XjaXjqVPw/edit?usp=sharing)
+* [Requirements Discovery Part 2 (VORD- ViewPoint Oriented Requirements Definition)](https://docs.google.com/document/d/1CXc8VuJnNqZo1TADJ18F0ZM8K2cH1K9Pb8XjaXjqVPw/edit?usp=sharing)
+* [Requirements Discovery Part 3 (UML)](https://drive.google.com/drive/u/0/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI)
+* [Requirements Discovery Part 4 (Wireframes/Sketch)](https://drive.google.com/drive/u/0/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI) 
+* [Requirements Discovery Part 5 (Backlog)](https://docs.google.com/spreadsheets/d/1XJsuP673qQWtqFeexj1-ckAGnXtApbehGOfuTYK7cYU/edit#gid=8)
+
+* [Use Case Diagram](https://drive.google.com/drive/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI)
+* [System Architecture](https://drive.google.com/drive/folders/15YlIgy9fRNj3P3feJptQIoVaiiTwfioI)
 
 **Content**
 
+
 **Sprint 1**
 
-* Sprint planning
-* Scrums
+* [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
+* [Scrums](https://drive.google.com/drive/u/0/folders/1kr4hU7m-erqhaUxzbUdLwrUkGXgbf5Oj)
 * Sprint demo - video and apk (or equivalent)
 * Spring retrospective
 
@@ -46,3 +60,14 @@
 **Communications**
 
 **Tools**
+* Collaboration
+  * Discord
+  * Slack
+  * Zoom
+  * Google Drive
+  * GitHub
+* Design
+  * Cacoo
+  * Eclipse
+* Technical
+  * Android Studio
