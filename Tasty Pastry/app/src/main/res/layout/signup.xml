@@ -11,11 +11,12 @@
     android:paddingHorizontal="30dp">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo_sign_up_page"
         android:layout_width="219dp"
         android:layout_height="204dp"
-        app:srcCompat="@drawable/tastypastry_logo"
-        android:layout_marginTop="1dp"/>
+        android:layout_marginTop="1dp"
+        android:contentDescription="@string/logo_description"
+        app:srcCompat="@drawable/tastypastry_logo" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,10 +29,11 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rectangular_field"
-            android:hint="Enter your email..."
+            android:hint="@string/enter_email_hint"
             android:inputType="textEmailAddress"
             android:paddingVertical="15dp"
-            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
             android:textAlignment="textStart"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,11 +41,16 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
+            android:id="@+id/signup_email_imageView"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/insert_email_description" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -57,21 +64,28 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rectangular_field"
-            android:hint="Enter your password..."
+            android:hint="@string/password_hint"
             android:inputType="textPassword"
             android:paddingVertical="15dp"
-            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
             android:textAlignment="textStart"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
+            android:id="@+id/signup_password_imageView"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true" />
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/password_hint" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -84,21 +98,25 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rectangular_field"
-            android:hint="Confirm your password..."
+            android:hint="@string/confirm_your_password_hint"
             android:inputType="textPassword"
             android:paddingVertical="15dp"
-            android:paddingLeft="60dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
             android:textAlignment="textStart"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
+            android:id="@+id/confirm_password_ImageView"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerInParent="true" />
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/confirm_your_password_hint" />
     </RelativeLayout>
 
     <Button
@@ -107,9 +125,9 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_back"
-        android:text="Sign Up"
+        android:text="@string/sign_up_activation"
         android:textColor="#0C0000"
-        android:textSize="25dp"
+        android:textSize="25sp"
         app:backgroundTint="#E6B7AB" />
     <LinearLayout
         android:layout_width="wrap_content"
@@ -122,18 +140,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an Account?"
+            android:text="@string/already_have_an_account"
             android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/signIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Sign In"
+            android:layout_marginStart="10dp"
+            android:text="@string/have_an_account_signin"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 

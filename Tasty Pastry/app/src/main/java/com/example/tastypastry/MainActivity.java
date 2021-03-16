@@ -1,6 +1,5 @@
 package com.example.tastypastry;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         emailSign = findViewById(R.id.email);
         passwordSign = findViewById(R.id.password);
-        SignInButton = findViewById(R.id.login);
+        SignInButton = findViewById(R.id.sign_in_button);
         progressDialog = new ProgressDialog(this);
-        SignUp = findViewById(R.id.signUp);
+        SignUp = findViewById(R.id.sign_up);
         //Make the button register
         SignInButton.setOnClickListener(new View.OnClickListener(){
             @Override
