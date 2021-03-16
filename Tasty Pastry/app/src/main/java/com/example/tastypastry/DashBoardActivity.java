@@ -1,31 +1,39 @@
 package com.example.tastypastry;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.mindorks.placeholderview.SwipeDecor;
+import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 public class DashBoardActivity extends Activity {
     private Button logout;
+    private SwipePlaceHolderView testSwipe;
+    private Context testContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
-        logout = findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {
+        //Swiping stuff
+        testSwipe = (SwipePlaceHolderView)findViewById(R.id.swipeView);
+        testContext = getApplicationContext();
 
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(DashBoardActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        testSwipe.getBuilder()
+                .setDisplayViewCount(3)
+                .setSwipeDecor(new SwipeDecor()
+                        .setPaddingTop(20)
+                        .setRelativeScale(0.01f));
+        for (Profile profile : Utils.loadPictures(this.getApplicationContext())){
+            testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe));
+        }
+
     }
 }
 
