@@ -98,7 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(SignUpActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(SignUpActivity.this, DashBoardActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, TutorialActivity.class);
                     startActivity(intent);
                     finish();
                 }
