@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">TastyPastry</string>
     <string name="sign_up">Sign Up</string>
+    <string name="logo_description">logoImage</string>
+    <string name="insert_email_description">insertEmail</string>
+    <string name="enter_email_hint">Enter your email...</string>
+    <string name="password_hint">Enter your password...</string>
+    <string name="email_imageView">email</string>
+    <string name="password_imageView">password_imageView</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="dont_have_an_account_text">Don\'t have an Account?</string>
+    <string name="sign_up_button_to_page">Sign Up</string>
+    <string name="confirm_your_password_hint">Confirm your password...</string>
+    <string name="sign_up_activation">Sign Up</string>
+    <string name="already_have_an_account">Already have an Account?</string>
+    <string name="have_an_account_signin">Sign In</string>
 </resources>
