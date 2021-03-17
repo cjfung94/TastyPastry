@@ -14,4 +14,5 @@
     <string name="sign_up_activation">Sign Up</string>
     <string name="already_have_an_account">Already have an Account?</string>
     <string name="have_an_account_signin">Sign In</string>
+    <string name="pastryImage">pastryImage</string>
 </resources>
