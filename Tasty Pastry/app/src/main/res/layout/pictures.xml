@@ -6,22 +6,28 @@
     android:layout_height="440dp"
     android:layout_marginBottom="53dp"
     android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
-        android:orientation="vertical"
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
+        android:background="@color/white"
+        android:clickable="false"
+        android:orientation="vertical"
         app:cardCornerRadius="7dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="false">
 
         <ImageView
-            android:id="@+id/pictureView"
+            android:id="@+id/PastryImage"
             android:layout_width="match_parent"
             android:layout_height="373dp"
             android:layout_marginBottom="55dp"
+            android:clickable="true"
             android:contentDescription="@string/pastryImage"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:focusable="true"
+            android:onClick="openRecipe"/>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -36,7 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
         emailSign = findViewById(R.id.email);
         passwordSign1 = findViewById(R.id.password1);
         passwordSign2 = findViewById(R.id.password2);
-        SignupButton = findViewById(R.id.register);
+        SignupButton = findViewById(R.id.shareRecipe);
         progressDialog = new ProgressDialog(this);
         SignIn = findViewById(R.id.signIn);
         //Make the button register
