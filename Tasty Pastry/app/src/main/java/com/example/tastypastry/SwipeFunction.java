@@ -25,6 +25,8 @@ public class SwipeFunction {
     @View(R.id.pictureName)
     private TextView pictureName;
 
+
+
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
@@ -41,6 +43,7 @@ public class SwipeFunction {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
     }
+
 
     //When card is rejected
     @SwipeOut

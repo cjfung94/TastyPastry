@@ -2,12 +2,9 @@ package com.example.tastypastry;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
@@ -21,6 +18,9 @@ public class DashBoardActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
+
+
+
         //Swiping stuff
         testSwipe = (SwipePlaceHolderView)findViewById(R.id.swipeView);
         testContext = getApplicationContext();
