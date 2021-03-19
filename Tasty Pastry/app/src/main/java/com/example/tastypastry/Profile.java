@@ -31,4 +31,9 @@ public class Profile {
         this.imageUrl = imageUrl;
     }
 
+    public void setAll(String name, String imageUrl){
+        this.imageUrl = imageUrl;
+        this.name = name;
+    }
+
 }
