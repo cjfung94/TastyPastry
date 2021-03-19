@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TastyPastry">
         <activity android:name=".DisplayPastryRecipe"></activity>
+        <activity android:name=".Settings"></activity>
+        <activity android:name=".Favorites" />
+        <activity android:name=".Filter" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

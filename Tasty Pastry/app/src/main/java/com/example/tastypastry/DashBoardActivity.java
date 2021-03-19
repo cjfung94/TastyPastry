@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,6 +14,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -57,6 +61,33 @@ public class DashBoardActivity extends Activity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 System.out.println("Reading from database failed: " + error.getMessage());
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.Home:
+                        return true;
+                    case R.id.Filter:
+                        startActivity(new Intent(getApplicationContext(), Filter.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.Favorites:
+                        startActivity(new Intent(getApplicationContext(), Favorites.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.Settings:
+                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
             }
         });
 
