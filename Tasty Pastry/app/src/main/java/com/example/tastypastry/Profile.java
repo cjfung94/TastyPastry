@@ -15,9 +15,9 @@ public class Profile {
     @Expose
     private String imageUrl;
 
-    @SerializedName("ingredients")
-    @Expose
-    private String ingredients;
+//    @SerializedName("ingredients")
+//    @Expose
+//    private String ingredients;
 
 
     public String getName(){
@@ -31,14 +31,14 @@ public class Profile {
     public String getImage(){
         return imageUrl;
     }
-
-    public void setImage(String imageUrl){
-        this.imageUrl = imageUrl;
-    }
-
-    public String getIngredients() { return ingredients;}
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
-    }
+//
+//    public void setImage(String imageUrl){
+//        this.imageUrl = imageUrl;
+//    }
+//
+//    public String getIngredients() { return ingredients;}
+//
+//    public void setIngredients(String ingredients) {
+//        this.ingredients = ingredients;
+//    }
 }
