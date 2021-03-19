@@ -26,8 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 public class DashBoardActivity extends Activity {
     private Button logout;
