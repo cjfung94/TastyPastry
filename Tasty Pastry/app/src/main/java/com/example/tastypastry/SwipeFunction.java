@@ -1,7 +1,6 @@
 package com.example.tastypastry;
 
 import android.content.Context;
-import android.media.Image;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,11 +19,13 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
-    @View(R.id.pictureView)
+    @View(R.id.PastryImage)
     private ImageView pictureView;
 
     @View(R.id.pictureName)
     private TextView pictureName;
+
+
 
     private Profile testProfile;
     private Context testContext;
@@ -42,6 +43,7 @@ public class SwipeFunction {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
     }
+
 
     //When card is rejected
     @SwipeOut

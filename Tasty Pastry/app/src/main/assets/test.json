@@ -1,7 +1,9 @@
 [  
    {  
       "url":"https://blog.williams-sonoma.com/wp-content/uploads/2018/06/jun-23-Vanilla-Ombre-Layer-Cake.jpg",
-      "name":"Strawberry Cake"
+      "name":"Strawberry Cake",
+      "ingredients": "strawberries",
+      "direction": "1. Mix the eggs with cream"
          },
    {  
       "url":"https://beyondfrosting.com/wp-content/uploads/2019/01/Chocolate-Cake-Recipe-017.jpg",
