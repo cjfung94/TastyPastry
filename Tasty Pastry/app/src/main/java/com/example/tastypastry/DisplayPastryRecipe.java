@@ -16,9 +16,14 @@ public class DisplayPastryRecipe extends AppCompatActivity {
 //    @View(R.id.IngredientsList)
 //    private TextView IngredientsList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.recipes);
+
+
        setContentView(R.layout.recipes);
 
     }
@@ -26,5 +31,6 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     public void openRecipe(View v) {
 //        setContentView(R.layout.recipes);
 //        IngredientsList.setText(testProfile.getIngredients());
+
     }
 }

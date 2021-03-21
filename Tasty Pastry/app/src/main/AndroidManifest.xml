@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TastyPastry">
-        <activity android:name=".DisplayPastryRecipe"></activity>
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings"/>
         <activity android:name=".Favorites" />
         <activity android:name=".Filter" />
         <activity android:name=".MainActivity">
@@ -23,6 +22,8 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".DashBoardActivity" />
         <activity android:name=".TutorialActivity" />
+        <activity android:name=".DisplayPastryRecipe"/>
+
 
         <meta-data
             android:name="preloaded_fonts"

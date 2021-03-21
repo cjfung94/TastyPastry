@@ -1,12 +1,19 @@
 package com.example.tastypastry;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
+import android.view.Display;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
+import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
@@ -15,6 +22,8 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeIn;
 import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
+
+
 
 @Layout(R.layout.pictures)
 public class SwipeFunction {
@@ -25,11 +34,10 @@ public class SwipeFunction {
     @View(R.id.pictureName)
     private TextView pictureName;
 
-
-
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
+
 
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView){
         testProfile = profile;
@@ -38,6 +46,13 @@ public class SwipeFunction {
     }
 
     //See what happens with images
+    @Click(R.id.PastryImage)
+    public void openRecipe(){
+        Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        testContext.startActivity(intent);
+
+    }
     @Resolve
     private void onResolved(){
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
@@ -80,4 +95,6 @@ public class SwipeFunction {
     }
 
     //If we don't want to re add a view, then just put @NonReusable
+
+    //Open Recipe xml
 }
