@@ -2,12 +2,10 @@ package com.example.tastypastry;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.mindorks.placeholderview.annotations.View;
 
 public class DisplayPastryRecipe extends AppCompatActivity {
 
@@ -22,7 +20,17 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.recipes);
+
+
+       setContentView(R.layout.recipes);
+
+    }
+
+    public void openRecipe(View v) {
+//        setContentView(R.layout.recipes);
+//        IngredientsList.setText(testProfile.getIngredients());
 
     }
 }

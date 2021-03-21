@@ -4,21 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.renderscript.Sampler;
 import android.util.Log;
 import android.view.Display;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-
-import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +31,7 @@ public class DashBoardActivity extends Activity {
     private Button logout;
     private SwipePlaceHolderView testSwipe;
     private Context testContext;
+    private ImageView pastryImage;
     private static DatabaseReference mDatabase;
     private ImageView recipeImage;
     protected Toast toast;
@@ -92,6 +92,17 @@ public class DashBoardActivity extends Activity {
                 return false;
             }
         });
+
+//        pastryImage = (ImageView) findViewById(R.id.PastryImage);
+//        pastryImage.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                Intent intent = new Intent(DashBoardActivity.this, DisplayPastryRecipe.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+
 
     }
 }
