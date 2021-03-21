@@ -15,26 +15,14 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private Profile testProfile;
     private ProgressDialog progressDialog;
 
-    @View(R.id.IngredientsList)
-    private TextView IngredientsList;
+//    @View(R.id.IngredientsList)
+//    private TextView IngredientsList;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipes);
-        ImageView pi = (ImageView) findViewById(R.id.PastryImage);
-        pi.setOnClickListener(new android.view.View.OnClickListener(){
-            @Override
-            public void onClick(android.view.View v){
-                //openRecipe();
-                progressDialog.setMessage("HELLO..");
-            }
-        });
-    }
 
-    public void openRecipe() {
-
-//        IngredientsList.setText(testProfile.getIngredients());
     }
 }

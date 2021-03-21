@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Sampler;
 import android.util.Log;
+import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,9 @@ public class DashBoardActivity extends Activity {
     private SwipePlaceHolderView testSwipe;
     private Context testContext;
     private static DatabaseReference mDatabase;
+    private ImageView recipeImage;
+    protected Toast toast;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
