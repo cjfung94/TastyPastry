@@ -1,7 +1,7 @@
 # cs389s2021team4
 
 **Name:**
-"TastyPastry"
+"Tasty Pastry"
 
 **Team:**
 * Jorge Esquivel - Content Manager 
