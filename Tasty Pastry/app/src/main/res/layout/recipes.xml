@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="#DDD7D6">
-
-    <LinearLayout
-        android:layout_width="151dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1"
     android:background="#DDD7D6"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_weight="1">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,7 +31,7 @@
             android:id="@+id/shareRecipe"
             android:layout_width="42sp"
             android:layout_height="42sp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rounded_corner"
             android:scaleType="fitXY"
@@ -47,54 +39,55 @@
             android:tint="#130202" />
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/PastryName"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="25dp"
-        android:gravity="center|top"
-        android:text="Strawberry Cake with cream, rainbows, sun"
+        android:gravity="top|center"
+        android:text="Strawberry Cake with Gal, ranbows, sun"
         android:textColor="@color/black"
-        android:textSize="23sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="501dp"
-=======
+        android:layout_height="495dp"
+        android:fillViewport="true"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/IngredientsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:layout_marginTop="14dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        android:orientation="horizontal"
+        >
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        android:layout_gravity="center|bottom"
+        android:layout_gravity="bottom"
         android:background="#fff"
+
         app:itemTextColor="@color/black"
         app:menu="@menu/menu_navigation" />
-        android:layout_marginBottom="75dp"
->>>>>>> e0faae69680d1464e78cc89c488e1018b29743a8
-        android:fillViewport="true"
-        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/PastryRecipe"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="70dp"
-            android:text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-    </ScrollView>
 </LinearLayout>
