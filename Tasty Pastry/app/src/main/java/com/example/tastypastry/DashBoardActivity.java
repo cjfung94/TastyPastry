@@ -21,6 +21,7 @@ import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
+
 public class DashBoardActivity extends Activity {
     private Button logout;
     private SwipePlaceHolderView testSwipe;
