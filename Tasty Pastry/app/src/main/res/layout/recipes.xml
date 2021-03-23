@@ -49,6 +49,27 @@
         android:gravity="top|center"
         android:text="Strawberry Cake with Gal, ranbows, sun"
         android:textColor="@color/black"
+
+        android:textSize="18sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+
+    <ScrollView
+        android:layout_width="431dp"
+        android:layout_height="213dp">
+
+        <TextView
+            android:id="@+id/PastryRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="25dp"
+            android:textColor="@color/black" />
+    </ScrollView>
+
+   
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
@@ -66,6 +87,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
 
 
         <TextView
