@@ -32,6 +32,7 @@
 
 **Sprint 1**
 
+
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
 * [Scrums](https://docs.google.com/document/d/1GOGbstIiELH-WrhknsiAPiqFx0DwTkWk-BMCDCdkev0/edit?usp=sharing)
 * Sprint demo - video and apk (or equivalent)

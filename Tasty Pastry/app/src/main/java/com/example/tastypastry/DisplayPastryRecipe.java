@@ -2,13 +2,17 @@ package com.example.tastypastry;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+import android.view.View;
+>>>>>>> cb5a9f2a37a597b7e46c59db2caae692b67aa164
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,6 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mindorks.placeholderview.annotations.View;
 
+=======
+>>>>>>> cb5a9f2a37a597b7e46c59db2caae692b67aa164
 public class DisplayPastryRecipe extends AppCompatActivity {
 
     private ImageView PastryImage;
@@ -33,10 +39,20 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.recipes);
         pastryRecipe = findViewById(R.id.PastryRecipe);
         pastryRecipe.setText("Hello" + displayRecipe.getThatRecipe());
 
+
+
+       setContentView(R.layout.recipes);
+
+    }
+
+    public void openRecipe(View v) {
+//        setContentView(R.layout.recipes);
+//        IngredientsList.setText(testProfile.getIngredients());
 
     }
 

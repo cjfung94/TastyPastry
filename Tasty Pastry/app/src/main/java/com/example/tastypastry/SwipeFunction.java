@@ -70,12 +70,16 @@ public class SwipeFunction {
     private void onResolved(){
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
+<<<<<<< HEAD
 //        display.getRecipeInfo(testProfile.getRecipe());
 
 
 
+=======
+>>>>>>> cb5a9f2a37a597b7e46c59db2caae692b67aa164
 
     }
+
 
 
     //When card is rejected
