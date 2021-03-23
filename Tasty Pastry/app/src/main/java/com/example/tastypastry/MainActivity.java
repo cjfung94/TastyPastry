@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         SignUp = findViewById(R.id.sign_up);
         //Make the button register
-        SignInButton.setOnClickListener(new View.OnClickListener(){
+        SignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Login();
             }
         });
@@ -54,36 +54,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-        private void Login(){
-            String email = emailSign.getText().toString();
-            String password = passwordSign.getText().toString();
-            //If Empty fields
-            if (TextUtils.isEmpty(email)){
-                emailSign.setError("Enter your email");
-                return;
-            }
-            else if (TextUtils.isEmpty(password)){
-                passwordSign.setError("Enter your password");
-                return;
-            }
-            progressDialog.setMessage("Please wait..");
-            progressDialog.show();
-            progressDialog.setCanceledOnTouchOutside(false);
-            //Adds to Firebase
-            firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else{
-                        Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
-                    }
-                    progressDialog.dismiss();
-                }
-            });
+
+    private void Login() {
+        String email = emailSign.getText().toString();
+        String password = passwordSign.getText().toString();
+        //If Empty fields
+        if (TextUtils.isEmpty(email)) {
+            emailSign.setError("Enter your email");
+            return;
+        } else if (TextUtils.isEmpty(password)) {
+            passwordSign.setError("Enter your password");
+            return;
         }
+        progressDialog.setMessage("Please wait..");
+        progressDialog.show();
+        progressDialog.setCanceledOnTouchOutside(false);
+        //Adds to Firebase
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
+                }
+                progressDialog.dismiss();
+            }
+        });
     }
+}

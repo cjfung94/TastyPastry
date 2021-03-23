@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="#DDD7D6"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="#DDD7D6"
-    android:paddingHorizontal="30dp">
+    android:paddingHorizontal="30dp"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/logo_sign_up_page"
@@ -21,7 +21,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp" >
+        android:layout_marginTop="20dp">
 
         <EditText
             android:id="@+id/email"
@@ -56,7 +56,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp" >
+        android:layout_marginTop="7dp">
 
         <EditText
             android:id="@+id/password1"
@@ -87,10 +87,11 @@
             android:layout_marginBottom="10dp"
             android:contentDescription="@string/password_hint" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp" >
+        android:layout_marginTop="7dp">
 
         <EditText
             android:id="@+id/password2"
@@ -129,13 +130,14 @@
         android:textColor="#0C0000"
         android:textSize="25sp"
         app:backgroundTint="#E6B7AB" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" >
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"

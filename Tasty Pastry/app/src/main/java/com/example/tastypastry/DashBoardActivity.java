@@ -4,18 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.renderscript.Sampler;
-import android.util.Log;
-import android.view.Display;
-
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
+
 
 public class DashBoardActivity extends Activity {
     private Button logout;
@@ -66,6 +61,9 @@ public class DashBoardActivity extends Activity {
             }
         });
 
+
+        //NAVIGATION BAR:
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.Home);
@@ -78,31 +76,19 @@ public class DashBoardActivity extends Activity {
                         return true;
                     case R.id.Filter:
                         startActivity(new Intent(getApplicationContext(), Filter.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Favorites:
                         startActivity(new Intent(getApplicationContext(), Favorites.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Settings:
                         startActivity(new Intent(getApplicationContext(), Settings.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
             }
         });
-
-//        pastryImage = (ImageView) findViewById(R.id.PastryImage);
-//        pastryImage.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(DashBoardActivity.this, DisplayPastryRecipe.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-
-
     }
 }
