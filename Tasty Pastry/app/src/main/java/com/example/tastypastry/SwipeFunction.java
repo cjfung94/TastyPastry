@@ -1,15 +1,10 @@
 package com.example.tastypastry;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.view.Display;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -22,7 +17,6 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeIn;
 import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
-
 
 
 @Layout(R.layout.pictures)
@@ -39,7 +33,7 @@ public class SwipeFunction {
     private SwipePlaceHolderView testSwipe;
 
 
-    public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView){
+    public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView) {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
@@ -47,50 +41,49 @@ public class SwipeFunction {
 
     //See what happens with images
     @Click(R.id.PastryImage)
-    public void openRecipe(){
+    public void openRecipe() {
         Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         testContext.startActivity(intent);
-
     }
+
     @Resolve
-    private void onResolved(){
+    private void onResolved() {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
 
     }
 
 
-
     //When card is rejected
     @SwipeOut
-    private void SwipedOut(){
+    private void SwipedOut() {
         Log.d("EVENT", "SwipedOut");
         testSwipe.addView(this);
     }
 
     //When card is put back
     @SwipeCancelState
-    private void SwipeCancelState(){
+    private void SwipeCancelState() {
         Log.d("EVENT", "SwipeCancelState");
     }
 
     //When card is accepted/liked
     @SwipeIn
-    private void SwipeIn(){
+    private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
         testSwipe.addView(this);
     }
 
     //Pings method til card is in Swiped in State
     @SwipeInState
-    private void SwipeInState(){
+    private void SwipeInState() {
         Log.d("EVENT", "SwipeInState");
     }
 
     //Pings method til card is in Swiped out state
     @SwipeOutState
-    private void SwipeOutState(){
+    private void SwipeOutState() {
         Log.d("EVENT", "SwipeOutState");
     }
 

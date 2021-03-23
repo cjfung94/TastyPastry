@@ -61,6 +61,9 @@ public class DashBoardActivity extends Activity {
             }
         });
 
+
+        //NAVIGATION BAR:
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.Home);
@@ -73,31 +76,19 @@ public class DashBoardActivity extends Activity {
                         return true;
                     case R.id.Filter:
                         startActivity(new Intent(getApplicationContext(), Filter.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Favorites:
                         startActivity(new Intent(getApplicationContext(), Favorites.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Settings:
                         startActivity(new Intent(getApplicationContext(), Settings.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
             }
         });
-
-//        pastryImage = (ImageView) findViewById(R.id.PastryImage);
-//        pastryImage.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent intent = new Intent(DashBoardActivity.this, DisplayPastryRecipe.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-
-
     }
 }
