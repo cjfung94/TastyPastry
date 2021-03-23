@@ -17,4 +17,6 @@
     <string name="pastryImage">pastryImage</string>
     <string name="ingredients">Ingredients</string>
     <string name="directions">Directions</string>
+    <string name="favorite_the_recipe">Favorite the recipe</string>
+    <string name="share_the_recipe">Share the recipe</string>
 </resources>
