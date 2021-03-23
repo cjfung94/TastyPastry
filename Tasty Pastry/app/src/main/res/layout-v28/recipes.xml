@@ -34,6 +34,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/share_the_recipe"
             android:scaleType="fitXY"
             android:src="@drawable/shareicon"
             android:tint="#130202" />

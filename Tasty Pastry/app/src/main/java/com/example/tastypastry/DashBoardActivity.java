@@ -4,18 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.renderscript.Sampler;
-import android.util.Log;
-import android.view.Display;
-
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
+
 
 public class DashBoardActivity extends Activity {
     private Button logout;
