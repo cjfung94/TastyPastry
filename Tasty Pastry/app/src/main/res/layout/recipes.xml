@@ -49,48 +49,62 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"/>
 
-    <TextView
-        android:id="@+id/IngredientsTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ingredients"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        />
+    <ScrollView
+        android:layout_width="431dp"
+        android:layout_height="213dp">
 
-    <TextView
-        android:id="@+id/IngredientsList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:layout_marginTop="14dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+        <TextView
+            android:id="@+id/PastryRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="25dp"
+            android:textColor="@color/black" />
+    </ScrollView>
 
-    <TextView
-        android:id="@+id/DirectionsTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/directions"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="30dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        />
-    <TextView
-        android:id="@+id/Directions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:layout_marginTop="14dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"/>
+    <!--    <TextView-->
+<!--        android:id="@+id/IngredientsTag"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/ingredients"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/IngredientsList"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="12sp"-->
+<!--        android:layout_marginTop="14dp"-->
+<!--        android:layout_marginLeft="25dp"-->
+<!--        android:layout_marginRight="25dp"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/DirectionsTag"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/directions"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginStart="30dp"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold"-->
+<!--        />-->
+<!--    <TextView-->
+<!--        android:id="@+id/Directions"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="12sp"-->
+<!--        android:layout_marginTop="14dp"-->
+<!--        android:layout_marginLeft="25dp"-->
+<!--        android:layout_marginRight="25dp"/>-->
 
 
 </LinearLayout>

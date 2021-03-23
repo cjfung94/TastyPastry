@@ -15,9 +15,9 @@ public class Profile {
     @Expose
     private String imageUrl;
 
-    @SerializedName("ingredients")
+    @SerializedName("recipe")
     @Expose
-    private String ingredients;
+    private String recipe;
 
 
     public String getName(){
@@ -36,9 +36,9 @@ public class Profile {
         this.imageUrl = imageUrl;
     }
 
-    public String getIngredients() { return ingredients;}
+    public String getRecipe() { return recipe;}
 
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
+    public void setRecipe(String recipe) {
+        this.recipe = recipe;
     }
 }
