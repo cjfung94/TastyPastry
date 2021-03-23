@@ -18,6 +18,9 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Layout(R.layout.pictures)
 public class SwipeFunction {
@@ -31,17 +34,27 @@ public class SwipeFunction {
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
-
+    DisplayPastryRecipe display = new DisplayPastryRecipe();
+    List<Profile> foodList = new ArrayList<>();
+    Recipe recipeInfo = new Recipe();
 
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView) {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
+        foodList.add(profile);
     }
 
-    //See what happens with images
+    // See what happens with images
     @Click(R.id.PastryImage)
     public void openRecipe() {
+
+        // CHANGE THIS PART -> WHEN I CLICK, IT SHOULD PULL THE INFORMATION AND SET IT
+        // SO
+        // SAVE THIS VARIABLE SOMEHOW, YOU CAN EITHER USE FUNCTIONS IN RECIPE OR JUST
+        // SET IT SOMEWHERE
+        // THEN IN DISPLAYPASTRYRECIPE GET THE SAVED PREF VARIABLE AND SETTEXT
+        recipeInfo.setRecipeFromProfile(foodList.get(0));
         Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         testContext.startActivity(intent);
@@ -52,42 +65,43 @@ public class SwipeFunction {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
 
+        // display.getRecipeInfo(testProfile.getRecipe());
+
     }
 
-
-    //When card is rejected
+    // When card is rejected
     @SwipeOut
     private void SwipedOut() {
         Log.d("EVENT", "SwipedOut");
         testSwipe.addView(this);
     }
 
-    //When card is put back
+    // When card is put back
     @SwipeCancelState
     private void SwipeCancelState() {
         Log.d("EVENT", "SwipeCancelState");
     }
 
-    //When card is accepted/liked
+    // When card is accepted/liked
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
         testSwipe.addView(this);
     }
 
-    //Pings method til card is in Swiped in State
+    // Pings method til card is in Swiped in State
     @SwipeInState
     private void SwipeInState() {
         Log.d("EVENT", "SwipeInState");
     }
 
-    //Pings method til card is in Swiped out state
+    // Pings method til card is in Swiped out state
     @SwipeOutState
     private void SwipeOutState() {
         Log.d("EVENT", "SwipeOutState");
     }
 
-    //If we don't want to re add a view, then just put @NonReusable
+    // If we don't want to re add a view, then just put @NonReusable
 
-    //Open Recipe xml
+    // Open com.example.tastypastry.Recipe xml
 }
