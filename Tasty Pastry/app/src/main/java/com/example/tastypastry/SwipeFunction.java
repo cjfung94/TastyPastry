@@ -18,6 +18,9 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Layout(R.layout.pictures)
 public class SwipeFunction {
@@ -33,17 +36,26 @@ public class SwipeFunction {
     private SwipePlaceHolderView testSwipe;
 
 
+
+
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView) {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
+
     }
 
     //See what happens with images
     @Click(R.id.PastryImage)
-    public void openRecipe() {
+
+    public void openRecipe(){
         Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
+        //Add flags so I can go into another window without having an Activity
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //Saves information onto a bundle so other classes can access it
+        intent.putExtra("recipe", testProfile.getRecipe());
+        intent.putExtra("pastryName", testProfile.getName());
+        //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
 
@@ -51,6 +63,11 @@ public class SwipeFunction {
     private void onResolved() {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
+//        display.getRecipeInfo(testProfile.getRecipe());
+
+
+
+
 
     }
 
@@ -89,5 +106,5 @@ public class SwipeFunction {
 
     //If we don't want to re add a view, then just put @NonReusable
 
-    //Open Recipe xml
+    //Open com.example.tastypastry.Recipe xml
 }
