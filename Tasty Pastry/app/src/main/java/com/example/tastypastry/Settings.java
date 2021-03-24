@@ -25,15 +25,15 @@ public class Settings extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
                         startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:
                         startActivity(new Intent(getApplicationContext(), Filter.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Favorites:
                         startActivity(new Intent(getApplicationContext(), Favorites.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Settings:
                         return true;
