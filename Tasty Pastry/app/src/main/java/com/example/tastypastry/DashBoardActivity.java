@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -29,7 +28,6 @@ public class DashBoardActivity extends Activity {
     private ImageView pastryImage;
     private static DatabaseReference mDatabase;
     private ImageView recipeImage;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +58,10 @@ public class DashBoardActivity extends Activity {
             }
         });
 
-
         //NAVIGATION BAR:
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-
         bottomNavigationView.setSelectedItemId(R.id.Home);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

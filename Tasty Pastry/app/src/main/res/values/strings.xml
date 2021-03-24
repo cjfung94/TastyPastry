@@ -19,4 +19,6 @@
     <string name="directions">Directions</string>
     <string name="favorite_the_recipe">Favorite the recipe</string>
     <string name="share_the_recipe">Share the recipe</string>
+    <string name="share_recipe">TODO</string>
+    <string name="tutorial">Tutorial</string>
 </resources>
