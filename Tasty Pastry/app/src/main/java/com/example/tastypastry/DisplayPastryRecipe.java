@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,27 +17,33 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mindorks.placeholderview.annotations.View;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DisplayPastryRecipe extends AppCompatActivity {
 
-    private ImageView PastryImage;
-    private Profile testProfile;
-    private ProgressDialog progressDialog;
-    private DatabaseReference mDatabase;
     private TextView pastryRecipe;
-    Recipe displayRecipe = new Recipe();
     Bundle extras;
     private String recipeInfo;
+    private TextView pastryRecipeName;
+    private String recipeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipes);
+
+        //Get recipe info from SwipeFunction
         extras = getIntent().getExtras();
         recipeInfo = extras.getString("recipe");
         pastryRecipe = findViewById(R.id.PastryRecipe);
-        pastryRecipe.setText(recipeInfo);
-        Log.d("Recipe", "is " + recipeInfo);
+        pastryRecipe.setText(recipeInfo); // Sets it to the R ID
+
+        //Set Recipe Name
+        pastryRecipeName = findViewById(R.id.PastryName);
+        recipeName = extras.getString("pastryName");
+        pastryRecipeName.setText(recipeName);
+
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
