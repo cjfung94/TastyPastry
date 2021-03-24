@@ -61,7 +61,7 @@ public class SwipeFunction {
     private void onResolved() {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
-        // display.getRecipeInfo(testProfile.getRecipe());
+
 
     }
 
@@ -70,6 +70,8 @@ public class SwipeFunction {
     private void SwipedOut() {
         Log.d("EVENT", "SwipedOut");
         testSwipe.addView(this);
+        //testSwipe.removeView(this); --> this is for when delete is implemented
+        //might need to use @NonReusable
     }
 
     // When card is put back
@@ -99,5 +101,4 @@ public class SwipeFunction {
 
     // If we don't want to re add a view, then just put @NonReusable
 
-    // Open com.example.tastypastry.Recipe xml
 }

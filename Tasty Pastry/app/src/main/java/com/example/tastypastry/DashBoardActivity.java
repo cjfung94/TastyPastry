@@ -23,12 +23,9 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 
 public class DashBoardActivity extends Activity {
-    private Button logout;
     private SwipePlaceHolderView testSwipe;
     private Context testContext;
-    private ImageView pastryImage;
     private static DatabaseReference mDatabase;
-    private ImageView recipeImage;
 
 
     @Override
