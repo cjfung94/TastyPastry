@@ -36,21 +36,21 @@ public class SignUpActivity extends AppCompatActivity {
         emailSign = findViewById(R.id.email);
         passwordSign1 = findViewById(R.id.password1);
         passwordSign2 = findViewById(R.id.password2);
-        SignupButton = findViewById(R.id.register);
+        SignupButton = findViewById(R.id.shareRecipe);
         progressDialog = new ProgressDialog(this);
         SignIn = findViewById(R.id.signIn);
         //Make the button register
-        SignupButton.setOnClickListener(new View.OnClickListener(){
+        SignupButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Register();
             }
         });
         //Make the button Sign In
-        SignIn.setOnClickListener(new View.OnClickListener(){
+        SignIn.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -59,32 +59,27 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     //Registration and Errors
-    private void Register(){
+    private void Register() {
         String email = emailSign.getText().toString();
         String password1 = passwordSign1.getText().toString();
         String password2 = passwordSign2.getText().toString();
         //If Empty fields
-        if (TextUtils.isEmpty(email)){
+        if (TextUtils.isEmpty(email)) {
             emailSign.setError("Enter your email");
             return;
-        }
-        else if (TextUtils.isEmpty(password1)){
+        } else if (TextUtils.isEmpty(password1)) {
             passwordSign1.setError("Enter your password");
             return;
-        }
-        else if (TextUtils.isEmpty(password2)){
+        } else if (TextUtils.isEmpty(password2)) {
             passwordSign2.setError("Confirm your password");
             return;
-        }
-        else if (!password1.equals(password2)){
+        } else if (!password1.equals(password2)) {
             passwordSign2.setError("Passwords do not match");
             return;
-        }
-        else if (password1.length()<5){
+        } else if (password1.length() < 5) {
             passwordSign1.setError("Password is too short");
             return;
-        }
-        else if (!isValidEmail(email)){
+        } else if (!isValidEmail(email)) {
             emailSign.setError("Please enter a valid email");
             return;
         }
@@ -92,16 +87,15 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(false);
         //Adds to Firebase
-        firebaseAuth.createUserWithEmailAndPassword(email,password1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        firebaseAuth.createUserWithEmailAndPassword(email, password1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     Toast.makeText(SignUpActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUpActivity.this, TutorialActivity.class);
                     startActivity(intent);
                     finish();
-                }
-                else{
+                } else {
                     Toast.makeText(SignUpActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
                 }
                 progressDialog.dismiss();
@@ -109,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private Boolean isValidEmail(CharSequence isEmail){
+    private Boolean isValidEmail(CharSequence isEmail) {
         return (!TextUtils.isEmpty(isEmail) && Patterns.EMAIL_ADDRESS.matcher(isEmail).matches());
     }
 

@@ -15,4 +15,8 @@
     <string name="already_have_an_account">Already have an Account?</string>
     <string name="have_an_account_signin">Sign In</string>
     <string name="pastryImage">pastryImage</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="directions">Directions</string>
+    <string name="favorite_the_recipe">Favorite the recipe</string>
+    <string name="share_the_recipe">Share the recipe</string>
 </resources>
