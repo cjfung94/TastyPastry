@@ -48,21 +48,13 @@ public class SwipeFunction {
     // See what happens with images
     @Click(R.id.PastryImage)
 
-    public void openRecipe(){
-
-        // CHANGE THIS PART -> WHEN I CLICK, IT SHOULD PULL THE INFORMATION AND SET IT
-        // SO
-        // SAVE THIS VARIABLE SOMEHOW, YOU CAN EITHER USE FUNCTIONS IN RECIPE OR JUST
-        // SET IT SOMEWHERE
-        // THEN IN DISPLAYPASTRYRECIPE GET THE SAVED PREF VARIABLE AND SETTEXT
-        recipeInfo.setRecipeFromProfile(foodList.get(0));
-
-    // public void openRecipe() {
-
-    //     Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
-    //     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    //     testContext.startActivity(intent);
-    // }
+    public void openRecipe() {
+        Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("recipe", testProfile.getRecipe());
+        Log.d("open Recipe", "test" + testProfile.getRecipe());
+        testContext.startActivity(intent);
+    }
 
     @Resolve
     private void onResolved() {

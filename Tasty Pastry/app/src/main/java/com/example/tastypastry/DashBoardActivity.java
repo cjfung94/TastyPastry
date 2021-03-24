@@ -29,7 +29,6 @@ public class DashBoardActivity extends Activity {
     private ImageView pastryImage;
     private static DatabaseReference mDatabase;
     private ImageView recipeImage;
-    protected Toast toast;
 
 
     @Override
