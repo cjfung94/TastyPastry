@@ -34,9 +34,7 @@ public class SwipeFunction {
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
-    DisplayPastryRecipe display = new DisplayPastryRecipe();
-    List<Profile> foodList = new ArrayList<>();
-    Recipe recipeInfo = new Recipe();
+
 
 
 
@@ -44,23 +42,20 @@ public class SwipeFunction {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
-        foodList.add(profile);
+
     }
 
     //See what happens with images
     @Click(R.id.PastryImage)
 
     public void openRecipe(){
-
-        //CHANGE THIS PART -> WHEN I CLICK, IT SHOULD PULL THE INFORMATION AND SET IT SO
-        //SAVE THIS VARIABLE SOMEHOW, YOU CAN EITHER USE FUNCTIONS IN RECIPE OR JUST SET IT SOMEWHERE
-        //THEN IN DISPLAYPASTRYRECIPE GET THE SAVED PREF VARIABLE AND SETTEXT
-        recipeInfo.setRecipeFromProfile(foodList.get(0));
-
-    public void openRecipe() {
-
         Intent intent = new Intent(testContext, DisplayPastryRecipe.class);
+        //Add flags so I can go into another window without having an Activity
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //Saves information onto a bundle so other classes can access it
+        intent.putExtra("recipe", testProfile.getRecipe());
+        intent.putExtra("pastryName", testProfile.getName());
+        //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
 
