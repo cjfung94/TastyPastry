@@ -41,7 +41,7 @@
 
 **Sprint 2**
 
-* Sprint planning
+* [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit#gid=2114772481)
 * Scrums
 * Sprint demo - video and apk (or equivalent)
 * Sprint retrospective
