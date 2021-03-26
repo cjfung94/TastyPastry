@@ -22,12 +22,10 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 
 public class DashBoardActivity extends Activity {
-    private Button logout;
     private SwipePlaceHolderView testSwipe;
     private Context testContext;
-    private ImageView pastryImage;
     private static DatabaseReference mDatabase;
-    private ImageView recipeImage;
+    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +38,11 @@ public class DashBoardActivity extends Activity {
         testSwipe.getBuilder().setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
+
+        mDatabase.child("UserList").set
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapShot : snapshot.getChildren()) {
