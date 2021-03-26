@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
                     //Take the intent and store the email so that other classes can use it
                     intent.putExtra("emailAddy", email);
-
                     startActivity(intent);
                     finish();
                 } else {
