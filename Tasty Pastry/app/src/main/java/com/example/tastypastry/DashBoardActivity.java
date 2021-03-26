@@ -43,7 +43,7 @@ public class DashBoardActivity extends Activity {
         testSwipe.getBuilder().setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
-        
+
         // Put the email into the map and into Database
         userID = extras.getString("userID");
         Log.d("UserID", " :" + userID);
