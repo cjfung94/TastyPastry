@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -20,12 +21,12 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 import java.util.HashMap;
 
-
 public class DashBoardActivity extends Activity {
     private SwipePlaceHolderView testSwipe;
     private Context testContext;
     private static DatabaseReference mDatabase;
     Bundle extras;
+    private String userID;
 
     //Create Hashmap to save values inside of FireBase
     HashMap<String, Object> map = new HashMap<>();
@@ -42,11 +43,14 @@ public class DashBoardActivity extends Activity {
         testSwipe.getBuilder().setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
-
-
+        
         // Put the email into the map and into Database
+        userID = extras.getString("userID");
+        Log.d("UserID", " :" + userID);
         map.put("Email", extras.getString("emailAddy"));
+
         mDatabase.child("UserList").updateChildren(map);
+        mDatabase.child("UserList").child(userID).updateChildren(map);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
