@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
@@ -23,7 +21,6 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 import java.util.HashMap;
 
-
 public class DashBoardActivity extends Activity {
     private SwipePlaceHolderView testSwipe;
     private Context testContext;
@@ -31,7 +28,7 @@ public class DashBoardActivity extends Activity {
     Bundle extras;
     private String userID;
 
-    //Create Hashmap to save values inside of FireBase
+    // Create Hashmap to save values inside of FireBase
     HashMap<String, Object> map = new HashMap<>();
 
     @Override
@@ -48,13 +45,16 @@ public class DashBoardActivity extends Activity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
 
         // Put the email into the map and into Database
+
         userID = extras.getString("userID");
         Log.d("UserID", " :" + userID);
         map.put("Email", extras.getString("emailAddy"));
+        mDatabase.child("UserList").updateChildren(map);
         mDatabase.child("UserList").child(userID).updateChildren(map);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapShot : snapshot.getChildren()) {
@@ -70,31 +70,32 @@ public class DashBoardActivity extends Activity {
             }
         });
 
-        //NAVIGATION BAR:
+        // NAVIGATION BAR:
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.Home);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.Home:
-                        return true;
-                    case R.id.Filter:
-                        startActivity(new Intent(getApplicationContext(), Filter.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.Favorites:
-                        startActivity(new Intent(getApplicationContext(), Favorites.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.Settings:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
-            }
-        });
+        bottomNavigationView
+                .setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                        case R.id.Home:
+                            return true;
+                        case R.id.Filter:
+                            startActivity(new Intent(getApplicationContext(), Filter.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        case R.id.Favorites:
+                            startActivity(new Intent(getApplicationContext(), Favorites.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        case R.id.Settings:
+                            startActivity(new Intent(getApplicationContext(), Settings.class));
+                            overridePendingTransition(0, 0);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
     }
 }
