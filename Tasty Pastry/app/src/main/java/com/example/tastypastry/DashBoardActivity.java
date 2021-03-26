@@ -20,6 +20,8 @@ import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
+import java.util.HashMap;
+
 
 public class DashBoardActivity extends Activity {
     private SwipePlaceHolderView testSwipe;
@@ -27,10 +29,14 @@ public class DashBoardActivity extends Activity {
     private static DatabaseReference mDatabase;
     Bundle extras;
 
+    //Create Hashmap to save values inside of FireBase
+    HashMap<String, Object> map = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
+        extras = getIntent().getExtras();
         // Swiping stuff
         testSwipe = (SwipePlaceHolderView) findViewById(R.id.swipeView);
         testContext = getApplicationContext();
@@ -39,8 +45,9 @@ public class DashBoardActivity extends Activity {
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
 
-        mDatabase.child("UserList").set
-
+        // Put the email into the map and into Database
+        map.put("Email", extras.getString("emailAddy"));
+        mDatabase.child("UserList").updateChildren(map);
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
             @Override
