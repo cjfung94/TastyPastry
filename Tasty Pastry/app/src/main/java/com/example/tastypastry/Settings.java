@@ -19,27 +19,27 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        aboutButton = findViewById(R.id.About_button);
-        helpButton = findViewById(R.id.Help_button);
-        lFBButton = findViewById(R.id.Leave_feedback_button);
-        signOutButton = findViewById(R.id.Sign_out_button);
+        aboutButton = (Button) findViewById(R.id.About_button);
+        helpButton = (Button) findViewById(R.id.Help_button);
+        lFBButton = (Button) findViewById(R.id.Leave_feedback_button);
+        signOutButton = (Button) findViewById(R.id.Sign_out_button);
 
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Something
+                openAboutActivity();
             }
         });
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Something
+                openHelpActivity();
             }
         });
         lFBButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Something
+                openLFBActivity();
             }
         });
         signOutButton.setOnClickListener(new View.OnClickListener() {
@@ -76,4 +76,20 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
+
+    private void openAboutActivity() {
+        Intent intent =  new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    private void openHelpActivity() {
+        Intent intent =  new Intent(this, HelpActivity.class);
+        startActivity(intent);
+    }
+
+    private void openLFBActivity(){
+        Intent intent = new Intent(this, LFBActivity.class);
+        startActivity(intent);
+    }
+
 }
