@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -76,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
+
+                    //Take the intent and store the email so that other classes can use it
+                    intent.putExtra("emailAddy", email);
                     startActivity(intent);
                     finish();
                 } else {
