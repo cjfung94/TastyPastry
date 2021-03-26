@@ -53,6 +53,7 @@ public class SwipeFunction {
         //Saves information onto a bundle so other classes can access it
         intent.putExtra("recipe", testProfile.getRecipe());
         intent.putExtra("pastryName", testProfile.getName());
+        intent.putExtra("ingredients", testProfile.getIngredients());
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
