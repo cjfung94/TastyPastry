@@ -26,5 +26,8 @@
     <string name="leave_feedback">Leave feedback</string>
     <string name="sign_out">Sign out</string>
     <string name="share_recipe">TODO</string>
+    <string name="sampleimage">SampleImage</string>
+    <string name="chocolate_cake">Chocolate Cake</string>
     <string name="tutorial">Tutorial</string>
+    <string name="let_s_start">Let\'s Start!</string>
 </resources>
