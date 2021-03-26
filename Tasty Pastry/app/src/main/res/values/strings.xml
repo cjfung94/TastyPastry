@@ -20,5 +20,8 @@
     <string name="favorite_the_recipe">Favorite the recipe</string>
     <string name="share_the_recipe">Share the recipe</string>
     <string name="share_recipe">TODO</string>
+    <string name="sampleimage">SampleImage</string>
+    <string name="chocolate_cake">Chocolate Cake</string>
     <string name="tutorial">Tutorial</string>
+    <string name="let_s_start">Let\'s Start!</string>
 </resources>
