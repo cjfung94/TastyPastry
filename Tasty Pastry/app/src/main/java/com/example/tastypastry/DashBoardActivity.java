@@ -48,12 +48,12 @@ public class DashBoardActivity extends Activity {
         userID = extras.getString("userID");
         Log.d("UserID", " :" + userID);
         map.put("Email", extras.getString("emailAddy"));
-
         mDatabase.child("UserList").updateChildren(map);
         mDatabase.child("UserList").child(userID).updateChildren(map);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapShot : snapshot.getChildren()) {

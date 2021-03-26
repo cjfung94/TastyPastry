@@ -10,7 +10,6 @@
     android:paddingHorizontal="30dp"
     tools:context=".MainActivity">
 
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"

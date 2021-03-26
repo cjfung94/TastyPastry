@@ -36,7 +36,6 @@ public class SwipeFunction {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
-
     }
 
     // See what happens with images
@@ -58,8 +57,6 @@ public class SwipeFunction {
     private void onResolved() {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
-
-
     }
 
     // When card is rejected
