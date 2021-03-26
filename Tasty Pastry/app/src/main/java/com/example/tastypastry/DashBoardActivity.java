@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
@@ -22,7 +20,6 @@ import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 import java.util.HashMap;
-
 
 public class DashBoardActivity extends Activity {
     private SwipePlaceHolderView testSwipe;
@@ -48,13 +45,17 @@ public class DashBoardActivity extends Activity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
 
         // Put the email into the map and into Database
-//        userID = extras.getString("userID");
-//        Log.d("UserID", " :" + userID);
-//        map.put("Email", extras.getString("emailAddy"));
-//        mDatabase.child("UserList").child(userID).updateChildren(map);
+
+        userID = extras.getString("userID");
+        Log.d("UserID", " :" + userID);
+        map.put("Email", extras.getString("emailAddy"));
+        mDatabase.child("UserList").updateChildren(map);
+        mDatabase.child("UserList").child(userID).updateChildren(map);
+
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapShot : snapshot.getChildren()) {
