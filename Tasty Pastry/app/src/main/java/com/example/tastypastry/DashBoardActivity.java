@@ -45,11 +45,13 @@ public class DashBoardActivity extends Activity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
 
         // Put the email into the map and into Database
+
         userID = extras.getString("userID");
         Log.d("UserID", " :" + userID);
         map.put("Email", extras.getString("emailAddy"));
         mDatabase.child("UserList").updateChildren(map);
         mDatabase.child("UserList").child(userID).updateChildren(map);
+
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
