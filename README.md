@@ -38,6 +38,8 @@
 * [Sprint Demo](https://youtu.be/OcDgR__dIRU)
 * [Apk](Sprint1apk.zip)
 * [Sprint Retrospective](https://docs.google.com/document/d/1mWPM_wn3rYNUgnoGLSwjg7eper2Lk2AenLWYyJSupvw/edit?usp=sharing)
+* [Sprint demo - video and apk (or equivalent)](https://youtu.be/OcDgR__dIRU)
+* Spring retrospective
 
 **Sprint 2**
 
