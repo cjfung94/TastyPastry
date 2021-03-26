@@ -18,10 +18,6 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -53,6 +49,7 @@ public class SwipeFunction {
         //Saves information onto a bundle so other classes can access it
         intent.putExtra("recipe", testProfile.getRecipe());
         intent.putExtra("pastryName", testProfile.getName());
+        intent.putExtra("ingredients", testProfile.getIngredients());
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
