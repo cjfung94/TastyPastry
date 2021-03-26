@@ -13,7 +13,7 @@
         android:id="@+id/addToFavorites"
         android:layout_width="42sp"
         android:layout_height="42sp"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/rounded_corner"
@@ -23,15 +23,17 @@
         android:src="@drawable/addtofavicon"
         android:tint="#130202"
         app:layout_constraintEnd_toStartOf="@+id/shareRecipe"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
         android:id="@+id/shareRecipe"
         android:layout_width="42sp"
         android:layout_height="42sp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="300dp"
+        android:layout_marginEnd="284dp"
         android:background="@drawable/rounded_corner"
         android:contentDescription="@string/share_recipe"
         android:scaleType="fitXY"
@@ -39,7 +41,6 @@
         android:tint="#130202"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/PastryName"
