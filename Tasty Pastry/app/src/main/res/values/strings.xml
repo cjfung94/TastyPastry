@@ -21,4 +21,6 @@
     <string name="share_the_recipe">Share the recipe</string>
     <string name="share_recipe">TODO</string>
     <string name="tutorial">Tutorial</string>
+    <string name="ingredients_title_text">Ingredients</string>
+    <string name="instructions_title_text">Instructions</string>
 </resources>
