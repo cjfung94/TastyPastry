@@ -47,10 +47,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/bentham"
         android:gravity="top|center"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/shareRecipe"
         tools:layout_editor_absoluteX="25dp" />
@@ -74,63 +74,65 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/ingredients_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:text="@string/ingredients_title_text"
-            app:layout_constraintTop_toTopOf="@+id/scrollView2"
-            app:layout_constraintBottom_toTopOf="@+id/ingredients_list"
-             />
+            <TextView
+                android:id="@+id/ingredients_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/bentham"
+                android:text="@string/ingredients_title_text"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ingredients_list"
+                app:layout_constraintTop_toTopOf="@+id/scrollView2" />
 
-        <TextView
-            android:id="@+id/ingredients_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/ingredients_title"
-            app:layout_constraintBottom_toTopOf="@+id/instructions_title"
-             />
+            <TextView
+                android:id="@+id/ingredients_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/bentham"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/instructions_title"
+                app:layout_constraintTop_toBottomOf="@+id/ingredients_title" />
 
-        <TextView
-            android:id="@+id/instructions_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:textColor="@color/blue"
-            android:textSize="18sp"
-            android:text="@string/instructions_title_text"
-            app:layout_constraintTop_toBottomOf="@+id/ingredients_list"
-            app:layout_constraintBottom_toTopOf="@+id/instructions_list"
-            />
+            <TextView
+                android:id="@+id/instructions_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/bentham"
+                android:text="@string/instructions_title_text"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/instructions_list"
+                app:layout_constraintTop_toBottomOf="@+id/ingredients_list" />
 
-        <TextView
-            android:id="@+id/instructions_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
-            android:textColor="@color/pink"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/instructions_title"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-            />
+            <TextView
+                android:id="@+id/instructions_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/bentham"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintTop_toBottomOf="@+id/instructions_title" />
         </LinearLayout>
 
     </ScrollView>
