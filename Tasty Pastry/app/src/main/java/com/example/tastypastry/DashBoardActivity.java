@@ -38,7 +38,9 @@ public class DashBoardActivity extends Activity {
         testSwipe.getBuilder().setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
-       // mDatabase.child("UserList").set
+
+        mDatabase.child("UserList").set
+
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
             @Override
