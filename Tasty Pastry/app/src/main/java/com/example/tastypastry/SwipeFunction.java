@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
+import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.swipe.SwipeCancelState;
@@ -18,6 +19,8 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+//Put this back after done testing
+@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -64,9 +67,9 @@ public class SwipeFunction {
     @SwipeOut
     private void SwipedOut() {
         Log.d("EVENT", "SwipedOut");
-        testSwipe.addView(this);
         //testSwipe.removeView(this); --> this is for when delete is implemented
         //might need to use @NonReusable
+
     }
 
     // When card isn't swiped completely left or right
@@ -76,11 +79,13 @@ public class SwipeFunction {
     }
 
     // When card is accepted/liked
+
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
+
         dashBoardActivity.addRecipeToDatabase(testProfile);
-        testSwipe.addView(this);
+
     }
 
     // Pings method til card is in Swiped in State

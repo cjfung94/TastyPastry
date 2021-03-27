@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,7 +31,9 @@ public class DashBoardActivity extends Activity {
     private String userID;
     private static DatabaseReference userDatabase;
     private static DatabaseReference favoriteDatabase;
+    private FirebaseAuth firebaseAuth;
     Profile recipeProfile = new Profile();
+
 
     //Create Hashmap to save values inside of FireBase
     HashMap<String, Object> map = new HashMap<>();
@@ -57,16 +61,17 @@ public class DashBoardActivity extends Activity {
 
 
         mDatabase.addValueEventListener(new ValueEventListener() {
-            Gson gson = new Gson();
+                                                Gson gson = new Gson();
 
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot postSnapShot : snapshot.getChildren()) {
-                    String json = new Gson().toJson(postSnapShot.getValue());
-                    Profile profile = gson.fromJson(json, Profile.class);
-                    testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe));
-                }
-            }
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    for (DataSnapshot postSnapShot : snapshot.getChildren()) {
+                                                        //Is there another way to do this or simplify this? Need for Json and Gson?
+                                                        String json = new Gson().toJson(postSnapShot.getValue());
+                                                        Profile profile = gson.fromJson(json, Profile.class);
+                                                        testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe));
+                                                    }
+                                                }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -104,10 +109,14 @@ public class DashBoardActivity extends Activity {
 
     //SwipeFunction calls this method to add to database
     public void addRecipeToDatabase(Profile profile){
-        recipeProfile = profile;
-        map.clear();
-        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
-        map.put("Favorites", recipeProfile);
-        favoriteDatabase.updateChildren(map);
+        //Get the current userID
+        firebaseAuth = FirebaseAuth.getInstance();
+        userID = firebaseAuth.getCurrentUser().getUid();
+
+        //Add recipes to the current user's list in Database
+        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
+        //Push creates a unique value for each, we don't need to check since we're going to delete it from the list
+        //Remove addView from SwipeFunction SwipeIn/SwipeOut after testing is complete
+        favoriteDatabase.push().setValue(profile);
     }
 }
