@@ -66,9 +66,11 @@ public class SwipeFunction {
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
+        String jorge = "Hello";
         Log.d("EVENT", "SwipedOut");
         //testSwipe.removeView(this); --> this is for when delete is implemented
         //might need to use @NonReusable
+        testSwipe.addView(this);
 
     }
 
@@ -85,6 +87,7 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipedIn");
 
         dashBoardActivity.addRecipeToDatabase(testProfile);
+        testSwipe.addView(this);
 
     }
 

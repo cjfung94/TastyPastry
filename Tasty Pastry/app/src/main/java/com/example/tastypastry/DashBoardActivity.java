@@ -51,6 +51,15 @@ public class DashBoardActivity extends Activity {
         testSwipe.getBuilder().setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
+        userDatabase = FirebaseDatabase.getInstance().getReference();
+
+        // Put the email into the map and into Database
+
+//        userID = extras.getString("userID");
+//        Log.d("UserID", " :" + userID);
+//        map.put("Email", extras.getString("emailAddy"));
+//        userDatabase.child("UserList").child(userID).updateChildren(map);
+
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             Gson gson = new Gson();
@@ -72,7 +81,6 @@ public class DashBoardActivity extends Activity {
         });
 
         //NAVIGATION BAR:
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.Home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
