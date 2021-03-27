@@ -27,6 +27,9 @@ public class DashBoardActivity extends Activity {
     private static DatabaseReference mDatabase;
     Bundle extras;
     private String userID;
+    private static DatabaseReference userDatabase;
+    private static DatabaseReference favoriteDatabase;
+    Profile recipeProfile = new Profile();
 
     //Create Hashmap to save values inside of FireBase
     HashMap<String, Object> map = new HashMap<>();
@@ -43,14 +46,14 @@ public class DashBoardActivity extends Activity {
         testSwipe.getBuilder().setDisplayViewCount(3)
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
+        userDatabase = FirebaseDatabase.getInstance().getReference();
 
         // Put the email into the map and into Database
 
         userID = extras.getString("userID");
         Log.d("UserID", " :" + userID);
         map.put("Email", extras.getString("emailAddy"));
-        mDatabase.child("UserList").updateChildren(map);
-        mDatabase.child("UserList").child(userID).updateChildren(map);
+        userDatabase.child("UserList").child(userID).updateChildren(map);
 
 
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -97,5 +100,14 @@ public class DashBoardActivity extends Activity {
                 return false;
             }
         });
+    }
+
+    //SwipeFunction calls this method to add to database
+    public void addRecipeToDatabase(Profile profile){
+        recipeProfile = profile;
+        map.clear();
+        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
+        map.put("Favorites", recipeProfile);
+        favoriteDatabase.updateChildren(map);
     }
 }

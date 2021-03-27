@@ -27,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView SignIn;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,8 +92,13 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    userId = firebaseAuth.getCurrentUser().getUid();
                     Toast.makeText(SignUpActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUpActivity.this, TutorialActivity.class);
+
+                    //Store newly created email and userId to database
+                    intent.putExtra("emailAddy", email);
+                    intent.putExtra("userID", userId);
                     startActivity(intent);
                     finish();
                 } else {

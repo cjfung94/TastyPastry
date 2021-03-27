@@ -30,6 +30,7 @@ public class SwipeFunction {
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
 
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView) {
@@ -68,7 +69,7 @@ public class SwipeFunction {
         //might need to use @NonReusable
     }
 
-    // When card is put back
+    // When card isn't swiped completely left or right
     @SwipeCancelState
     private void SwipeCancelState() {
         Log.d("EVENT", "SwipeCancelState");
@@ -78,6 +79,7 @@ public class SwipeFunction {
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
+        dashBoardActivity.addRecipeToDatabase(testProfile);
         testSwipe.addView(this);
     }
 
