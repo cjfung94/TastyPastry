@@ -20,7 +20,7 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
 //Put this back after done testing
-@NonReusable
+//@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 

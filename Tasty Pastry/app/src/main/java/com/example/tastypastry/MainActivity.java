@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private String userId;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
+    Users user = new Users();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
                     userId = firebaseAuth.getCurrentUser().getUid();
                     Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
-
                     //Take the intent and store the email so that other classes can use it
                     intent.putExtra("emailAddy", email);
                     //Get userID for the user
                     intent.putExtra("userID", userId);
                     Log.d("userID", "putExtra" + userId);
+                    dashBoardActivity.createUserDatabase(userId, email);
                     startActivity(intent);
                     finish();
                 } else {
@@ -96,4 +98,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }
