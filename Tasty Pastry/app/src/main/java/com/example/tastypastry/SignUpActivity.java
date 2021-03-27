@@ -28,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
     private String userId;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +100,7 @@ public class SignUpActivity extends AppCompatActivity {
                     //Store newly created email and userId to database
                     intent.putExtra("emailAddy", email);
                     intent.putExtra("userID", userId);
+                    dashBoardActivity.createUserDatabase(email, userId);
                     startActivity(intent);
                     finish();
                 } else {

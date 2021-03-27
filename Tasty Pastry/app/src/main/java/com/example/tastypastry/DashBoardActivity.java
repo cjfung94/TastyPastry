@@ -33,6 +33,7 @@ public class DashBoardActivity extends Activity {
     private static DatabaseReference favoriteDatabase;
     private FirebaseAuth firebaseAuth;
     Profile recipeProfile = new Profile();
+    Users user = new Users();
 
 
     //Create Hashmap to save values inside of FireBase
@@ -61,17 +62,17 @@ public class DashBoardActivity extends Activity {
 
 
         mDatabase.addValueEventListener(new ValueEventListener() {
-                                                Gson gson = new Gson();
+            Gson gson = new Gson();
 
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    for (DataSnapshot postSnapShot : snapshot.getChildren()) {
-                                                        //Is there another way to do this or simplify this? Need for Json and Gson?
-                                                        String json = new Gson().toJson(postSnapShot.getValue());
-                                                        Profile profile = gson.fromJson(json, Profile.class);
-                                                        testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe));
-                                                    }
-                                                }
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapShot : snapshot.getChildren()) {
+                    //Is there another way to do this or simplify this? Need for Json and Gson?
+                    String json = new Gson().toJson(postSnapShot.getValue());
+                    Profile profile = gson.fromJson(json, Profile.class);
+                    testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe));
+                }
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -117,5 +118,15 @@ public class DashBoardActivity extends Activity {
         //Push creates a unique value for each, we don't need to check since we're going to delete it from the list
         //Remove addView from SwipeFunction SwipeIn/SwipeOut after testing is complete
         favoriteDatabase.push().setValue(profile);
+    }
+
+    //Add user to database
+    public void createUserDatabase(String userId, String email){
+
+        userDatabase = FirebaseDatabase.getInstance().getReference();
+        Log.d("UserID", " :" + userId + " " + email);
+        map.put("Email", email);
+        userDatabase.child("UserList").child(userId).updateChildren(map);
+
     }
 }
