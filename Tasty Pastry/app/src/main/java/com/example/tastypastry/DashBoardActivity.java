@@ -54,10 +54,10 @@ public class DashBoardActivity extends Activity {
 
         // Put the email into the map and into Database
 
-        userID = extras.getString("userID");
-        Log.d("UserID", " :" + userID);
-        map.put("Email", extras.getString("emailAddy"));
-        userDatabase.child("UserList").child(userID).updateChildren(map);
+//        userID = extras.getString("userID");
+//        Log.d("UserID", " :" + userID);
+//        map.put("Email", extras.getString("emailAddy"));
+//        userDatabase.child("UserList").child(userID).updateChildren(map);
 
 
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -80,7 +80,6 @@ public class DashBoardActivity extends Activity {
         });
 
         //NAVIGATION BAR:
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.Home);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

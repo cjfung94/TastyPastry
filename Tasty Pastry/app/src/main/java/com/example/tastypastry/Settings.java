@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Settings extends AppCompatActivity {
     private Button aboutButton, helpButton, lFBButton, signOutButton;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class Settings extends AppCompatActivity {
         helpButton = (Button) findViewById(R.id.Help_button);
         lFBButton = (Button) findViewById(R.id.Leave_feedback_button);
         signOutButton = (Button) findViewById(R.id.Sign_out_button);
+        textView = (TextView) findViewById(R.id.Username_textView);
 
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +48,7 @@ public class Settings extends AppCompatActivity {
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Something
+                signOut();
             }
         });
 
@@ -90,6 +93,12 @@ public class Settings extends AppCompatActivity {
     private void openLFBActivity(){
         Intent intent = new Intent(this, LFBActivity.class);
         startActivity(intent);
+    }
+
+    private void signOut() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

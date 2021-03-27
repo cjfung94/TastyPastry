@@ -20,7 +20,7 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
 //Put this back after done testing
-@NonReusable
+//@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -66,9 +66,11 @@ public class SwipeFunction {
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
+        String jorge = "Hello";
         Log.d("EVENT", "SwipedOut");
         //testSwipe.removeView(this); --> this is for when delete is implemented
         //might need to use @NonReusable
+        testSwipe.addView(this);
 
     }
 
@@ -85,6 +87,7 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipedIn");
 
         dashBoardActivity.addRecipeToDatabase(testProfile);
+        testSwipe.addView(this);
 
     }
 
