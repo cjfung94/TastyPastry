@@ -100,7 +100,7 @@ public class SignUpActivity extends AppCompatActivity {
                     //Store newly created email and userId to database
                     intent.putExtra("emailAddy", email);
                     intent.putExtra("userID", userId);
-                    dashBoardActivity.createUserDatabase(email, userId);
+                    //dashBoardActivity.createUserDatabase(email, userId);
                     startActivity(intent);
                     finish();
                 } else {
