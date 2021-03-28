@@ -98,7 +98,6 @@ public class Settings extends AppCompatActivity {
     private void signOut() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        finish();
+        finishAffinity();
     }
-
 }
