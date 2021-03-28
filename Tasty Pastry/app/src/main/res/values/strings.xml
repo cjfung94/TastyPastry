@@ -29,5 +29,10 @@
     <string name="sampleimage">SampleImage</string>
     <string name="chocolate_cake">Chocolate Cake</string>
     <string name="tutorial">Tutorial</string>
+    <string name="ingredients_title_text">Ingredients</string>
+    <string name="instructions_title_text">Instructions</string>
     <string name="let_s_start">Let\'s Start!</string>
+    <string name="about_tastypastry">About TastyPastry</string>
+    <string name="creators">Creators</string>
+
 </resources>

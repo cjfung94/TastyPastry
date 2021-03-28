@@ -1,20 +1,57 @@
 package com.example.tastypastry;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Settings extends AppCompatActivity {
+    private Button aboutButton, helpButton, lFBButton, signOutButton;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        aboutButton = (Button) findViewById(R.id.About_button);
+        helpButton = (Button) findViewById(R.id.Help_button);
+        lFBButton = (Button) findViewById(R.id.Leave_feedback_button);
+        signOutButton = (Button) findViewById(R.id.Sign_out_button);
+        textView = (TextView) findViewById(R.id.Username_textView);
+
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAboutActivity();
+            }
+        });
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHelpActivity();
+            }
+        });
+        lFBButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLFBActivity();
+            }
+        });
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+            }
+        });
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.Settings);
@@ -41,5 +78,26 @@ public class Settings extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void openAboutActivity() {
+        Intent intent =  new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    private void openHelpActivity() {
+        Intent intent =  new Intent(this, HelpActivity.class);
+        startActivity(intent);
+    }
+
+    private void openLFBActivity(){
+        Intent intent = new Intent(this, LFBActivity.class);
+        startActivity(intent);
+    }
+
+    private void signOut() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finishAffinity();
     }
 }

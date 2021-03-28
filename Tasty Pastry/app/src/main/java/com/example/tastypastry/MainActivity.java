@@ -19,17 +19,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
     private EditText emailSign, passwordSign;
     private Button SignInButton;
     private TextView SignUp;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private String userId;
+    private String className;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
+    Users user = new Users();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        className = this.getClass().getSimpleName();
         firebaseAuth = FirebaseAuth.getInstance();
         emailSign = findViewById(R.id.email);
         passwordSign = findViewById(R.id.password);
@@ -75,11 +82,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    userId = firebaseAuth.getCurrentUser().getUid();
                     Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
-
                     //Take the intent and store the email so that other classes can use it
                     intent.putExtra("emailAddy", email);
+                    //Get userID for the user
+                    intent.putExtra("userID", userId);
+                    Log.d("userID", "putExtra" + userId);
+                    //dashBoardActivity.createUserDatabase(userId, email);
                     startActivity(intent);
                     finish();
                 } else {
@@ -89,4 +100,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

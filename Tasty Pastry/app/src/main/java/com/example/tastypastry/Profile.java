@@ -11,13 +11,18 @@ public class Profile {
     @Expose
     private String name;
 
-    @SerializedName("url")
+    @SerializedName("image")
     @Expose
     private String imageUrl;
 
     @SerializedName("recipe")
     @Expose
     private String recipe;
+
+    @SerializedName("ingredients")
+    @Expose
+    private String ingredients;
+
 
 
     public String getName() {
@@ -43,4 +48,13 @@ public class Profile {
     public void setRecipe(String recipe) {
         this.recipe = recipe;
     }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+    public void setIngredients(String recipe) {
+        this.ingredients = ingredients;
+    }
+
 }
+

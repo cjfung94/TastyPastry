@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
+import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.swipe.SwipeCancelState;
@@ -18,10 +19,8 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+//Put this back after done testing
+@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -34,13 +33,15 @@ public class SwipeFunction {
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
+    private String swipeKey;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
 
-    public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView) {
+    public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView, String nodeKey) {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
-
+        swipeKey = nodeKey;
     }
 
     // See what happens with images
@@ -53,6 +54,7 @@ public class SwipeFunction {
         //Saves information onto a bundle so other classes can access it
         intent.putExtra("recipe", testProfile.getRecipe());
         intent.putExtra("pastryName", testProfile.getName());
+        intent.putExtra("ingredients", testProfile.getIngredients());
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
@@ -61,30 +63,38 @@ public class SwipeFunction {
     private void onResolved() {
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
-
-
     }
 
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
+
         Log.d("EVENT", "SwipedOut");
-        testSwipe.addView(this);
         //testSwipe.removeView(this); --> this is for when delete is implemented
         //might need to use @NonReusable
+//        testSwipe.addView(this);
+        //Delete child using node ID reference
+        dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+
+        //Swipe out adds it back to the list for some reason
     }
 
-    // When card is put back
+    // When card isn't swiped completely left or right
     @SwipeCancelState
     private void SwipeCancelState() {
         Log.d("EVENT", "SwipeCancelState");
     }
 
     // When card is accepted/liked
+
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
-        testSwipe.addView(this);
+        dashBoardActivity.addRecipeToDatabase(testProfile);
+        dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+        //Deprecated so we're using the long long way...
+//        testSwipe.removeView(testSwipe);
+
     }
 
     // Pings method til card is in Swiped in State
