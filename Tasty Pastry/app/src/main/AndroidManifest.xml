@@ -9,13 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TastyPastry">
-        <activity android:name=".LFBActivity"></activity>
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".Settings" />
-        <activity android:name=".Favorites" />
-        <activity android:name=".Filter" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LFBActivity"
+            android:launchMode="singleTop"></activity>
+        <activity android:name=".HelpActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".AboutActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".Settings"
+            android:launchMode="singleTop" />
+        <activity android:name=".Favorites"
+            android:launchMode="singleTop" />
+        <activity android:name=".Filter"
+            android:launchMode="singleTop" />
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,9 +30,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".DashBoardActivity" />
+        <activity android:name=".DashBoardActivity"
+                  android:launchMode="singleTop"  />
         <activity android:name=".TutorialActivity" />
-        <activity android:name=".DisplayPastryRecipe" />
+        <activity android:name=".DisplayPastryRecipe"
+                  android:launchMode="singleTop" />
 
         <meta-data
             android:name="preloaded_fonts"
