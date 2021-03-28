@@ -20,7 +20,7 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
 //Put this back after done testing
-//@NonReusable
+@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -33,13 +33,15 @@ public class SwipeFunction {
     private Profile testProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
+    private String swipeKey;
     DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
 
-    public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView) {
+    public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView, String nodeKey) {
         testProfile = profile;
         testContext = context;
         testSwipe = swipeView;
+        swipeKey = nodeKey;
     }
 
     // See what happens with images
@@ -66,12 +68,15 @@ public class SwipeFunction {
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
-        String jorge = "Hello";
+
         Log.d("EVENT", "SwipedOut");
         //testSwipe.removeView(this); --> this is for when delete is implemented
         //might need to use @NonReusable
-        testSwipe.addView(this);
+//        testSwipe.addView(this);
+        //Delete child using node ID reference
+        dashBoardActivity.deleteFromUserListRecipe(swipeKey);
 
+        //Swipe out adds it back to the list for some reason
     }
 
     // When card isn't swiped completely left or right
@@ -85,9 +90,10 @@ public class SwipeFunction {
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
-
         dashBoardActivity.addRecipeToDatabase(testProfile);
-        testSwipe.addView(this);
+        dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+        //Deprecated so we're using the long long way...
+//        testSwipe.removeView(testSwipe);
 
     }
 

@@ -11,7 +11,7 @@ public class Profile {
     @Expose
     private String name;
 
-    @SerializedName("url")
+    @SerializedName("image")
     @Expose
     private String imageUrl;
 
