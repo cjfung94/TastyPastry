@@ -1,15 +1,18 @@
 package com.example.tastypastry;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -27,12 +34,19 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView SignIn;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private String userId;
+    private String className;
+    private static DatabaseReference userDatabase;
+    HashMap<String, Object> map = new HashMap<>();
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
+        className = this.getClass().getSimpleName(); //Doesn't work inside methods outside of onCreate
         firebaseAuth = FirebaseAuth.getInstance();
+        userDatabase = FirebaseDatabase.getInstance().getReference();
         emailSign = findViewById(R.id.email);
         passwordSign1 = findViewById(R.id.password1);
         passwordSign2 = findViewById(R.id.password2);
@@ -91,16 +105,30 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    userId = firebaseAuth.getCurrentUser().getUid();
                     Toast.makeText(SignUpActivity.this, "Successfully Registered", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(SignUpActivity.this, TutorialActivity.class);
+
+                    //Store newly created email and userId to database
+                    intent.putExtra("emailAddy", email);
+                    intent.putExtra("userID", userId);
+                    createUserDatabase(email, userId);
+                    Log.d("What class", "is this " + className);
+                    dashBoardActivity.setUpUserRecipe(userId);
                     startActivity(intent);
                     finish();
+
                 } else {
                     Toast.makeText(SignUpActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
                 }
                 progressDialog.dismiss();
             }
         });
+    }
+    //Add new user into database
+    public void createUserDatabase(String email, String userId){
+        map.put("Email", email);
+        userDatabase.child("UserList").child(userId).updateChildren(map);
     }
 
     private Boolean isValidEmail(CharSequence isEmail) {
