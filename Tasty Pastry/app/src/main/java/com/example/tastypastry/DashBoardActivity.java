@@ -61,8 +61,9 @@ public class DashBoardActivity extends Activity {
         userDatabase = FirebaseDatabase.getInstance().getReference();
         extras = getIntent().getExtras();
         testContext = getApplicationContext();
-        // values are here from signin/out if we need them
-        // userEmail = extras.getString("emailAddy");
+
+        //values are here from signin/out if we need them
+
         // Swiping stuff
         testSwipe = (SwipePlaceHolderView) findViewById(R.id.swipeView);
         // Creates recipes seen
@@ -71,35 +72,32 @@ public class DashBoardActivity extends Activity {
         // NAVIGATION BAR:
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.Home);
-        bottomNavigationView
-                .setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                        switch (menuItem.getItemId()) {
-                        case R.id.Home:
-                            return true;
-                        case R.id.Filter:
-                            startActivity(new Intent(getApplicationContext(), Filter.class));
-                            overridePendingTransition(0, 0);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.Home:
+                        return true;
+                    case R.id.Filter:
+                        startActivity(new Intent(getApplicationContext(), Filter.class));
+                        overridePendingTransition(0, 0);
 
-                            return true;
-                        case R.id.Favorites:
-                            startActivity(new Intent(getApplicationContext(), Favorites.class));
-                            overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.Favorites:
+                        startActivity(new Intent(getApplicationContext(), Favorites.class));
+                        overridePendingTransition(0, 0);
 
-                            return true;
-                        case R.id.Settings:
-                            Intent intent = new Intent(getApplicationContext(), Settings.class);
-                            userEmail = extras.getString("emailAddy");
-                            intent.putExtra("emailAddy", userEmail);
-                            startActivity(intent);
-                            // startActivity(new Intent(getApplicationContext(), Settings.class));
-                            overridePendingTransition(0, 0);
-                            return true;
-                        }
-                        return false;
-                    }
-                });
+                        return true;
+                    case R.id.Settings:
+
+                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+
     }
 
     // Sign in - Display user's list of recipes
