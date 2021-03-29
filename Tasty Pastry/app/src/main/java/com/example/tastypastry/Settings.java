@@ -12,37 +12,31 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Settings extends AppCompatActivity {
     private Button aboutButton, helpButton, lFBButton, signOutButton;
     private TextView textView;
     Bundle extras;
     private String userName;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         extras = getIntent().getExtras();
-//        if(extras != null){
-//            textView.setText(extras.getString("username"));
-//        }
-//        if(extras == null){
-//            textView.setText(extras.getString("emailAddy"));
-//        }
-//        Log.d("Email", "This"+extras.getString("emailAddy"));
-
-
-
+        firebaseAuth = FirebaseAuth.getInstance();
+        userName = firebaseAuth.getCurrentUser().getEmail();
+        Log.d("Settings", "username" + userName);
         aboutButton = (Button) findViewById(R.id.About_button);
         helpButton = (Button) findViewById(R.id.Help_button);
         lFBButton = (Button) findViewById(R.id.Leave_feedback_button);
         signOutButton = (Button) findViewById(R.id.Sign_out_button);
         textView = (TextView) findViewById(R.id.Username_textView);
-        //userName = extras.getString("username");
-//        textView = findViewById(R.id.Username_textView);
-//        textView.setText(userName);
-        textView.setText(extras.getString("emailAddy"));
+        textView.setText(userName);
+
+
 
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override

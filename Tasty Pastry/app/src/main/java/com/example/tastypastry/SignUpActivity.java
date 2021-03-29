@@ -110,10 +110,10 @@ public class SignUpActivity extends AppCompatActivity {
                     Intent intent = new Intent(SignUpActivity.this, TutorialActivity.class);
 
                     //Store newly created email and userId to database
-                    intent.putExtra("emailAddy", email);
+//                    intent.putExtra("emailAddy", email);
                     intent.putExtra("userID", userId);
                     createUserDatabase(email, userId);
-                    Log.d("What class", "is this " + className);
+//                    Log.d("What class", "is this " + className);
                     dashBoardActivity.setUpUserRecipe(userId);
                     startActivity(intent);
                     finish();

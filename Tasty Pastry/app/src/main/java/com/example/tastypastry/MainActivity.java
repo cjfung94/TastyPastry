@@ -86,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
                     //Take the intent and store the email so that other classes can use it
-                    intent.putExtra("emailAddy", email);
-                    //Get userID for the user
-                    intent.putExtra("userID", userId);
-                    Log.d("userID", "putExtra" + userId);
-                    //dashBoardActivity.createUserDatabase(userId, email);
+//                    intent.putExtra("emailAddy", email);
+//                    //Get userID for the user
+//                    intent.putExtra("userID", userId);
+//                    Log.d("userID", "putExtra" + userId);
+//                    //dashBoardActivity.createUserDatabase(userId, email);
                     startActivity(intent);
                     finish();
                 } else {
