@@ -46,8 +46,8 @@ public class Favorites extends AppCompatActivity {
 
                 for (DataSnapshot dSnapshot : snapshot.getChildren()) {
 
-                    ModelClass img = snapshot.getValue(ModelClass.class);
-                    myAdapter.addElement(img);
+//                    ModelClass img = snapshot.getValue(ModelClass.class);
+//                    myAdapter.addElement(img);
                 }
             }
 
