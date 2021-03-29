@@ -84,12 +84,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="5dp"
-        android:text="Gal Foox                     Maryia Kalodkina"
+        android:text="Gal Foox"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/cj_creator_pic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gal_creator_pic" />
+
+    <TextView
+        android:id="@+id/maryia_creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maryia Kalodkina"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/jorge_creator_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.662"
+        app:layout_constraintStart_toEndOf="@+id/gal_creator"
+        app:layout_constraintTop_toBottomOf="@+id/maryia_creator_pic"
+        app:layout_constraintVertical_bias="0.155" />
 
     <ImageView
         android:id="@+id/maryia_creator_pic"
@@ -125,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="5dp"
-        android:text="Xue Yue Fung (CJ)             Jorge Esquivel"
+        android:text="Xue Yue Fung (CJ)"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
@@ -144,6 +158,19 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
+    <TextView
+        android:id="@+id/jorge_creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Jorge Esquivel"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toEndOf="@+id/cj_creator"
+        app:layout_constraintTop_toBottomOf="@+id/jorge_creator_pic" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
