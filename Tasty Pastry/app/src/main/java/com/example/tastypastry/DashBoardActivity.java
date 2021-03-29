@@ -89,9 +89,12 @@ public class DashBoardActivity extends Activity {
 
                         return true;
                     case R.id.Settings:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        Intent intent = new Intent(getApplicationContext(), Settings.class);
+                        userEmail = extras.getString("emailAddy");
+                        intent.putExtra("emailAddy", userEmail);
+                        startActivity(intent);
+                        //startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
-
                         return true;
                 }
                 return false;
