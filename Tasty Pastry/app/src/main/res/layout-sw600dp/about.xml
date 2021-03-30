@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#DDD7D6">
+
+    <TextView
+        android:id="@+id/About"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/about"
+        android:textColor="@color/black"
+        android:textSize="29sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AboutTastyPastry"
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/about_tastypastry"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/About"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <TextView
+        android:id="@+id/about_tastypastry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/app_decription"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTastyPastry" />
+
+
+    <TextView
+        android:id="@+id/Creators"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/creators"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gal_creator_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.062" />
+
+
+    <ImageView
+        android:id="@+id/gal_creator_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/gal_creator"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <TextView
+        android:id="@+id/gal_creator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gal Foox"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.305" />
+
+    <TextView
+        android:id="@+id/maryia_creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maryia Kalodkina"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.304" />
+
+    <ImageView
+        android:id="@+id/maryia_creator_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/maryia_creator"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <ImageView
+        android:id="@+id/cj_creator_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/cj_creator"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.525" />
+
+    <TextView
+        android:id="@+id/cj_creator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xue Yue Fung (CJ)"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.643" />
+
+    <ImageView
+        android:id="@+id/jorge_creator_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/jorge_creator"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.525" />
+
+    <TextView
+        android:id="@+id/jorge_creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jorge Esquivel"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_tastypastry"
+        app:layout_constraintVertical_bias="0.643" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_gravity="bottom|center"
+        android:background="#fff"
+        app:itemTextColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
