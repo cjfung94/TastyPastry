@@ -42,7 +42,8 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.favorites_view, parent, false);
-//            viewHolder.recipe = (TextView) convertView.findViewById(R.id.recipe);
+            //Set an onClick to utilize this
+          //  viewHolder.recipe = (TextView) convertView.findViewById(R.id.recipe);
             viewHolder.recipeName = (TextView) convertView.findViewById(R.id.recipeName);
             viewHolder.recipeImage = (ImageView) convertView.findViewById(R.id.recipeImage);
             convertView.setTag(viewHolder);
@@ -56,7 +57,7 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
         Glide.with(getContext()).load(profile.getImage()).into(viewHolder.recipeImage);
         //Populate data from the data object via viewHolder obj
         viewHolder.recipeName.setText(profile.getName());
-//        viewHolder.recipe.setText(profile.getRecipe());
+    //    viewHolder.recipe.setText(profile.getRecipe());
 
         return convertView;
 

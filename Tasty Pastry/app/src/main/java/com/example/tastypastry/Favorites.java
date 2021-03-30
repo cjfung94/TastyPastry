@@ -119,7 +119,12 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Toast.makeText(Favorites.this,"clicked item" + i + " " + arrayList.get(i).toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Favorites.this,"clicked item" + i + " " + arrayList.get(i).toString(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Favorites.this, DisplayPastryRecipe.class);
+                intent.putExtra("recipe", arrayList.get(i).getRecipe());
+                intent.putExtra("ingredients", arrayList.get(i).getIngredients());
+                intent.putExtra("pastryName", arrayList.get(i).getName());
+                startActivity(intent);
             }
         });
 
