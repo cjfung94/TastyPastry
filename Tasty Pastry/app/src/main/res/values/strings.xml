@@ -40,5 +40,12 @@
     <string name="gal_foox">Gal Foox</string>
     <string name="maryia_kalodkina">Maryia Kalodkina</string>
     <string name="user">User</string>
+    <string name="pic_of_gal_description">pic_of_gal</string>
+    <string name="pic_maryia_description">Maryia Kalodkina</string>
+    <string name="pic_of_maryia_description">pic_of_maryia_description</string>
+    <string name="pic_of_cj_description">pic_of_cj_description</string>
+    <string name="pic_of_jorge_description">pic_of_jorge_description</string>
+    <string name="cj_fung">CJ Fung</string>
+    <string name="jorge_esquival">Jorge Esquival</string>
 
 </resources>
