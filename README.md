@@ -49,7 +49,7 @@ share that recipe with your friends and family!
 **Sprint 2**
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit#gid=2114772481)
-* Scrums
+* [Scrums](https://docs.google.com/document/d/1sqbBSqMJrJ6Y8xRk3IfUjQlc-arVyf2sGsLKEhAuKMc/edit?usp=sharing)
 * Sprint demo - video and apk (or equivalent)
 * Sprint retrospective
 

@@ -36,8 +36,6 @@ public class Settings extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.Username_textView);
         textView.setText(userName);
 
-
-
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
