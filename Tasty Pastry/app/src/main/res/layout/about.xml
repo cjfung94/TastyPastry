@@ -91,6 +91,7 @@
                 android:layout_marginEnd="102dp"
                 android:layout_marginBottom="6dp"
                 android:layout_toStartOf="@+id/maryia_creator_pic"
+                android:contentDescription="@string/pic_of_gal_description"
                 android:src="@drawable/gal_creator"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -102,6 +103,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="6dp"
+                android:contentDescription="@string/pic_of_maryia_description"
                 android:src="@drawable/maryia_creator"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -122,7 +124,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="2dp"
-                android:text="Gal Foox"
+                android:text="@string/gal_foox"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -139,7 +141,7 @@
                 android:layout_marginEnd="6dp"
                 android:layout_marginBottom="8dp"
                 android:layout_toEndOf="@+id/gal_creator"
-                android:text="Maryia Kalodkina"
+                android:text="@string/maryia_kalodkina"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -163,6 +165,7 @@
                 android:layout_marginEnd="102dp"
                 android:layout_marginBottom="7dp"
                 android:layout_toStartOf="@+id/jorge_creator_pic"
+                android:contentDescription="@string/pic_of_cj_description"
                 android:src="@drawable/cj_creator"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -175,7 +178,8 @@
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="6dp"
                 android:src="@drawable/jorge_creator"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:contentDescription="@string/pic_of_jorge_description"/>
 
         </RelativeLayout>
 
@@ -194,7 +198,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="2dp"
-                android:text="CJ Fung"
+                android:text="@string/cj_fung"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -208,7 +212,7 @@
                 android:layout_marginEnd="22dp"
                 android:layout_marginTop="2dp"
                 android:layout_toEndOf="@+id/cj_creator"
-                android:text="Jorge Esquival"
+                android:text="@string/jorge_esquival"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
