@@ -87,7 +87,9 @@
                 android:id="@+id/gal_creator_pic"
                 android:layout_width="112dp"
                 android:layout_height="85dp"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginTop="3dp"
                 android:layout_marginEnd="102dp"
                 android:layout_marginBottom="6dp"
                 android:layout_toStartOf="@+id/maryia_creator_pic"
@@ -177,9 +179,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="6dp"
+                android:contentDescription="@string/pic_of_jorge_description"
                 android:src="@drawable/jorge_creator"
-                app:layout_constraintStart_toStartOf="parent"
-                android:contentDescription="@string/pic_of_jorge_description"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
         </RelativeLayout>
 
@@ -202,15 +204,15 @@
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/jorge_creator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="135dp"
-                android:layout_marginEnd="22dp"
                 android:layout_marginTop="2dp"
+                android:layout_marginEnd="22dp"
                 android:layout_toEndOf="@+id/cj_creator"
                 android:text="@string/jorge_esquival"
                 android:textAlignment="center"
