@@ -48,5 +48,7 @@
     <string name="cj_fung">CJ Fung</string>
     <string name="jorge_esquival">Jorge Esquival</string>
     <string name="jorge_esquivel">Jorge Esquivel</string>
+    <string name="filter_hint">Enter an ingredient...</string>
+    <string name="filter_image_description">This is a magnifying glass.</string>
 
 </resources>
