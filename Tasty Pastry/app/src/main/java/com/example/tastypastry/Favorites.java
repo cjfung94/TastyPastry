@@ -1,10 +1,12 @@
 package com.example.tastypastry;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,24 +34,68 @@ public class Favorites extends AppCompatActivity {
     private FirebaseAuth firebaseAuth; //goes into firebase authentication
     private String userID;
 
+    //Create ArrayList + Adapter
+    ArrayList<Profile> arrayList = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        ProfileAdapter adapter = new ProfileAdapter(this, arrayList);
 
+        //Set ListView to ID
+        listView = findViewById(R.id.listview_favorites);
+        listView.setAdapter(adapter);
         firebaseAuth = FirebaseAuth.getInstance();
         favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList");
         userID = firebaseAuth.getCurrentUser().getUid();
 
-        favoriteDatabase.child(userID).child("Favorites").addValueEventListener(new ValueEventListener() {
+
+//        favoriteDatabase.child(userID).child("Favorites").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//
+//                for (DataSnapshot dSnapshot : snapshot.getChildren()) {
+//                    //Get value from database and make it a profile
+//                    Profile profiles = dSnapshot.getValue(Profile.class);
+//                    Log.d("Favorites", "name" + profiles.getName())
+//                    arrayList.add(profiles);
+//                    arrayAdapter = new ArrayAdapter<Profile>(Favorites.this, android.R.layout.simple_list_item_1, arrayList);
+//                    listView.setAdapter(arrayAdapter);
+////                    ModelClass img = snapshot.getValue(ModelClass.class);
+////                    myAdapter.addElement(img);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+        favoriteDatabase.child(userID).child("Favorites").addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                for (DataSnapshot dSnapshot : snapshot.getChildren()) {
+                    Profile profile = snapshot.getValue(Profile.class);
+                    Log.d("Favorites", "name"  + profile.getName() );
+                    adapter.add(profile);
 
-//                    ModelClass img = snapshot.getValue(ModelClass.class);
-//                    myAdapter.addElement(img);
-                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
             }
 
             @Override
@@ -58,13 +105,13 @@ public class Favorites extends AppCompatActivity {
         });
 
         //Creation/Addition of list of favorites
-        listView=(ListView)findViewById(R.id.listview_favorites);
-        ArrayList<Profile> arrayList = new ArrayList<>();
-
-        //arrayList.add(new Profile(""))
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
-        listView.setAdapter(arrayAdapter);
+//        listView=(ListView)findViewById(R.id.listview_favorites);
+//        ArrayList<Profile> arrayList = new ArrayList<>();
+//
+//        //arrayList.add(new Profile(""))
+//
+//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
+//        listView.setAdapter(arrayAdapter);
 
         //Clickable list view item
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +119,12 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                Toast.makeText(Favorites.this,"clicked item" + i + " " + arrayList.get(i).toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Favorites.this,"clicked item" + i + " " + arrayList.get(i).toString(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Favorites.this, DisplayPastryRecipe.class);
+                intent.putExtra("recipe", arrayList.get(i).getRecipe());
+                intent.putExtra("ingredients", arrayList.get(i).getIngredients());
+                intent.putExtra("pastryName", arrayList.get(i).getName());
+                startActivity(intent);
             }
         });
 

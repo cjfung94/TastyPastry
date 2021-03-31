@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,6 +106,8 @@ public class Settings extends AppCompatActivity {
     }
 
     private void signOut() {
+        firebaseAuth.signOut();
+        Toast.makeText(Settings.this,"You have successfully signed out!",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finishAffinity();

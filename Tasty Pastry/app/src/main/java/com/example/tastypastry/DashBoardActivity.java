@@ -8,15 +8,9 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.SignInMethodQueryResult;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,8 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
-import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.View;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,7 +38,7 @@ public class DashBoardActivity extends Activity {
     private FirebaseAuth firebaseAuth;
 
     Profile recipeProfile = new Profile();
-    Users user = new Users();
+
     // List of Profile class
     List<Profile> profileList = new ArrayList<Profile>();
 
