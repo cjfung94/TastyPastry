@@ -214,7 +214,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="22dp"
                 android:layout_toEndOf="@+id/cj_creator"
-                android:text="@string/jorge_esquival"
+                android:text="@string/jorge_esquivel"
                 android:textAlignment="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
