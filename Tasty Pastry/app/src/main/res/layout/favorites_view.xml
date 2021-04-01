@@ -22,8 +22,9 @@
             android:id="@+id/recipeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginLeft="13dp"
+            android:layout_gravity="center|top"
+            android:layout_marginStart="13dp"
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/bentham"
             android:padding="10dip"
             android:textColor="@color/black"
@@ -35,12 +36,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|bottom"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="48dp"
+
             android:backgroundTint="#E6B7AB"
             android:text="@string/delete"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 </LinearLayout>
