@@ -22,6 +22,8 @@
         android:id="@+id/filter_button"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
+        android:text="Filter"
+        android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:backgroundTint="#E6B7AB"
