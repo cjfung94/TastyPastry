@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:text="@string/creators"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -68,8 +68,8 @@
 
     <LinearLayout
         android:id="@+id/outer_linear_layout"
-        android:layout_width="386dp"
-        android:layout_height="315dp"
+        android:layout_width="389dp"
+        android:layout_height="258dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
@@ -235,7 +235,6 @@
         app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

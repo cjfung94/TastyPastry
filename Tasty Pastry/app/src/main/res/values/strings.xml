@@ -49,5 +49,6 @@
     <string name="jorge_esquival">Jorge Esquival</string>
     <string name="filter_hint">Enter an ingredient...</string>
     <string name="filter_image_description">This is a magnifying glass.</string>
+    <string name="delete">Delete</string>
 
 </resources>
