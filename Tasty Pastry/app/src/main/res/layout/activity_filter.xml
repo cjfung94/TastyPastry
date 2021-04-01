@@ -6,24 +6,14 @@
     android:background="#DDD7D6"
     tools:context=".Filter">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336">
-
-    </RelativeLayout>
-
     <Button
         android:id="@+id/filter_button"
         android:layout_width="290dp"
         android:layout_height="wrap_content"
+        android:text="Filter"
+        android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="26sp"
         app:backgroundTint="#E6B7AB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +40,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.485" />
 
+    <ImageView
+        android:id="@+id/filter_image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:contentDescription="@string/filter_image_description"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -63,17 +65,5 @@
         app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation" />
-
-    <ImageView
-        android:id="@+id/filter_image"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:contentDescription="@string/filter_image_description"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
