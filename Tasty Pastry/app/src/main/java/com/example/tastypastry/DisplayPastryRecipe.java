@@ -2,6 +2,7 @@ package com.example.tastypastry;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class DisplayPastryRecipe extends AppCompatActivity {
         //Get ingredients
         ingredientsInfo = extras.getString("ingredients");
         ingredientsList = findViewById(R.id.ingredients_list);
+        //Log.d("DisplayPastryRecipe", "ingredientsInfo" + ingredientsInfo);
         ingredientsList.setText(ingredientsInfo); // Sets it to the R ID
 
         //Set Recipe Name
