@@ -57,7 +57,7 @@ public class SwipeFunction {
         intent.putExtra("recipe", testProfile.getRecipe());
         intent.putExtra("pastryName", testProfile.getName());
         intent.putExtra("ingredients", testProfile.getIngredients());
-        intent.putExtra("Profile", testProfile);
+       // intent.putExtra("Profile", testProfile);
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
