@@ -19,6 +19,8 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import java.io.Serializable;
+
 //Put this back after done testing
 @NonReusable
 @Layout(R.layout.pictures)
@@ -30,7 +32,7 @@ public class SwipeFunction {
     @View(R.id.pictureName)
     private TextView pictureName;
 
-    private Profile testProfile;
+    protected Profile testProfile; //Changed to protected temp
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
     private String swipeKey;
@@ -55,6 +57,7 @@ public class SwipeFunction {
         intent.putExtra("recipe", testProfile.getRecipe());
         intent.putExtra("pastryName", testProfile.getName());
         intent.putExtra("ingredients", testProfile.getIngredients());
+        //intent.putExtra("Profile", (Serializable) testProfile);
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }

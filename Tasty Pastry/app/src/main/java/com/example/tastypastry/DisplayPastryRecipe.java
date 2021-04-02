@@ -1,15 +1,22 @@
 package com.example.tastypastry;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DisplayPastryRecipe extends AppCompatActivity {
 
@@ -20,6 +27,15 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private TextView pastryRecipeName;
     private TextView ingredientsList;
     private String recipeName;
+    private ImageButton starButton;
+    private static DatabaseReference favoriteDatabase;
+    private FirebaseAuth firebaseAuth;
+    private static DatabaseReference favoriteDatabase2;
+    private FirebaseAuth firebaseAuth2;
+    private String userID;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
+    SwipeFunction swipeFunction;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +59,14 @@ public class DisplayPastryRecipe extends AppCompatActivity {
         recipeName = extras.getString("pastryName");
         pastryRecipeName.setText(recipeName);
 
+        starButton = (ImageButton) findViewById(R.id.addToFavorites);
+        starButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Display", "Profile"+extras.getSerializable("Profile"));
+                dashBoardActivity.addRecipeToDatabase(swipeFunction.testProfile);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
@@ -71,6 +95,13 @@ public class DisplayPastryRecipe extends AppCompatActivity {
                         return false;
                     }
                 });
+    }
+
+    public void addFavClick(View v){
+//        firebaseAuth2=FirebaseAuth.getInstance();
+//        userID = firebaseAuth.getCurrentUser().getUid();
+//        favoriteDatabase2 = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
+//        favoriteDatabase2.push().setValue(profile);
     }
 
 }
