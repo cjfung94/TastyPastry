@@ -103,70 +103,7 @@ public class DashBoardActivity extends Activity {
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
 
-        // mDatabase.child("userListRecipe").addValueEventListener(new
-        // ValueEventListener() {
-        // Gson gson = new Gson();
-        //
-        // @Override
-        // public void onDataChange(@NonNull DataSnapshot snapshot) {
-        // for (DataSnapshot postSnapShot : snapshot.getChildren()) {
-        // //Is there another way to do this or simplify this? Need for Json and Gson?
-        // nodeKey = postSnapShot.getKey();
-        // String json = new Gson().toJson(postSnapShot.getValue());
-        // Profile profile = gson.fromJson(json, Profile.class);
-        // Log.d("DashBoardActivity", " image " + profile.getImage());
-        // testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe,
-        // nodeKey));
-        // }
-        // }
-        //
-        // @Override
-        // public void onCancelled(@NonNull DatabaseError error) {
-        // System.out.println("Reading from database failed: " + error.getMessage());
-        // }
-        // });
 
-        // Utilizing ChildEventListener instead of ValueEvent
-        // mDatabase.addChildEventListener(new ChildEventListener() {
-        // Gson gson = new Gson();
-        // @Override
-        // public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String
-        // previousChildName) {
-        // for (DataSnapshot childSnap : snapshot.getChildren())
-        // {
-        // nodeKey = childSnap.getKey();
-        // String json = new Gson().toJson(childSnap.getValue());
-        // Profile profile = gson.fromJson(json, Profile.class);
-        // Log.d("DashBoardActivity", " image " + profile.getImage());
-        // testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe,
-        // nodeKey));
-        // };
-        //
-        // }
-        //
-        // @Override
-        // public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String
-        // previousChildName) {
-        //
-        // }
-        //
-        // @Override
-        // public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-        //
-        // }
-        //
-        // @Override
-        // public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String
-        // previousChildName) {
-        //
-        // }
-        //
-        // @Override
-        // public void onCancelled(@NonNull DatabaseError error) {
-        //
-        // }
-        // });
-        // }
         mDatabase.child("userListRecipe").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -178,6 +115,7 @@ public class DashBoardActivity extends Activity {
                     Profile profile = gson.fromJson(json, Profile.class);
                     Log.d("DashBoardActivity", " image " + profile.getIngredients());
                     testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe, nodeKey));
+                    profile.setKey(nodeKey);
                 }
             }
 
@@ -191,13 +129,6 @@ public class DashBoardActivity extends Activity {
     // Sign Up
     // Create Copy of List of Recipes for every user logged
     protected void setUpUserRecipe(String userID) {
-
-        // firebaseAuth = FirebaseAuth.getInstance();
-        // firebaseAuth.fetchSignInMethodsForEmail(userEmail).addOnCompleteListener(new
-        // OnCompleteListener<SignInMethodQueryResult>() {
-        // @Override
-        // public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-        // boolean isUserThere = task.getResult().getSignInMethods().isEmpty();
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("recipeList");
         mDatabase.addValueEventListener(new ValueEventListener() {
@@ -223,7 +154,8 @@ public class DashBoardActivity extends Activity {
         });
     }
 
-    // SwipeFunction calls this method to add to database | Instantiate everything
+    // SwipeFunction calls this method to add to Favorites | Instantiate everything
+    //ADD TO FAVORITES
     public void addRecipeToDatabase(Profile profile) {
         // Get the current userID
 
@@ -236,8 +168,7 @@ public class DashBoardActivity extends Activity {
         // Push creates a unique value for each, we don't need to check since we're
         // going to delete it from the list
         // Remove addView from SwipeFunction SwipeIn/SwipeOut after testing is complete
-        favoriteDatabase.push().setValue(profile);
-
+        favoriteDatabase.child(profile.getKey()).setValue(profile);
     }
 
     // Delete from user's display list after a left or right swipe
@@ -250,5 +181,4 @@ public class DashBoardActivity extends Activity {
         favoriteDatabase.child("userListRecipe").child(nodeKey).removeValue();
 
     }
-
 }
