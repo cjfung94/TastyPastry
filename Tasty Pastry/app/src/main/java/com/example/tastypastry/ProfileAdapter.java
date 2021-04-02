@@ -23,6 +23,7 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
         ImageView recipeImage;
         TextView recipeName;
         TextView recipe;
+        TextView ingredients;
 
     }
 
