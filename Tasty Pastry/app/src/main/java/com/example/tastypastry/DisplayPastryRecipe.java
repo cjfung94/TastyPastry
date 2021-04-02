@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,14 +28,10 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private TextView pastryRecipeName;
     private TextView ingredientsList;
     private String recipeName;
-    private ImageButton starButton;
-    private static DatabaseReference favoriteDatabase;
-    private FirebaseAuth firebaseAuth;
-    private static DatabaseReference favoriteDatabase2;
-    private FirebaseAuth firebaseAuth2;
-    private String userID;
-    DashBoardActivity dashBoardActivity = new DashBoardActivity();
-    SwipeFunction swipeFunction;
+    private String nodeKey;
+    private ImageButton recipeButton;
+    DashBoardActivity dashBoardActivity;
+
 
 
     @Override
@@ -59,14 +56,16 @@ public class DisplayPastryRecipe extends AppCompatActivity {
         recipeName = extras.getString("pastryName");
         pastryRecipeName.setText(recipeName);
 
-        starButton = (ImageButton) findViewById(R.id.addToFavorites);
-        starButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Display", "Profile"+extras.getSerializable("Profile"));
-                dashBoardActivity.addRecipeToDatabase(swipeFunction.testProfile);
-            }
-        });
+        //Get NodeKey
+        nodeKey = extras.getString("key");
+        Log.d("Display", "profile" + extras.getString("key"));
+
+        //Button
+        recipeButton = (ImageButton) findViewById(R.id.addToFavorites);
+
+
+
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
@@ -97,11 +96,16 @@ public class DisplayPastryRecipe extends AppCompatActivity {
                 });
     }
 
-    public void addFavClick(View v){
-//        firebaseAuth2=FirebaseAuth.getInstance();
-//        userID = firebaseAuth.getCurrentUser().getUid();
-//        favoriteDatabase2 = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
-//        favoriteDatabase2.push().setValue(profile);
-    }
+    public void addToFavorites(View view) {
+        recipeButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                dashBoardActivity = new DashBoardActivity();
+                dashBoardActivity.favoriteStar(nodeKey);
 
+            }
+
+        });
+    }
 }

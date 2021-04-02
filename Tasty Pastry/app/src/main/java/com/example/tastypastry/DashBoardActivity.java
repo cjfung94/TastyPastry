@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
 
@@ -17,9 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.google.gson.internal.$Gson$Preconditions;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
+import java.lang.reflect.GenericSignatureFormatError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +54,6 @@ public class DashBoardActivity extends Activity {
         setContentView(R.layout.dashboard);
         firebaseAuth = FirebaseAuth.getInstance();
         userDatabase = FirebaseDatabase.getInstance().getReference();
-        extras = getIntent().getExtras();
         testContext = getApplicationContext();
 
         //values are here from signin/out if we need them
@@ -59,6 +61,10 @@ public class DashBoardActivity extends Activity {
         // Swiping stuff
         testSwipe = (SwipePlaceHolderView) findViewById(R.id.swipeView);
         // Creates recipes seen
+        //if else statement with class name
+        //Use putExtra and getString to get className -> class.simpleName() I think from the previous class
+        //Do it from MainActivity and Filter, inside the intent section
+
         createDisplayRecipes();
 
         // NAVIGATION BAR:
@@ -93,9 +99,14 @@ public class DashBoardActivity extends Activity {
     }
 
     // Sign in - Display user's list of recipes
-    protected void createDisplayRecipes() {
-
+    protected void createDisplayRecipes() { // Put inside parameter, String className
+        //If else statement using the className
+        // if (className.equals("Filter")
+        //Lines 111 -> mDatabase.child("FilterList") because that's what you want
+        //else
+        // it will be mDatabase.child("userListRecipe")
         // Fix this part
+//        testSwipe = (SwipePlaceHolderView) findViewById(R.id.swipeView);
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
 
@@ -115,7 +126,7 @@ public class DashBoardActivity extends Activity {
                     Profile profile = gson.fromJson(json, Profile.class);
                     Log.d("DashBoardActivity", " image " + profile.getIngredients());
                     testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe, nodeKey));
-                    profile.setKey(nodeKey);
+                   // profile.setKey(nodeKey);
                 }
             }
 
@@ -140,6 +151,7 @@ public class DashBoardActivity extends Activity {
                     // Is there another way to do this or simplify this? Need for Json and Gson?
                     String json = new Gson().toJson(postSnapShot.getValue());
                     Profile profile = gson.fromJson(json, Profile.class);
+                    profile.setKey(postSnapShot.getKey());
                     profileList.add(profile);
                 }
                 // Put the list inside the database
@@ -177,8 +189,33 @@ public class DashBoardActivity extends Activity {
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
 
-        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
-        favoriteDatabase.child("userListRecipe").child(nodeKey).removeValue();
+        DatabaseReference deleteUserDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
+        deleteUserDatabase.child("userListRecipe").child(nodeKey).removeValue();
 
     }
+
+    public void favoriteStar(String nodeKey) {
+        firebaseAuth = FirebaseAuth.getInstance();
+        userID = firebaseAuth.getCurrentUser().getUid();
+        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites").child(nodeKey);
+        DatabaseReference userList = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("userListRecipe").child(nodeKey);
+        userList.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Gson gson = new Gson();
+                String json = new Gson().toJson(snapshot.getValue());
+                Profile profile = gson.fromJson(json, Profile.class);
+                favoriteDatabase.setValue(profile);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        Log.d("dashBoardActivity", "key " + nodeKey);
+
+
+    }
+
 }

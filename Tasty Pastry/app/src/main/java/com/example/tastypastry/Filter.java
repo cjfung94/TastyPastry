@@ -120,7 +120,7 @@ public class Filter extends AppCompatActivity {
                     {
                         Log.d("Filter", "contains it" );
                         //Add the profile to the filterList in Database
-                        filterDatabase.child("filterList").push().setValue(filterProfile);
+                        filterDatabase.child("filterList").child(nodeKey).setValue(filterProfile);
                         recipeExist = true;
                     }
                     else{

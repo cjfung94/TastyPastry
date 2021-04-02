@@ -91,10 +91,6 @@ public class Favorites extends AppCompatActivity {
             //method parameter below: 'int i' gives position of element touched in listview
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Log.d("ingredients", "are" + arrayList.get(i).getIngredients());
-//                Log.d("ingredients", "are" + arrayList.get(i).getName().toString());
-//                Log.d("ingredients", "are" + arrayList.get(i).getRecipe());
-                //Toast.makeText(Favorites.this,"clicked item" + i + " " + arrayList.get(i).toString(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Favorites.this, DisplayPastryRecipe.class);
                 intent.putExtra("recipe", arrayList.get(i).getRecipe());
                 intent.putExtra("ingredients", arrayList.get(i).getIngredients());
