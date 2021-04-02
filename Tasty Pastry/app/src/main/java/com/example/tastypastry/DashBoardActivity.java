@@ -115,7 +115,7 @@ public class DashBoardActivity extends Activity {
                     Profile profile = gson.fromJson(json, Profile.class);
                     Log.d("DashBoardActivity", " image " + profile.getIngredients());
                     testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe, nodeKey));
-
+                    profile.setKey(nodeKey);
                 }
             }
 
@@ -168,14 +168,15 @@ public class DashBoardActivity extends Activity {
         // Push creates a unique value for each, we don't need to check since we're
         // going to delete it from the list
         // Remove addView from SwipeFunction SwipeIn/SwipeOut after testing is complete
-//        favoriteDatabase.push().setValue(profile);
-//        nodeKey = favoriteDatabase.push().getKey();
-        DatabaseReference hello = favoriteDatabase.push();
-        hello.setValue(profile);
-        nodeKey = hello.getKey();
-//        Log.d("dashBoardActivity", "Key " + nodeKey);
-//        profile.setKey(nodeKey);
-        hello.child(nodeKey).setValue(nodeKey);
+        favoriteDatabase.child(profile.getKey()).setValue(profile);
+
+//        DatabaseReference hello = favoriteDatabase.push();
+//        hello.setValue(profile);
+//        nodeKey = hello.getKey();
+////        Log.d("dashBoardActivity", "Key " + nodeKey);
+////        profile.setKey(nodeKey);
+//        hello.child(nodeKey).setValue(nodeKey);
+
     }
 
     // Delete from user's display list after a left or right swipe

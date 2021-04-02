@@ -75,11 +75,9 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
                 ProfileId = profile.getKey();
                 firebaseAuth = FirebaseAuth.getInstance();
                 userID = firebaseAuth.getCurrentUser().getUid();
-
                 favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
+                favoriteDatabase.child(ProfileId).removeValue();
 
-
-                Log.d("ProfileAdapter", "key " + profile.getKey());
 
             }
         });
