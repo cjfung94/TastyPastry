@@ -14,7 +14,7 @@
 needs and desires-- from spices you have in your cabinet to your dietary needs.
 You are able to navigate through loads of pastries with just a swipe of 
 a fingertip until you have found the "golden ticket." Once that is said and 
-done, save it to your favorites to revist later. Oh, and don't forget to 
+done, save it to your favorites to revisit later. Oh, and don't forget to 
 share that recipe with your friends and family!
 
 
