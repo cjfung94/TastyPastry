@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 //                    intent.putExtra("userID", userId);
 //                    Log.d("userID", "putExtra" + userId);
 //                    //dashBoardActivity.createUserDatabase(userId, email);
+//                    dashBoardActivity.createDisplayRecipes();
                     startActivity(intent);
                     finish();
                 } else {
