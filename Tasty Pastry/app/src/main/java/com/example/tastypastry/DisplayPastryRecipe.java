@@ -33,15 +33,14 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private static DatabaseReference favoriteDatabase2;
     private FirebaseAuth firebaseAuth2;
     private String userID;
+    DashBoardActivity dashBoardActivity = new DashBoardActivity();
+    SwipeFunction swipeFunction;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipes);
-
-        starButton = (ImageButton) findViewById(R.id.addToFavorites);
-
 
         //Get recipe info from SwipeFunction
         extras = getIntent().getExtras();
@@ -60,10 +59,12 @@ public class DisplayPastryRecipe extends AppCompatActivity {
         recipeName = extras.getString("pastryName");
         pastryRecipeName.setText(recipeName);
 
+        starButton = (ImageButton) findViewById(R.id.addToFavorites);
         starButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("Display", "Profile"+extras.getSerializable("Profile"));
+                dashBoardActivity.addRecipeToDatabase(swipeFunction.testProfile);
             }
         });
 
