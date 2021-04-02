@@ -176,7 +176,7 @@ public class DashBoardActivity extends Activity {
                     nodeKey = postSnapShot.getKey();
                     String json = new Gson().toJson(postSnapShot.getValue());
                     Profile profile = gson.fromJson(json, Profile.class);
-                    Log.d("DashBoardActivity", " image " + profile.getImage());
+                    Log.d("DashBoardActivity", " image " + profile.getIngredients());
                     testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe, nodeKey));
                 }
             }

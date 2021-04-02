@@ -79,10 +79,10 @@ public class Favorites extends AppCompatActivity {
             Gson gson = new Gson();
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String json = new Gson().toJson(snapshot.getValue());
-                Profile profile = gson.fromJson(json, Profile.class);
-                Log.d("Favorites", "name"  + profile.getName() );
-                adapter.add(profile);
+                    String json = new Gson().toJson(snapshot.getValue());
+                    Profile profile = gson.fromJson(json, Profile.class);
+                    Log.d("Favorites", "name"  + profile.getName() );
+                    adapter.add(profile);
 
 
             }
