@@ -22,10 +22,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Favorites extends AppCompatActivity {
 
@@ -74,12 +76,14 @@ public class Favorites extends AppCompatActivity {
 //            }
 //        });
         favoriteDatabase.child(userID).child("Favorites").addChildEventListener(new ChildEventListener() {
+            Gson gson = new Gson();
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String json = new Gson().toJson(snapshot.getValue());
+                Profile profile = gson.fromJson(json, Profile.class);
+                Log.d("Favorites", "name"  + profile.getName() );
+                adapter.add(profile);
 
-                    Profile profile = snapshot.getValue(Profile.class);
-                    Log.d("Favorites", "name"  + profile.getName() );
-                    adapter.add(profile);
 
             }
 
@@ -104,26 +108,19 @@ public class Favorites extends AppCompatActivity {
             }
         });
 
-        //Creation/Addition of list of favorites
-//        listView=(ListView)findViewById(R.id.listview_favorites);
-//        ArrayList<Profile> arrayList = new ArrayList<>();
-//
-//        //arrayList.add(new Profile(""))
-//
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,arrayList);
-//        listView.setAdapter(arrayAdapter);
-
-        //Clickable list view item
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             //method parameter below: 'int i' gives position of element touched in listview
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+//                Log.d("ingredients", "are" + arrayList.get(i).getIngredients());
+//                Log.d("ingredients", "are" + arrayList.get(i).getName().toString());
+//                Log.d("ingredients", "are" + arrayList.get(i).getRecipe());
                 //Toast.makeText(Favorites.this,"clicked item" + i + " " + arrayList.get(i).toString(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Favorites.this, DisplayPastryRecipe.class);
                 intent.putExtra("recipe", arrayList.get(i).getRecipe());
                 intent.putExtra("ingredients", arrayList.get(i).getIngredients());
                 intent.putExtra("pastryName", arrayList.get(i).getName());
+
                 startActivity(intent);
             }
         });

@@ -7,31 +7,6 @@
     android:background="#DDD7D6"
     tools:context=".Favorites">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="663dp"
-        android:layout_above="@+id/bottom_navigation"
-        android:layout_marginBottom="-1dp"
-        android:fillViewport="true"
-        android:padding="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp">
-
-            <ListView
-                android:id="@+id/listview_favorites"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="#000"
-                android:dividerHeight="1dp"
-                android:footerDividersEnabled="false"
-                android:headerDividersEnabled="false" />
-        </LinearLayout>
-    </ScrollView>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -45,5 +20,18 @@
         app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listview_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:divider="#000"
+            android:dividerHeight="1dp"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"/>
+    </LinearLayout>
 
 </RelativeLayout>
