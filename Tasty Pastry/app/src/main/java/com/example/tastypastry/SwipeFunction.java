@@ -68,15 +68,8 @@ public class SwipeFunction {
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
-
         Log.d("EVENT", "SwipedOut");
-        //testSwipe.removeView(this); --> this is for when delete is implemented
-        //might need to use @NonReusable
-//        testSwipe.addView(this);
-        //Delete child using node ID reference
         dashBoardActivity.deleteFromUserListRecipe(swipeKey);
-
-        //Swipe out adds it back to the list for some reason
     }
 
     // When card isn't swiped completely left or right
@@ -85,16 +78,11 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipeCancelState");
     }
 
-    // When card is accepted/liked
-
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
         dashBoardActivity.addRecipeToDatabase(testProfile);
         dashBoardActivity.deleteFromUserListRecipe(swipeKey);
-        //Deprecated so we're using the long long way...
-//        testSwipe.removeView(testSwipe);
-
     }
 
     // Pings method til card is in Swiped in State
@@ -108,7 +96,4 @@ public class SwipeFunction {
     private void SwipeOutState() {
         Log.d("EVENT", "SwipeOutState");
     }
-
-    // If we don't want to re add a view, then just put @NonReusable
-
 }

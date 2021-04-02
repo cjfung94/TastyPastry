@@ -36,7 +36,6 @@ public class Favorites extends AppCompatActivity {
     //Create ArrayList + Adapter
     ArrayList<Profile> arrayList = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,39 +49,15 @@ public class Favorites extends AppCompatActivity {
         favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList");
         userID = firebaseAuth.getCurrentUser().getUid();
 
-
-
-
-
-//        favoriteDatabase.child(userID).child("Favorites").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                for (DataSnapshot dSnapshot : snapshot.getChildren()) {
-//                    //Get value from database and make it a profile
-//                    Profile profiles = dSnapshot.getValue(Profile.class);
-//                    Log.d("Favorites", "name" + profiles.getName())
-//                    arrayList.add(profiles);
-//                    arrayAdapter = new ArrayAdapter<Profile>(Favorites.this, android.R.layout.simple_list_item_1, arrayList);
-//                    listView.setAdapter(arrayAdapter);
-////                    ModelClass img = snapshot.getValue(ModelClass.class);
-////                    myAdapter.addElement(img);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
         favoriteDatabase.child(userID).child("Favorites").addChildEventListener(new ChildEventListener() {
             Gson gson = new Gson();
+
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    String json = new Gson().toJson(snapshot.getValue());
-                    Profile profile = gson.fromJson(json, Profile.class);
-                    Log.d("Favorites", "name"  + profile.getName() );
-                    adapter.add(profile);
+                String json = new Gson().toJson(snapshot.getValue());
+                Profile profile = gson.fromJson(json, Profile.class);
+                Log.d("Favorites", "name" + profile.getName());
+                adapter.add(profile);
 
 
             }
@@ -95,9 +70,9 @@ public class Favorites extends AppCompatActivity {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                 finish();
-                overridePendingTransition( 0, 0);
+                overridePendingTransition(0, 0);
                 startActivity(getIntent());
-                overridePendingTransition( 0, 0);
+                overridePendingTransition(0, 0);
 
             }
 
@@ -138,24 +113,23 @@ public class Favorites extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
                         startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:
                         startActivity(new Intent(getApplicationContext(), Filter.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Favorites:
                         return true;
                     case R.id.Settings:
                         startActivity(new Intent(getApplicationContext(), Settings.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
             }
         });
     }
-
 
 
 }

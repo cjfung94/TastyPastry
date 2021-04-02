@@ -169,14 +169,6 @@ public class DashBoardActivity extends Activity {
         // going to delete it from the list
         // Remove addView from SwipeFunction SwipeIn/SwipeOut after testing is complete
         favoriteDatabase.child(profile.getKey()).setValue(profile);
-
-//        DatabaseReference hello = favoriteDatabase.push();
-//        hello.setValue(profile);
-//        nodeKey = hello.getKey();
-////        Log.d("dashBoardActivity", "Key " + nodeKey);
-////        profile.setKey(nodeKey);
-//        hello.child(nodeKey).setValue(nodeKey);
-
     }
 
     // Delete from user's display list after a left or right swipe
@@ -189,14 +181,4 @@ public class DashBoardActivity extends Activity {
         favoriteDatabase.child("userListRecipe").child(nodeKey).removeValue();
 
     }
-
-    public void DeleteFromFavorites(Profile profile) {
-//        firebaseAuth = FirebaseAuth.getInstance();
-//        userID = firebaseAuth.getCurrentUser().getUid();
-//        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
-        Log.d("dashBoardActivity", "key " + nodeKey);
-
-
-    }
-
 }
