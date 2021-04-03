@@ -50,5 +50,11 @@
     <string name="filter_hint">Enter an ingredient...</string>
     <string name="filter_image_description">This is a magnifying glass.</string>
     <string name="delete">Delete</string>
+    <string name="filter">Filter</string>
+    <string name="help">Help</string>
+    <string name="enter_your_name">Enter your name...</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email...</string>
+    <string name="subject">Subject</string>
 
 </resources>

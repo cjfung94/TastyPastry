@@ -41,7 +41,6 @@ public class SwipeFunction {
     private String swipeKey;
     DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
-
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView, String nodeKey) {
         testProfile = profile;
         testContext = context;

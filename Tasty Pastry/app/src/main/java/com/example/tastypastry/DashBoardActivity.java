@@ -95,7 +95,6 @@ public class DashBoardActivity extends Activity {
                 return false;
             }
         });
-
     }
 
     // Sign in - Display user's list of recipes
@@ -214,8 +213,5 @@ public class DashBoardActivity extends Activity {
             }
         });
         Log.d("dashBoardActivity", "key " + nodeKey);
-
-
     }
-
 }

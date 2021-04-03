@@ -27,8 +27,6 @@ public class Profile {
     @Expose
     private String key;
 
-
-
     public String getName() {
         return name;
     }

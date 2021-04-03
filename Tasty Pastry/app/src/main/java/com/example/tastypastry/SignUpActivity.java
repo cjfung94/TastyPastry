@@ -1,11 +1,9 @@
 package com.example.tastypastry;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
         className = this.getClass().getSimpleName(); //Doesn't work inside methods outside of onCreate
         firebaseAuth = FirebaseAuth.getInstance();
         userDatabase = FirebaseDatabase.getInstance().getReference();
-        emailSign = findViewById(R.id.email);
+        emailSign = findViewById(R.id.name_editText);
         passwordSign1 = findViewById(R.id.password1);
         passwordSign2 = findViewById(R.id.password2);
         SignupButton = findViewById(R.id.shareRecipe);

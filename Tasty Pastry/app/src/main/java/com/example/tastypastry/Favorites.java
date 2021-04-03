@@ -24,7 +24,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-
 public class Favorites extends AppCompatActivity {
 
     ListView listView;
@@ -58,8 +57,6 @@ public class Favorites extends AppCompatActivity {
                 Profile profile = gson.fromJson(json, Profile.class);
                 Log.d("Favorites", "name" + profile.getName());
                 adapter.add(profile);
-
-
             }
 
             @Override
@@ -126,6 +123,4 @@ public class Favorites extends AppCompatActivity {
             }
         });
     }
-
-
 }
