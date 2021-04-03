@@ -31,7 +31,8 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/name_editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Help" />
 
 
     <TextView
@@ -48,13 +49,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.882" />
 
     <EditText
         android:id="@+id/name_editText"
         android:layout_width="292dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rectangular_field"
         android:hint="@string/enter_your_name"
         android:paddingVertical="15dp"
@@ -69,16 +70,21 @@
         android:id="@+id/email_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="138dp"
         android:layout_marginBottom="8dp"
         android:text="@string/email"
         app:layout_constraintBottom_toTopOf="@+id/email_editText"
-        tools:layout_editor_absoluteX="60dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Help"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/email_editText"
         android:layout_width="292dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rectangular_field"
         android:hint="@string/enter_your_email"
         android:paddingVertical="15dp"
@@ -89,6 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <TextView
         android:id="@+id/subject_textView"
         android:layout_width="wrap_content"
@@ -96,14 +103,15 @@
         android:layout_marginBottom="8dp"
         android:text="@string/subject"
         app:layout_constraintBottom_toTopOf="@+id/subject_editText"
-        tools:layout_editor_absoluteX="60dp" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/subject_editText"
         android:layout_width="292dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/rectangular_field"
         android:hint="Enter subject..."
         android:paddingVertical="15dp"
@@ -119,15 +127,16 @@
         android:id="@+id/editText3"
         android:layout_width="292dp"
         android:layout_height="225dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/rectangular_field"
         android:paddingVertical="15dp"
         android:paddingStart="60dp"
         android:paddingEnd="60dp"
         android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="414dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
