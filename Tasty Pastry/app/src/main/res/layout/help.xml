@@ -27,59 +27,62 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="Contact Us"
+        android:text="@string/contact_us"
         android:textColor="@color/black"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/name_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Help" />
 
 
-    <TextView
-        android:id="@+id/name_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="82dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="4dp"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/name_editText"
-        app:layout_constraintEnd_toStartOf="@+id/contact_us"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
-
-    <EditText
-        android:id="@+id/name_editText"
-        android:layout_width="292dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rectangular_field"
-        android:hint="@string/enter_your_name"
-        android:paddingVertical="15dp"
-        android:paddingStart="60dp"
-        android:paddingEnd="60dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/email_textView"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="344dp"
+        android:layout_height="97dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_us"
+        android:layout_marginStart="35dp">
 
+        <TextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/name_editText"
+            android:layout_width="292dp"
+            android:layout_height="59dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rectangular_field"
+            android:hint="@string/enter_your_name"
+            android:paddingVertical="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:textColor="#000000"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="344dp"
+        android:layout_height="97dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout1"
+        android:layout_marginStart="35dp">
     <TextView
         android:id="@+id/email_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
-        android:layout_marginBottom="4dp"
         android:text="@string/email"
-        app:layout_constraintBottom_toTopOf="@+id/email_editText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Help"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_marginBottom="10dp"/>
 
     <EditText
         android:id="@+id/email_editText"
@@ -89,55 +92,56 @@
         android:background="@drawable/rectangular_field"
         android:hint="@string/enter_your_email"
         android:paddingVertical="15dp"
-        android:paddingStart="60dp"
-        android:paddingEnd="60dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/subject_textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+         />
 
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/subject_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="@string/subject"
-        app:layout_constraintBottom_toTopOf="@+id/subject_editText"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="344dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:layout_marginStart="35dp">
 
-    <EditText
-        android:id="@+id/subject_editText"
-        android:layout_width="292dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/rectangular_field"
-        android:hint="Enter subject..."
-        android:paddingVertical="15dp"
-        android:paddingStart="60dp"
-        android:paddingEnd="60dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/comment_section_editText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/subject_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/subject" />
 
-    <EditText
-        android:id="@+id/comment_section_editText"
-        android:layout_width="292dp"
-        android:layout_height="160dp"
-        android:layout_marginBottom="104dp"
-        android:background="@drawable/rectangular_field"
-        android:paddingVertical="15dp"
-        android:paddingStart="60dp"
-        android:paddingEnd="60dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/subject_editText"
+            android:layout_width="292dp"
+            android:layout_height="59dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rectangular_field"
+            android:hint="Enter subject..."
+            android:paddingVertical="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:textColor="#000000"
+             />
+
+        <EditText
+            android:id="@+id/comment_section_editText"
+            android:layout_width="292dp"
+            android:layout_height="160dp"
+            android:layout_marginBottom="104dp"
+            android:background="@drawable/rectangular_field"
+            android:paddingVertical="15dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:textColor="#000000"
+             />
+    </LinearLayout>
 
     <Button
         android:id="@+id/send_button"
@@ -153,7 +157,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comment_section_editText"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
