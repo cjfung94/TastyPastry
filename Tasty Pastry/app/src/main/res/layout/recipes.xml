@@ -40,7 +40,8 @@
         android:src="@drawable/shareicon"
         android:tint="#130202"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="shareRecipe"/>
 
     <TextView
         android:id="@+id/PastryName"
