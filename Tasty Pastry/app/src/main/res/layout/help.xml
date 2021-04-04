@@ -102,7 +102,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="344dp"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:layout_gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,6 +151,7 @@
         android:text="@string/send"
         android:textColor="#0C0000"
         android:textSize="25sp"
+        android:layout_marginTop="8dp"
         app:backgroundTint="#E6B7AB"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
