@@ -55,5 +55,6 @@
     <string name="email">Email</string>
     <string name="enter_your_email">Enter your email...</string>
     <string name="subject">Subject</string>
+    <string name="send">Send</string>
 
 </resources>
