@@ -34,6 +34,7 @@ public class Filter extends AppCompatActivity {
     private static DatabaseReference userDatabase;
     private boolean recipeExist;
     private String nodeKey;
+    private String className;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +42,9 @@ public class Filter extends AppCompatActivity {
         setContentView(R.layout.activity_filter);
         firebaseAuth = FirebaseAuth.getInstance();
         userId = firebaseAuth.getUid();
-        filterDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userId);
+        filterDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userId).child("filterList");
         userDatabase = FirebaseDatabase.getInstance().getReference().child("UserList");
+        className = this.getClass().getSimpleName();
 
         // Assign EditText to a ID
         filterEditText = (EditText) findViewById(R.id.filter_editText);
@@ -55,6 +57,31 @@ public class Filter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 searchIngredient();
+                Intent intent = new Intent(Filter.this, DashBoardActivity.class);
+                            intent.putExtra("className",className);
+                            startActivity(intent);
+                            Log.d("Filter", "in second data onchange" + ingredients );
+                            finish();
+//                filterDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        Log.d("snapshotondataonchange", "snapshotondatachange" + snapshot);
+//
+//                        if (snapshot.hasChildren()) {
+//                            Intent intent = new Intent(Filter.this, DashBoardActivity.class);
+//                            intent.putExtra("className",className);
+//                            startActivity(intent);
+//                            Log.d("Filter", "in second data onchange" + ingredients );
+//                            finish();
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
                 //Move back to dashboard
 //                Intent intent = new Intent(Filter.this, DashBoardActivity.class);
 //                startActivity(intent);
@@ -120,21 +147,22 @@ public class Filter extends AppCompatActivity {
                     {
                         Log.d("Filter", "contains it" );
                         //Add the profile to the filterList in Database
-                        filterDatabase.child("filterList").child(nodeKey).setValue(filterProfile);
+                        filterDatabase.child(nodeKey).setValue(filterProfile);
                         recipeExist = true;
                     }
-                    else{
-                        Toast.makeText(Filter.this, "No results found", Toast.LENGTH_SHORT).show();
-                        recipeExist = false;
-                    }
+//                    else{
+//                        Toast.makeText(Filter.this, "No results found", Toast.LENGTH_SHORT).show();
+//                        recipeExist = false;
+//                    }
                 }
 
                 //Leave page if it exists, if not, stay on Filter page
-                if (recipeExist){
-                    Intent intent = new Intent(Filter.this, DashBoardActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
+//                if (filterDatabase.hasChildren()){
+//                    Intent intent = new Intent(Filter.this, DashBoardActivity.class);
+//                    intent.putExtra("className",className);
+//                    startActivity(intent);
+//                    finish();
+//                }
             }
 
             @Override
@@ -142,5 +170,8 @@ public class Filter extends AppCompatActivity {
 
             }
         });
+
+
+
     }
 }

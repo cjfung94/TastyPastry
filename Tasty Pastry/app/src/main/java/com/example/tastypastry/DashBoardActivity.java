@@ -35,6 +35,7 @@ public class DashBoardActivity extends Activity {
     private String userID;
     private String userEmail;
     private String nodeKey;
+    private String className;
     private SwipePlaceHolderView signUpSwipe;
     private static DatabaseReference userDatabase;
     private static DatabaseReference favoriteDatabase;
@@ -55,6 +56,8 @@ public class DashBoardActivity extends Activity {
         firebaseAuth = FirebaseAuth.getInstance();
         userDatabase = FirebaseDatabase.getInstance().getReference();
         testContext = getApplicationContext();
+
+
 
         //values are here from signin/out if we need them
 
@@ -106,6 +109,8 @@ public class DashBoardActivity extends Activity {
         // it will be mDatabase.child("userListRecipe")
         // Fix this part
 //        testSwipe = (SwipePlaceHolderView) findViewById(R.id.swipeView);
+        extras = getIntent().getExtras();
+        className = extras.getString("className");
         firebaseAuth = FirebaseAuth.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
 
@@ -113,8 +118,22 @@ public class DashBoardActivity extends Activity {
                 .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
         mDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
 
+        if(className.equals("Filter"))
+        {
+            mDatabase = mDatabase.child("filterList");
+            Log.d("dashboard","if" + className);
+        }
 
-        mDatabase.child("userListRecipe").addListenerForSingleValueEvent(new ValueEventListener() {
+        else
+        {
+            mDatabase = mDatabase.child("userListRecipe");
+            Log.d("dashboard","else" + className);
+        }
+
+
+
+
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Gson gson = new Gson();
