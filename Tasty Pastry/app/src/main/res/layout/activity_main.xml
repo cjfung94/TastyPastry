@@ -24,7 +24,7 @@
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/name_editText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"

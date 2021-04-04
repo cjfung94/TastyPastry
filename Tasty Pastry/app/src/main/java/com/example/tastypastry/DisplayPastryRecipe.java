@@ -32,8 +32,6 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private ImageButton recipeButton;
     DashBoardActivity dashBoardActivity;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +60,6 @@ public class DisplayPastryRecipe extends AppCompatActivity {
 
         //Button
         recipeButton = (ImageButton) findViewById(R.id.addToFavorites);
-
-
-
-
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
