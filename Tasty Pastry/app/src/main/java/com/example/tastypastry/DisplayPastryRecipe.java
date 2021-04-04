@@ -30,6 +30,7 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private String recipeName;
     private String nodeKey;
     private ImageButton recipeButton;
+    private ImageButton shareButton;
     DashBoardActivity dashBoardActivity;
 
     @Override
@@ -101,5 +102,13 @@ public class DisplayPastryRecipe extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void shareRecipe(View view)
+    {
+        shareButton = (ImageButton)findViewById(R.id.shareRecipe);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        startActivity(Intent.createChooser(intent,"Share using:"));
     }
 }
