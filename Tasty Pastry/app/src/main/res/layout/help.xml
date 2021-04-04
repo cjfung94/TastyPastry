@@ -112,23 +112,23 @@
         android:id="@+id/subject_editText"
         android:layout_width="292dp"
         android:layout_height="59dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/rectangular_field"
         android:hint="Enter subject..."
         android:paddingVertical="15dp"
         android:paddingStart="60dp"
         android:paddingEnd="60dp"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/comment_section_editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/comment_section_editText"
         android:layout_width="292dp"
-        android:layout_height="225dp"
-        android:layout_marginBottom="32dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="104dp"
         android:background="@drawable/rectangular_field"
         android:paddingVertical="15dp"
         android:paddingStart="60dp"
@@ -138,6 +138,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/send_button"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_back"
+        android:text="@string/send"
+        android:textColor="#0C0000"
+        android:textSize="25sp"
+        app:backgroundTint="#E6B7AB"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comment_section_editText"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
