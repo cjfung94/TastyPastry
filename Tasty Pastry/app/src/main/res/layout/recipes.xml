@@ -15,7 +15,7 @@
         android:layout_height="42sp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_corner"
         android:contentDescription="@string/favorite_the_recipe"
         android:outlineAmbientShadowColor="#070101"
