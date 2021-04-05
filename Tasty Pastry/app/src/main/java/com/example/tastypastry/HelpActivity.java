@@ -1,16 +1,19 @@
 package com.example.tastypastry;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 public class HelpActivity extends AppCompatActivity {
@@ -34,6 +37,35 @@ public class HelpActivity extends AppCompatActivity {
                 sendUserComment();
             }
         });
+
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setSelectedItemId(R.id.Settings);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.Home:
+                        startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.Filter:
+                        startActivity(new Intent(getApplicationContext(), Filter.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.Favorites:
+                        startActivity(new Intent(getApplicationContext(), Favorites.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.Settings:
+                        startActivity((new Intent(getApplicationContext(), Settings.class)));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
     }
 
     public void sendUserComment(){
@@ -46,14 +78,8 @@ public class HelpActivity extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(true);
 
-        //do something ... TBC
-
-        //progressDialog.dismiss();
-
         String creatorsEmail = "lcpljorgeesquivel@gmail.com";
-
         Intent i = new Intent(Intent.ACTION_SEND);
-
         i.putExtra(Intent.EXTRA_EMAIL  , creatorsEmail);
         i.putExtra(Intent.EXTRA_SUBJECT, subject);
         i.putExtra(Intent.EXTRA_TEXT, comments);
@@ -64,7 +90,5 @@ public class HelpActivity extends AppCompatActivity {
 //        } catch (android.content.ActivityNotFoundException ex) {
 //            Toast.makeText(HelpActivity.this, "No email clients installed.",   Toast.LENGTH_SHORT).show();
 //        }
-
-
     }
 }
