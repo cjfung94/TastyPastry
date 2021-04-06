@@ -74,6 +74,8 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
                 userID = firebaseAuth.getCurrentUser().getUid();
                 favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
                 favoriteDatabase.child(ProfileId).removeValue();
+                remove(profile);
+                notifyDataSetChanged();
             }
         });
 
