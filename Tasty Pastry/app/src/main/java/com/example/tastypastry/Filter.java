@@ -99,7 +99,9 @@ public class Filter extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
-                        startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.putExtra("className", this.getClass().getSimpleName());
+                        startActivity(intent);
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.Filter:

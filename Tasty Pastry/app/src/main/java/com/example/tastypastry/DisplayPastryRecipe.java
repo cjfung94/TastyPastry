@@ -18,6 +18,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class DisplayPastryRecipe extends AppCompatActivity {
 
@@ -32,12 +42,15 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     private ImageButton recipeButton;
     private ImageButton shareButton;
     DashBoardActivity dashBoardActivity;
+    private FirebaseAuth firebaseAuth;
+    private String userID;
+    private String imageInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipes);
-
+        firebaseAuth = FirebaseAuth.getInstance();
         //Get recipe info from SwipeFunction
         extras = getIntent().getExtras();
         recipeInfo = extras.getString("recipe");
@@ -45,7 +58,9 @@ public class DisplayPastryRecipe extends AppCompatActivity {
         pastryRecipe.setText(recipeInfo); // Sets it to the R ID
 
         //Get ingredients
+        imageInfo = extras.getString("image");
         ingredientsInfo = extras.getString("ingredients");
+        Log.d("ingredientsInfo", "getExtra" + ingredientsInfo);
         ingredientsList = findViewById(R.id.ingredients_list);
         //Log.d("DisplayPastryRecipe", "ingredientsInfo" + ingredientsInfo);
         ingredientsList.setText(ingredientsInfo); // Sets it to the R ID
@@ -70,7 +85,9 @@ public class DisplayPastryRecipe extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.Home:
-                                startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                                Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                                intent.putExtra("className", this.getClass().getSimpleName());
+                                startActivity(intent);
                                 overridePendingTransition(0, 0);
                                 return true;
                             case R.id.Filter:
@@ -92,16 +109,14 @@ public class DisplayPastryRecipe extends AppCompatActivity {
     }
 
     public void addToFavorites(View view) {
-        recipeButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
+
+                Toast.makeText(DisplayPastryRecipe.this, "Added Recipe to Favorites!", Toast.LENGTH_LONG).show();
+                // Pass Profile by converting to to String then convert back from Json -- SwipeFunction
+                Profile profile = new Gson().fromJson(extras.getString("profile"), Profile.class);
                 dashBoardActivity = new DashBoardActivity();
-                dashBoardActivity.favoriteStar(nodeKey);
+                dashBoardActivity.addRecipeToDatabase(profile);
+                dashBoardActivity.deleteFromUserListRecipe(nodeKey);
 
-            }
-
-        });
     }
 
     public void shareRecipe(View view)

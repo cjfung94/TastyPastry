@@ -64,8 +64,9 @@ public class Settings extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
-                        startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
-                        overridePendingTransition(0, 0);
+                        Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.putExtra("className", this.getClass().getSimpleName());
+                        startActivity(intent);
                         return true;
                     case R.id.Filter:
                         startActivity(new Intent(getApplicationContext(), Filter.class));
