@@ -32,7 +32,6 @@ public class Settings extends AppCompatActivity {
         Log.d("Settings", "username" + userName);
         aboutButton = (Button) findViewById(R.id.About_button);
         helpButton = (Button) findViewById(R.id.Help_button);
-//        lFBButton = (Button) findViewById(R.id.Leave_feedback_button);
         signOutButton = (Button) findViewById(R.id.Sign_out_button);
         textView = (TextView) findViewById(R.id.Username_textView);
         textView.setText(userName);
@@ -49,12 +48,6 @@ public class Settings extends AppCompatActivity {
                 openHelpActivity();
             }
         });
-//        lFBButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openLFBActivity();
-//            }
-//        });
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,11 +90,6 @@ public class Settings extends AppCompatActivity {
 
     private void openHelpActivity() {
         Intent intent =  new Intent(this, HelpActivity.class);
-        startActivity(intent);
-    }
-
-    private void openLFBActivity(){
-        Intent intent = new Intent(this, LFBActivity.class);
         startActivity(intent);
     }
 
