@@ -103,7 +103,6 @@ public class DashBoardActivity extends Activity {
             }
         });
     }
-
     // Sign in - Display user's list of recipes
     protected void createDisplayRecipes() { // Put inside parameter, String className
         //If else statement using the className

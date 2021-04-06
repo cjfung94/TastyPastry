@@ -86,6 +86,7 @@ public class DisplayPastryRecipe extends AppCompatActivity {
                         switch (menuItem.getItemId()) {
                             case R.id.Home:
                                 Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                                 intent.putExtra("className", this.getClass().getSimpleName());
                                 startActivity(intent);
                                 overridePendingTransition(0, 0);

@@ -61,7 +61,7 @@ public class Filter extends AppCompatActivity {
                             intent.putExtra("className",className);
                             startActivity(intent);
                             Log.d("Filter", "in second data onchange" + ingredients );
-                            finish();
+
 //                filterDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot snapshot) {
