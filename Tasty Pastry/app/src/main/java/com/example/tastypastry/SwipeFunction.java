@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
@@ -60,6 +61,9 @@ public class SwipeFunction {
         intent.putExtra("pastryName", testProfile.getName());
         intent.putExtra("ingredients", testProfile.getIngredients());
         intent.putExtra("key", testProfile.getKey());
+        intent.putExtra("image", testProfile.getImage());
+        String s = (new Gson().toJson(testProfile));
+        intent.putExtra("profile", s);
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }

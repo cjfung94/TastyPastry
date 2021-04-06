@@ -66,10 +66,7 @@ public class Favorites extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                finish();
-                overridePendingTransition(0, 0);
-                startActivity(getIntent());
-                overridePendingTransition(0, 0);
+
 
             }
 
@@ -92,7 +89,7 @@ public class Favorites extends AppCompatActivity {
                 intent.putExtra("recipe", arrayList.get(i).getRecipe());
                 intent.putExtra("ingredients", arrayList.get(i).getIngredients());
                 intent.putExtra("pastryName", arrayList.get(i).getName());
-
+                intent.putExtra("className", this.getClass().getSimpleName());
                 startActivity(intent);
             }
         });
@@ -105,7 +102,9 @@ public class Favorites extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
-                        startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.putExtra("className", this.getClass().getSimpleName());
+                        startActivity(intent);
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:

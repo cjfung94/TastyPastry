@@ -19,14 +19,16 @@
         android:background="@drawable/rounded_corner"
         android:contentDescription="@string/favorite_the_recipe"
         android:outlineAmbientShadowColor="#070101"
+        android:padding="1sp"
         android:scaleType="fitXY"
         android:src="@drawable/addtofavicon"
         android:tint="#130202"
-        android:onClick="addToFavorites"
         app:layout_constraintEnd_toStartOf="@+id/shareRecipe"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="addToFavorites"
+        android:focusable="true"/>
 
     <ImageButton
         android:id="@+id/shareRecipe"
