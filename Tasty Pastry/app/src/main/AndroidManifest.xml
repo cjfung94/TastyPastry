@@ -9,8 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TastyPastry">
-        <activity android:name=".LFBActivity"
-            android:launchMode="singleTop"></activity>
         <activity android:name=".HelpActivity"
             android:launchMode="singleTop" />
         <activity android:name=".AboutActivity"

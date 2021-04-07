@@ -103,7 +103,6 @@ public class DashBoardActivity extends Activity {
             }
         });
     }
-
     // Sign in - Display user's list of recipes
     protected void createDisplayRecipes() { // Put inside parameter, String className
         //If else statement using the className
@@ -131,7 +130,7 @@ public class DashBoardActivity extends Activity {
             }
 
 
-            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Gson gson = new Gson();
