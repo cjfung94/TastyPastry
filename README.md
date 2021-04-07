@@ -41,7 +41,7 @@ share that recipe with your friends and family!
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
 * [Scrums](https://docs.google.com/document/d/1GOGbstIiELH-WrhknsiAPiqFx0DwTkWk-BMCDCdkev0/edit?usp=sharing)
-* [Apk](Sprint1apk.zip)
+* [Apk](https://github.com/paceuniversity/cs389s2021team4/blob/89d72a608c5eae7801fb83843296d117d98bbc40/Sprint1apk.zip)
 * [Demo video](https://youtu.be/OcDgR__dIRU)
 * [Sprint Retrospective](https://docs.google.com/document/d/1mWPM_wn3rYNUgnoGLSwjg7eper2Lk2AenLWYyJSupvw/edit?usp=sharing)
 
@@ -50,7 +50,7 @@ share that recipe with your friends and family!
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit#gid=2114772481)
 * [Scrums](https://docs.google.com/document/d/1sqbBSqMJrJ6Y8xRk3IfUjQlc-arVyf2sGsLKEhAuKMc/edit?usp=sharing)
-* Apk
+* [Apk](https://github.com/paceuniversity/cs389s2021team4/blob/89d72a608c5eae7801fb83843296d117d98bbc40/Sprint2apk.zip)
 * [Demo video](https://youtu.be/WyPhXanq0g8)
 * [Sprint Retrospective](https://docs.google.com/document/d/1FeoPX6Lw6UP9bvWm2olhHtuI3St0hxdHrzFp7L0cyUk/edit?usp=sharing)
 
