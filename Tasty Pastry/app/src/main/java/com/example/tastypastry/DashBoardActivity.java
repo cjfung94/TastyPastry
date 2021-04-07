@@ -130,7 +130,7 @@ public class DashBoardActivity extends Activity {
             }
 
 
-            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            mDatabase.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     Gson gson = new Gson();

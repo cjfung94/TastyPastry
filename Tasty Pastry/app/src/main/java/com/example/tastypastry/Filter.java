@@ -143,10 +143,9 @@ public class Filter extends AppCompatActivity {
                     nodeKey = filterSnap.getKey();
                     String json = new Gson().toJson(filterSnap.getValue());
                     Profile filterProfile = gson.fromJson(json, Profile.class);
-                    ingredients = filterProfile.getIngredients();
+                    ingredients = filterProfile.getIngredients().toLowerCase();
                     Log.d("Filter", "contains it" + ingredients );
                     //Assign the string and put ingredients inside of the string
-
 
                     //Check if string matches our ingredients
                     if (ingredients.contains(filterText))
