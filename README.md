@@ -56,8 +56,8 @@ share that recipe with your friends and family!
 
 **Sprint 3** 
 
-* Sprint planning
-* Scrums
+* [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
+* [Scrums](https://docs.google.com/document/d/1GVLS4jndPjJ1B3d0sJiRzZhpo81ZC6qtOeGPfHVu29M/edit?usp=sharing)
 * Sprint demo - video and apk (or equivalent)
 * Sprint retrospective
 
