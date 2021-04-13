@@ -6,52 +6,80 @@
     android:background="#DDD7D6"
     tools:context=".Filter">
 
-    <Button
-        android:id="@+id/filter_button"
-        android:layout_width="290dp"
-        android:layout_height="57dp"
-        android:text="@string/filter"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:backgroundTint="#E6B7AB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528"
-        />
 
-    <EditText
-        android:id="@+id/filter_editText"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/rectangular_field"
-        android:hint="@string/filter_hint"
-        android:inputType="textEmailAddress"
-        android:paddingVertical="15dp"
-        android:paddingStart="60dp"
-        android:paddingEnd="60dp"
-        android:textAlignment="textStart"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/filter_image"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:contentDescription="@string/filter_image_description"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
+
+        <EditText
+            android:id="@+id/filter_editText1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rectangular_field"
+            android:hint="@string/filter_hint"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="15dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            android:layout_gravity="center_horizontal"
+             />
+
+        <EditText
+            android:id="@+id/filter_editText2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rectangular_field"
+            android:hint="@string/filter_hint"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="15dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            />
+
+        <ImageView
+            android:id="@+id/filter_image"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:contentDescription="@string/filter_image_description"
+            app:layout_constraintBottom_toBottomOf="@+id/filter_editText1"
+            app:layout_constraintHorizontal_bias="0.196"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/filter_editText1"
+
+            app:layout_constraintVertical_bias="0.486" />
+
+        <Button
+            android:id="@+id/filter_button"
+            android:layout_width="290dp"
+            android:layout_height="57dp"
+            android:text="@string/filter"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:backgroundTint="#E6B7AB"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.688" />
+
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -66,5 +94,6 @@
         app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_navigation" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
