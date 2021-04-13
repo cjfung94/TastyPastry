@@ -49,19 +49,24 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             />
+        <EditText
+            android:id="@+id/filter_editText3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rectangular_field"
+            android:hint="@string/filter_hint"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="15dp"
+            android:paddingStart="60dp"
+            android:paddingEnd="60dp"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            />
 
-        <ImageView
-            android:id="@+id/filter_image"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:contentDescription="@string/filter_image_description"
-            app:layout_constraintBottom_toBottomOf="@+id/filter_editText1"
-            app:layout_constraintHorizontal_bias="0.196"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/filter_editText1"
-
-            app:layout_constraintVertical_bias="0.486" />
 
         <Button
             android:id="@+id/filter_button"
