@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +47,7 @@ public class Filter extends AppCompatActivity {
 
 
         // Assign EditText to a ID
-        filterEditText = (EditText) findViewById(R.id.filter_editText);
+        filterEditText = (EditText) findViewById(R.id.filter_editText1);
         filterButton = (Button) findViewById(R.id.filter_button);
         Log.d("Filter", "onCreate " );
         userDatabase.child(userId).child("filterList").removeValue();
