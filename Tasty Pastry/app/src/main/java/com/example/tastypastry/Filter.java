@@ -23,7 +23,11 @@ import com.google.gson.Gson;
 public class Filter extends AppCompatActivity {
 
     private EditText filterEditText;
+    private EditText filterEditText2;
+    private EditText filterEditText3;
     private String filterText;
+    private String filterText2;
+    private String filterText3;
     private Button filterButton;
     private static DatabaseReference filterDatabase;
     private FirebaseAuth firebaseAuth;
@@ -48,6 +52,8 @@ public class Filter extends AppCompatActivity {
 
         // Assign EditText to a ID
         filterEditText = (EditText) findViewById(R.id.filter_editText1);
+        filterEditText2 = (EditText) findViewById(R.id.filter_editText2);
+        filterEditText3 = (EditText) findViewById(R.id.filter_editText3);
         filterButton = (Button) findViewById(R.id.filter_button);
         Log.d("Filter", "onCreate " );
         userDatabase.child(userId).child("filterList").removeValue();
@@ -127,6 +133,11 @@ public class Filter extends AppCompatActivity {
         //Get string from EditText and sets it to lowercase
 
         filterText = filterEditText.getText().toString().toLowerCase();
+        filterText2 = filterEditText2.getText().toString().toLowerCase();
+        filterText3 = filterEditText3.getText().toString().toLowerCase();
+        Log.d("filter text","filtertext2" + filterText2);
+        Log.d("filter text","filtertext3" + filterText3);
+
         //Go through database and look for ingredients
         Log.d("Filter", "inside of searchIngredients")  ;
         userDatabase.child(userId).child("userListRecipe").addValueEventListener(new ValueEventListener() {
@@ -146,7 +157,7 @@ public class Filter extends AppCompatActivity {
                     //Assign the string and put ingredients inside of the string
 
                     //Check if string matches our ingredients
-                    if (ingredients.contains(filterText))
+                    if (ingredients.contains(filterText)&&ingredients.contains(filterText2)&&ingredients.contains(filterText3))
                     {
                         Log.d("Filter", "contains it" );
                         //Add the profile to the filterList in Database
