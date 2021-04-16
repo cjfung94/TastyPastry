@@ -59,5 +59,6 @@
     <string name="contact_us">Contact Us</string>
     <string name="name">Name</string>
     <string name="show_tutorial">show_tutorial</string>
+    <string name="undo" />
 
 </resources>
