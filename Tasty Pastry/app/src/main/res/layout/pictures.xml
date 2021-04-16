@@ -49,4 +49,5 @@
                 android:textStyle="bold|italic" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </FrameLayout>
