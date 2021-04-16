@@ -41,6 +41,7 @@ public class DashBoardActivity extends Activity {
     private DatabaseReference deleteDatabase;
     private FirebaseAuth firebaseAuth;
     private ImageButton TutorialLight;
+    private boolean undo;
 
     Profile recipeProfile = new Profile();
 
@@ -59,6 +60,8 @@ public class DashBoardActivity extends Activity {
         userDatabase = FirebaseDatabase.getInstance().getReference();
         testContext = getApplicationContext();
 
+
+        undo = false;
 
 
         //values are here from signin/out if we need them
@@ -112,7 +115,7 @@ public class DashBoardActivity extends Activity {
                 //might need to put extra class name if changes made to DashboardActivity - null parameter?
                 intent.putExtra("className", this.getClass().getSimpleName());
                 startActivity(intent);
-                finish();
+
             }
         });
     }
@@ -222,6 +225,22 @@ public class DashBoardActivity extends Activity {
         deleteDatabase.child("userListRecipe").child(nodeKey).removeValue();
 
     }
+
+
+    public void Undo(View view) {
+        //undo = true;
+        testSwipe.undoLastSwipe();
+
+
+
+    }
+
+
+    public boolean getUndo(){
+        return undo;
+    }
+
+
 
 //    public void favoriteStar(String nodeKey) {
 //        firebaseAuth = FirebaseAuth.getInstance();
