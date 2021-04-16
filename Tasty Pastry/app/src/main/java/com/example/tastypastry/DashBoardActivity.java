@@ -104,7 +104,6 @@ public class DashBoardActivity extends Activity {
             }
         });
 
-
         TutorialLight = findViewById(R.id.tut_lightbulb);
         TutorialLight.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,22 +10,23 @@
         android:id="@+id/tut_lightbulb"
         android:layout_width="42dp"
         android:layout_height="42dp"
-        android:layout_marginLeft="320dp"
+        android:layout_gravity="top"
+        android:layout_marginStart="320dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_corner"
         android:contentDescription="@string/show_tutorial"
         android:scaleType="fitXY"
         android:src="@drawable/lightbulb"
         android:tint="#130202" />
 
-
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
-        android:layout_height="659dp">
+        android:layout_height="480dp"
+        android:layout_gravity="center">
 
     </com.mindorks.placeholderview.SwipePlaceHolderView>
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -35,8 +36,6 @@
         android:background="#fff"
         app:itemTextColor="@color/black"
         app:menu="@menu/menu_navigation" />
-
-
 
 
 </FrameLayout>
