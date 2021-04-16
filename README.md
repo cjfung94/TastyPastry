@@ -9,7 +9,7 @@
 * Xue Yue Fung (CJ) - Product Owner
 * Maryia Kalodkina - Scrum Master
 
-<img src="TastyPastry%20Team.png" width="400" height="380">
+<img src="TastyPastry%20Team.png" width="440" height="380">
 
 
 
