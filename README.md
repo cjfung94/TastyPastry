@@ -2,6 +2,8 @@
 
 **Name:**
 "TastyPastry"
+<img src="TastyPastry%20LOGO.png" width="150" height="150">
+
 
 **Team:**
 * Jorge Esquivel - Content Manager 
@@ -9,8 +11,12 @@
 * Xue Yue Fung (CJ) - Product Owner
 * Maryia Kalodkina - Scrum Master
 
+<img src="TastyPastry%20Team.png" width="455" height="380">
+
+
+
 **App description:**
-* TastyPastry is an application that provides you recipes customizable to your
+TastyPastry is an application that provides you recipes customizable to your
 needs and desires-- from spices you have in your cabinet to your dietary needs.
 You are able to navigate through loads of pastries with just a swipe of 
 a fingertip until you have found the "golden ticket." Once that is said and 
