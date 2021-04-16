@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.gsm.GsmCellLocation;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,6 +33,7 @@ public class Filter extends AppCompatActivity {
     private boolean recipeExist;
     private String nodeKey;
     private String className;
+    DashBoardActivity dashBoardActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +45,12 @@ public class Filter extends AppCompatActivity {
         userDatabase = FirebaseDatabase.getInstance().getReference().child("UserList");
         className = this.getClass().getSimpleName();
 
+
         // Assign EditText to a ID
-        filterEditText = (EditText) findViewById(R.id.filter_editText);
+        filterEditText = (EditText) findViewById(R.id.filter_editText1);
         filterButton = (Button) findViewById(R.id.filter_button);
         Log.d("Filter", "onCreate " );
+        userDatabase.child(userId).child("filterList").removeValue();
 
 
         //Click button to search
@@ -58,10 +59,11 @@ public class Filter extends AppCompatActivity {
             public void onClick(View view) {
                 searchIngredient();
                 Intent intent = new Intent(Filter.this, DashBoardActivity.class);
-                            intent.putExtra("className",className);
-                            startActivity(intent);
+                intent.putExtra("className",className);
+                startActivity(intent);
+
                             Log.d("Filter", "in second data onchange" + ingredients );
-                            finish();
+
 //                filterDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -123,7 +125,7 @@ public class Filter extends AppCompatActivity {
     //Creating the search function
     public void searchIngredient(){
         //Get string from EditText and sets it to lowercase
-        userDatabase.child(userId).child("filterList").removeValue();
+
         filterText = filterEditText.getText().toString().toLowerCase();
         //Go through database and look for ingredients
         Log.d("Filter", "inside of searchIngredients")  ;
@@ -139,10 +141,9 @@ public class Filter extends AppCompatActivity {
                     nodeKey = filterSnap.getKey();
                     String json = new Gson().toJson(filterSnap.getValue());
                     Profile filterProfile = gson.fromJson(json, Profile.class);
-                    ingredients = filterProfile.getIngredients();
+                    ingredients = filterProfile.getIngredients().toLowerCase();
                     Log.d("Filter", "contains it" + ingredients );
                     //Assign the string and put ingredients inside of the string
-
 
                     //Check if string matches our ingredients
                     if (ingredients.contains(filterText))

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -70,17 +71,17 @@ public class HelpActivity extends AppCompatActivity {
 
     public void sendUserComment(){
         String userName = nameSec.getText().toString();
-        String userEmail = emailSec.getText().toString();
+        //String userEmail = emailSec.getText().toString();
         String subject = subSec.getText().toString();
         String comments = commentSec.getText().toString();
+        String[] creatorsEmail = {"lcpljorgeesquivel@gmail.com"};
 
         progressDialog.setMessage("Thank you, "+userName+"! Your comment(s) have been sent!");
         progressDialog.show();
         progressDialog.setCanceledOnTouchOutside(true);
 
-        String creatorsEmail = "lcpljorgeesquivel@gmail.com";
         Intent i = new Intent(Intent.ACTION_SEND);
-        i.putExtra(Intent.EXTRA_EMAIL  , creatorsEmail);
+        i.putExtra(Intent.EXTRA_EMAIL, creatorsEmail);
         i.putExtra(Intent.EXTRA_SUBJECT, subject);
         i.putExtra(Intent.EXTRA_TEXT, comments);
         i.setType("message/rfc822");
