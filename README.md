@@ -8,7 +8,7 @@
 * Gal Foox - Documentation Manager 
 * Xue Yue Fung (CJ) - Product Owner
 * Maryia Kalodkina - Scrum Master
-* ![](TastyPastry Team.png)
+* ![](TastyPastry%20Team.png)
 
 **App description:**
 * TastyPastry is an application that provides you recipes customizable to your
