@@ -6,19 +6,38 @@
     android:background="#DDD7D6"
     android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/tut_lightbulb"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_corner"
-        android:contentDescription="@string/show_tutorial"
-        android:scaleType="fitXY"
-        android:src="@drawable/lightbulb"
-        android:tint="#130202" />
+        android:layout_marginTop="20dp">
+
+        <ImageButton
+            android:id="@+id/undo"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/undo"
+            android:scaleType="fitXY"
+            android:src="@drawable/undo"
+            android:tint="#130202"
+
+            />
+
+        <ImageButton
+            android:id="@+id/tut_lightbulb"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/rounded_corner"
+            android:contentDescription="@string/show_tutorial"
+            android:scaleType="fitXY"
+            android:src="@drawable/lightbulb"
+            android:tint="#130202" />
+    </LinearLayout>
 
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
