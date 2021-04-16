@@ -24,8 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="659dp">
 
-
     </com.mindorks.placeholderview.SwipePlaceHolderView>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -35,6 +35,8 @@
         android:background="#fff"
         app:itemTextColor="@color/black"
         app:menu="@menu/menu_navigation" />
+
+
 
 
 </FrameLayout>
