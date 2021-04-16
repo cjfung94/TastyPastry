@@ -23,6 +23,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/undo"
             android:tint="#130202"
+            android:onClick="Undo"
 
             />
 
