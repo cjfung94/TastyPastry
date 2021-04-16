@@ -2,6 +2,8 @@
 
 **Name:**
 "TastyPastry"
+<img src="TastyPastry%20LOGO.png" width="150" height="150">
+
 
 **Team:**
 * Jorge Esquivel - Content Manager 
@@ -9,7 +11,7 @@
 * Xue Yue Fung (CJ) - Product Owner
 * Maryia Kalodkina - Scrum Master
 
-<img src="TastyPastry%20Team.png" width="440" height="380">
+<img src="TastyPastry%20Team.png" width="455" height="380">
 
 
 
