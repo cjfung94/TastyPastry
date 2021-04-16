@@ -16,7 +16,7 @@
 
 
 **App description:**
-* TastyPastry is an application that provides you recipes customizable to your
+TastyPastry is an application that provides you recipes customizable to your
 needs and desires-- from spices you have in your cabinet to your dietary needs.
 You are able to navigate through loads of pastries with just a swipe of 
 a fingertip until you have found the "golden ticket." Once that is said and 
