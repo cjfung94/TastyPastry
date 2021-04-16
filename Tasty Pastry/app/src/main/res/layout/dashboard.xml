@@ -6,12 +6,23 @@
     android:background="#DDD7D6"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/tut_lightbulb"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_corner"
+        android:contentDescription="@string/show_tutorial"
+        android:scaleType="fitXY"
+        android:src="@drawable/lightbulb"
+        android:tint="#130202" />
+
+
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
         android:layout_height="659dp">
-
-
 
     </com.mindorks.placeholderview.SwipePlaceHolderView>
 

@@ -4,9 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 
@@ -18,11 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
-import com.google.gson.internal.$Gson$Preconditions;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
-import java.lang.reflect.GenericSignatureFormatError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,6 +40,7 @@ public class DashBoardActivity extends Activity {
     private DatabaseReference favoriteDatabase;
     private DatabaseReference deleteDatabase;
     private FirebaseAuth firebaseAuth;
+    private ImageButton TutorialLight;
 
     Profile recipeProfile = new Profile();
 
@@ -49,6 +49,7 @@ public class DashBoardActivity extends Activity {
 
     // Create Hashmap to save values inside of FireBase
     HashMap<String, Object> map = new HashMap<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +101,19 @@ public class DashBoardActivity extends Activity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+
+        TutorialLight = findViewById(R.id.tut_lightbulb);
+        TutorialLight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DashBoardActivity.this, TutorialActivity.class);
+                //might need to put extra class name if changes made to DashboardActivity - null parameter?
+                intent.putExtra("className", this.getClass().getSimpleName());
+                startActivity(intent);
+                finish();
             }
         });
     }
