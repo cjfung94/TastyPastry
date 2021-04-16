@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -86,10 +87,21 @@ public class HelpActivity extends AppCompatActivity {
         i.putExtra(Intent.EXTRA_TEXT, comments);
         i.setType("message/rfc822");
         startActivity(Intent.createChooser(i,"Choose an email client :"));
+//        String creatorsEmail = "lcpljorgeesquivel@gmail.com";
+//        Intent i = new Intent(Intent.ACTION_SEND);
+//        i.putExtra(Intent.EXTRA_EMAIL  , creatorsEmail);
+//        i.putExtra(Intent.EXTRA_SUBJECT, subject);
+//        i.putExtra(Intent.EXTRA_TEXT, comments);
+//        i.setType("message/rfc822");
+//        startActivity(Intent.createChooser(i,"Choose an email client :"));
 //        try {
 //            startActivity(Intent.createChooser(i, "Send mail..."));
 //        } catch (android.content.ActivityNotFoundException ex) {
 //            Toast.makeText(HelpActivity.this, "No email clients installed.",   Toast.LENGTH_SHORT).show();
 //        }
+        String number = "7605833182";
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(number, null, comments, null, null);
+
     }
 }
