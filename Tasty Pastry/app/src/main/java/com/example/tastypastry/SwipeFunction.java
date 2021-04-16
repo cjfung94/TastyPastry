@@ -21,6 +21,7 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+
 import org.json.JSONObject;
 
 import java.io.Serializable;
@@ -105,4 +106,5 @@ public class SwipeFunction {
     private void SwipeOutState() {
         Log.d("EVENT", "SwipeOutState");
     }
+
 }
