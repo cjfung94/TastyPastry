@@ -1,6 +1,8 @@
 package com.example.tastypastry;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,13 +71,41 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
         viewHolder.DeleteFromFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ProfileId = profile.getKey();
-                firebaseAuth = FirebaseAuth.getInstance();
-                userID = firebaseAuth.getCurrentUser().getUid();
-                favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
-                favoriteDatabase.child(ProfileId).removeValue();
-                remove(profile);
-                notifyDataSetChanged();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+                builder.setCancelable(true);
+                builder.setTitle("Warning!");
+                builder.setMessage("Are you sure you want to delete this?");
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ProfileId = profile.getKey();
+                        firebaseAuth = FirebaseAuth.getInstance();
+                        userID = firebaseAuth.getCurrentUser().getUid();
+                        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
+                        favoriteDatabase.child(ProfileId).removeValue();
+                        remove(profile);
+                        notifyDataSetChanged();
+                    }
+                });
+
+                builder.show();
+
+//                ProfileId = profile.getKey();
+//                firebaseAuth = FirebaseAuth.getInstance();
+//                userID = firebaseAuth.getCurrentUser().getUid();
+//                favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID).child("Favorites");
+//                favoriteDatabase.child(ProfileId).removeValue();
+//                remove(profile);
+//                notifyDataSetChanged();
             }
         });
 
