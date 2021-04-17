@@ -41,6 +41,7 @@ public class DashBoardActivity extends Activity {
     private DatabaseReference deleteDatabase;
     private FirebaseAuth firebaseAuth;
     private ImageButton TutorialLight;
+    private boolean undo;
 
     Profile recipeProfile = new Profile();
 
@@ -59,6 +60,8 @@ public class DashBoardActivity extends Activity {
         userDatabase = FirebaseDatabase.getInstance().getReference();
         testContext = getApplicationContext();
 
+
+        undo = false;
 
 
         //values are here from signin/out if we need them
@@ -112,10 +115,11 @@ public class DashBoardActivity extends Activity {
                 //might need to put extra class name if changes made to DashboardActivity - null parameter?
                 intent.putExtra("className", this.getClass().getSimpleName());
                 startActivity(intent);
-                finish();
+
             }
         });
     }
+
     // Sign in - Display user's list of recipes
     protected void createDisplayRecipes() { // Put inside parameter, String className
         //If else statement using the className
@@ -130,39 +134,39 @@ public class DashBoardActivity extends Activity {
         extras = getIntent().getExtras();
         className = extras.getString("className");
 
-            testSwipe.getBuilder().setDisplayViewCount(3).setIsUndoEnabled(true)
-                    .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
-            mDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
+        testSwipe.getBuilder().setDisplayViewCount(3).setIsUndoEnabled(true)
+                .setSwipeDecor(new SwipeDecor().setPaddingTop(20).setRelativeScale(0.01f));
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
 
-            if (extras.getString("className").equals("Filter")) {
-                mDatabase = mDatabase.child("filterList");
-                Log.d("dashboard", "if" );
-            } else {
-                mDatabase = mDatabase.child("userListRecipe");
-                Log.d("dashboard", "else");
+        if (extras.getString("className").equals("Filter")) {
+            mDatabase = mDatabase.child("filterList");
+            Log.d("dashboard", "if");
+        } else {
+            mDatabase = mDatabase.child("userListRecipe");
+            Log.d("dashboard", "else");
+        }
+
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Gson gson = new Gson();
+                for (DataSnapshot postSnapShot : snapshot.getChildren()) {
+                    // Is there another way to do this or simplify this? Need for Json and Gson?
+                    nodeKey = postSnapShot.getKey();
+                    String json = new Gson().toJson(postSnapShot.getValue());
+                    Profile profile = gson.fromJson(json, Profile.class);
+                    Log.d("DashBoardActivity", " image " + profile.getIngredients());
+                    testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe, nodeKey));
+                    // profile.setKey(nodeKey);
+                }
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-            mDatabase.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Gson gson = new Gson();
-                    for (DataSnapshot postSnapShot : snapshot.getChildren()) {
-                        // Is there another way to do this or simplify this? Need for Json and Gson?
-                        nodeKey = postSnapShot.getKey();
-                        String json = new Gson().toJson(postSnapShot.getValue());
-                        Profile profile = gson.fromJson(json, Profile.class);
-                        Log.d("DashBoardActivity", " image " + profile.getIngredients());
-                        testSwipe.addView(new SwipeFunction(testContext, profile, testSwipe, nodeKey));
-                        // profile.setKey(nodeKey);
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
+            }
+        });
 
     }
 
@@ -222,6 +226,20 @@ public class DashBoardActivity extends Activity {
         deleteDatabase.child("userListRecipe").child(nodeKey).removeValue();
 
     }
+
+
+    public void Undo(View view) {
+        //undo = true;
+        testSwipe.undoLastSwipe();
+
+
+    }
+
+
+    public boolean getUndo() {
+        return undo;
+    }
+
 
 //    public void favoriteStar(String nodeKey) {
 //        firebaseAuth = FirebaseAuth.getInstance();

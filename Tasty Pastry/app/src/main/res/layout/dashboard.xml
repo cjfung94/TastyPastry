@@ -20,6 +20,7 @@
             android:layout_marginEnd="0dp"
             android:background="@drawable/rounded_corner"
             android:contentDescription="@string/undo"
+            android:onClick="Undo"
             android:scaleType="fitXY"
             android:src="@drawable/undo"
             android:tint="#130202"

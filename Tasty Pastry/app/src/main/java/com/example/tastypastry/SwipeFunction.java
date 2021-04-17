@@ -2,7 +2,6 @@ package com.example.tastypastry;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.swipe.SwipeCancelState;
@@ -21,13 +19,8 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
-
-import org.json.JSONObject;
-
-import java.io.Serializable;
-
 //Put this back after done testing
-@NonReusable
+//@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -38,9 +31,11 @@ public class SwipeFunction {
     private TextView pictureName;
 
     protected Profile testProfile; //Changed to protected temp
+    protected Profile prevTestProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
     private String swipeKey;
+    private boolean undo;
     DashBoardActivity dashBoardActivity = new DashBoardActivity();
 
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView, String nodeKey) {
@@ -71,15 +66,32 @@ public class SwipeFunction {
 
     @Resolve
     private void onResolved() {
+//        undo = dashBoardActivity.getUndo();
+//        Log.d("undo","undo" + undo);
+//        if(undo)
+//        {
+//            testProfile = prevTestProfile;
+//        }
+
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
     }
+
+
+//    private void chooseProfile(String profile){
+//        if(profile.equals("previous"))
+//        {
+//
+//        }
+//
+//    }
 
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
         Log.d("EVENT", "SwipedOut");
         dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+        prevTestProfile = testProfile;
     }
 
     // When card isn't swiped completely left or right
@@ -93,6 +105,7 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipedIn");
         dashBoardActivity.addRecipeToDatabase(testProfile);
         dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+        prevTestProfile = testProfile;
     }
 
     // Pings method til card is in Swiped in State
@@ -107,4 +120,7 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipeOutState");
     }
 
+    private Profile getTestProfile(){
+        return testProfile;
+    }
 }
