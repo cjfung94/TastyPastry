@@ -49,7 +49,10 @@ public class HelpActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
-                        startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        intent.putExtra("className", this.getClass().getSimpleName());
+                        startActivity(intent);
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:
