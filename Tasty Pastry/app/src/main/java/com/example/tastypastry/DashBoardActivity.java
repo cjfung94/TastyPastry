@@ -88,21 +88,28 @@ public class DashBoardActivity extends Activity {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
                         Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         intent.putExtra("className", this.getClass().getSimpleName());
                         startActivity(intent);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:
+                        currentNodeKey = null;
+                        currentProfile = null;
                         startActivity(new Intent(getApplicationContext(), Filter.class));
                         overridePendingTransition(0, 0);
 
                         return true;
                     case R.id.Favorites:
+                        currentNodeKey = null;
+                        currentProfile = null;
                         startActivity(new Intent(getApplicationContext(), Favorites.class));
                         overridePendingTransition(0, 0);
 
                         return true;
                     case R.id.Settings:
-
+                        currentNodeKey = null;
+                        currentProfile = null;
                         startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
                         return true;
@@ -239,18 +246,21 @@ public class DashBoardActivity extends Activity {
 
     public void Undo(View view) {
         //undo = true;
-        testSwipe.undoLastSwipe();
+
         Log.d("Current ", "node is: " + currentNodeKey);
         Log.d("Current", "profile is: " + currentProfile);
+        if (currentProfile != null && currentNodeKey != null){
+            testSwipe.undoLastSwipe();
+            //Use CurrentNode Key and Current Profile to add back to userList & remove from Favorites
+            userListDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
+            userListDatabase.child("userListRecipe").child(currentNodeKey).setValue(currentProfile);
 
-         //Use CurrentNode Key and Current Profile to add back to userList & remove from Favorites
-        userListDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
-        userListDatabase.child("userListRecipe").child(currentNodeKey).setValue(currentProfile);
+            //Remove from favorites
+            favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID)
+                    .child("Favorites");
+            favoriteDatabase.child(currentNodeKey).removeValue();
+        }
 
-        //Remove from favorites
-        favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID)
-                .child("Favorites");
-        favoriteDatabase.child(currentNodeKey).removeValue();
 
 
 
