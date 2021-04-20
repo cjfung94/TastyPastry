@@ -31,17 +31,20 @@ public class DashBoardActivity extends Activity {
     private Context testContext;
     private static DatabaseReference mDatabase;
     Bundle extras;
-    private String userID;
+    private static String userID;
     private String userEmail;
     private String nodeKey;
     private String className;
     private SwipePlaceHolderView signUpSwipe;
     private DatabaseReference userDatabase;
     private DatabaseReference favoriteDatabase;
-    private DatabaseReference deleteDatabase;
-    private FirebaseAuth firebaseAuth;
+    private DatabaseReference userListDatabase;
+    private static FirebaseAuth firebaseAuth;
     private ImageButton TutorialLight;
     private boolean undo;
+    //Static is used so that all variables can be shared and used in this class
+    private static Profile currentProfile;
+    private static String currentNodeKey;
 
     Profile recipeProfile = new Profile();
 
@@ -59,6 +62,7 @@ public class DashBoardActivity extends Activity {
         firebaseAuth = FirebaseAuth.getInstance();
         userDatabase = FirebaseDatabase.getInstance().getReference();
         testContext = getApplicationContext();
+        userID = firebaseAuth.getCurrentUser().getUid();
 
 
         undo = false;
@@ -84,21 +88,28 @@ public class DashBoardActivity extends Activity {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
                         Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         intent.putExtra("className", this.getClass().getSimpleName());
                         startActivity(intent);
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:
+                        currentNodeKey = null;
+                        currentProfile = null;
                         startActivity(new Intent(getApplicationContext(), Filter.class));
                         overridePendingTransition(0, 0);
 
                         return true;
                     case R.id.Favorites:
+                        currentNodeKey = null;
+                        currentProfile = null;
                         startActivity(new Intent(getApplicationContext(), Favorites.class));
                         overridePendingTransition(0, 0);
 
                         return true;
                     case R.id.Settings:
-
+                        currentNodeKey = null;
+                        currentProfile = null;
                         startActivity(new Intent(getApplicationContext(), Settings.class));
                         overridePendingTransition(0, 0);
                         return true;
@@ -129,8 +140,8 @@ public class DashBoardActivity extends Activity {
         // it will be mDatabase.child("userListRecipe")
         // Fix this part
 //        testSwipe = (SwipePlaceHolderView) findViewById(R.id.swipeView);
-        firebaseAuth = FirebaseAuth.getInstance();
-        userID = firebaseAuth.getCurrentUser().getUid();
+        //firebaseAuth = FirebaseAuth.getInstance();
+        //userID = firebaseAuth.getCurrentUser().getUid();
         extras = getIntent().getExtras();
         className = extras.getString("className");
 
@@ -204,8 +215,8 @@ public class DashBoardActivity extends Activity {
     public void addRecipeToDatabase(Profile profile) {
         // Get the current userID
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        userID = firebaseAuth.getCurrentUser().getUid();
+        //firebaseAuth = FirebaseAuth.getInstance();
+        //userID = firebaseAuth.getCurrentUser().getUid();
 
         // Add recipes to the current user's list in Database
         favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID)
@@ -214,23 +225,42 @@ public class DashBoardActivity extends Activity {
         // going to delete it from the list
         // Remove addView from SwipeFunction SwipeIn/SwipeOut after testing is complete
         favoriteDatabase.child(profile.getKey()).setValue(profile);
+
+        //Set Current Profile
+        currentProfile = profile;
     }
 
     // Delete from user's display list after a left or right swipe
     public void deleteFromUserListRecipe(String nodeKey) {
         Log.d("nodekey", "is " + nodeKey);
-        firebaseAuth = FirebaseAuth.getInstance();
-        userID = firebaseAuth.getCurrentUser().getUid();
+        // firebaseAuth = FirebaseAuth.getInstance();
+        // userID = firebaseAuth.getCurrentUser().getUid();
 
-        deleteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
-        deleteDatabase.child("userListRecipe").child(nodeKey).removeValue();
+        userListDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
+        userListDatabase.child("userListRecipe").child(nodeKey).removeValue();
+
+        //Set Current Node Key
+        currentNodeKey = nodeKey;
 
     }
 
 
     public void Undo(View view) {
         //undo = true;
-        testSwipe.undoLastSwipe();
+
+        Log.d("Current ", "node is: " + currentNodeKey);
+        Log.d("Current", "profile is: " + currentProfile);
+        if (currentProfile != null && currentNodeKey != null) {
+            testSwipe.undoLastSwipe();
+            //Use CurrentNode Key and Current Profile to add back to userList & remove from Favorites
+            userListDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID);
+            userListDatabase.child("userListRecipe").child(currentNodeKey).setValue(currentProfile);
+
+            //Remove from favorites
+            favoriteDatabase = FirebaseDatabase.getInstance().getReference().child("UserList").child(userID)
+                    .child("Favorites");
+            favoriteDatabase.child(currentNodeKey).removeValue();
+        }
 
 
     }
@@ -239,7 +269,6 @@ public class DashBoardActivity extends Activity {
     public boolean getUndo() {
         return undo;
     }
-
 
 //    public void favoriteStar(String nodeKey) {
 //        firebaseAuth = FirebaseAuth.getInstance();
@@ -263,4 +292,5 @@ public class DashBoardActivity extends Activity {
 //        });
 //        Log.d("dashBoardActivity", "key " + nodeKey);
     //}
+
 }
