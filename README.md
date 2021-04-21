@@ -65,7 +65,7 @@ share that recipe with your friends and family!
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
 * [Scrums](https://docs.google.com/document/d/1GVLS4jndPjJ1B3d0sJiRzZhpo81ZC6qtOeGPfHVu29M/edit?usp=sharing)
 * [Apk](https://github.com/paceuniversity/cs389s2021team4/blob/6158490286870c50d4498435d3aa2710384de291/Sprint3apk.zip)
-* [Demo video]
+* [Demo video](https://youtu.be/5KSXjOuwXoE)
 * [Sprint Retrospective](https://docs.google.com/document/d/1IL7WgJzMDJpKxYvA7LDG_-0kTZkwXAWviyiVhRp4OeI/edit?usp=sharing)
 
 **Final presentation**
