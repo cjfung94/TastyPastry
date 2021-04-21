@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         className = this.getClass().getSimpleName();
         firebaseAuth = FirebaseAuth.getInstance();
-        emailSign = findViewById(R.id.email);
+        emailSign = findViewById(R.id.name_editText);
         passwordSign = findViewById(R.id.password);
         SignInButton = findViewById(R.id.sign_in_button);
         progressDialog = new ProgressDialog(this);
@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
 //                    intent.putExtra("userID", userId);
 //                    Log.d("userID", "putExtra" + userId);
 //                    //dashBoardActivity.createUserDatabase(userId, email);
+//                    dashBoardActivity.createDisplayRecipes();
+                    intent.putExtra("className", this.getClass().getSimpleName());
                     startActivity(intent);
                     finish();
                 } else {

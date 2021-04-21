@@ -32,7 +32,6 @@ public class Settings extends AppCompatActivity {
         Log.d("Settings", "username" + userName);
         aboutButton = (Button) findViewById(R.id.About_button);
         helpButton = (Button) findViewById(R.id.Help_button);
-        lFBButton = (Button) findViewById(R.id.Leave_feedback_button);
         signOutButton = (Button) findViewById(R.id.Sign_out_button);
         textView = (TextView) findViewById(R.id.Username_textView);
         textView.setText(userName);
@@ -47,12 +46,6 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openHelpActivity();
-            }
-        });
-        lFBButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLFBActivity();
             }
         });
         signOutButton.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +64,10 @@ public class Settings extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.Home:
-                        startActivity(new Intent(getApplicationContext(), DashBoardActivity.class));
+                        Intent intent = new Intent(getApplicationContext(), DashBoardActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        intent.putExtra("className", this.getClass().getSimpleName());
+                        startActivity(intent);
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.Filter:
@@ -97,11 +93,6 @@ public class Settings extends AppCompatActivity {
 
     private void openHelpActivity() {
         Intent intent =  new Intent(this, HelpActivity.class);
-        startActivity(intent);
-    }
-
-    private void openLFBActivity(){
-        Intent intent = new Intent(this, LFBActivity.class);
         startActivity(intent);
     }
 

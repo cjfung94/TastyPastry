@@ -15,18 +15,20 @@
         android:layout_height="42sp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_corner"
         android:contentDescription="@string/favorite_the_recipe"
         android:outlineAmbientShadowColor="#070101"
+        android:padding="1sp"
         android:scaleType="fitXY"
         android:src="@drawable/addtofavicon"
         android:tint="#130202"
         app:layout_constraintEnd_toStartOf="@+id/shareRecipe"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="addToFavorites"
+        android:focusable="true"/>
 
     <ImageButton
         android:id="@+id/shareRecipe"
@@ -40,17 +42,19 @@
         android:src="@drawable/shareicon"
         android:tint="#130202"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="shareRecipe"/>
 
     <TextView
         android:id="@+id/PastryName"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/bentham"
         android:gravity="top|center"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="29sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/shareRecipe"
         tools:layout_editor_absoluteX="25dp" />
@@ -58,7 +62,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
+        android:layout_height="480dp"
         android:fillViewport="true"
         android:layout_marginBottom="15dp"
         android:padding="10dp"

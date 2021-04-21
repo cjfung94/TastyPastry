@@ -22,7 +22,6 @@
     <string name="settings">Settings</string>
     <string name="username">Username</string>
     <string name="about">About</string>
-    <string name="help">Help</string>
     <string name="leave_feedback">Leave feedback</string>
     <string name="sign_out">Sign out</string>
     <string name="share_recipe">TODO</string>
@@ -47,7 +46,19 @@
     <string name="pic_of_jorge_description">pic_of_jorge_description</string>
     <string name="cj_fung">CJ Fung</string>
     <string name="jorge_esquival">Jorge Esquival</string>
-    <string name="filter_hint">Enter an ingredient...</string>
+    <string name="filter_hint">Enter a keyword...</string>
     <string name="filter_image_description">This is a magnifying glass.</string>
+    <string name="delete">Delete</string>
+    <string name="filter">Filter</string>
+    <string name="help">Help</string>
+    <string name="enter_your_name">Enter your name...</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email...</string>
+    <string name="subject">Subject</string>
+    <string name="send">Send</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="name">Name</string>
+    <string name="show_tutorial">show_tutorial</string>
+    <string name="undo" />
 
 </resources>

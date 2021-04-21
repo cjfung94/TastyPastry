@@ -2,6 +2,8 @@
 
 **Name:**
 "TastyPastry"
+<img src="TastyPastry%20LOGO.png" width="150" height="150">
+
 
 **Team:**
 * Jorge Esquivel - Content Manager 
@@ -9,12 +11,16 @@
 * Xue Yue Fung (CJ) - Product Owner
 * Maryia Kalodkina - Scrum Master
 
+<img src="TastyPastry%20Team.png" width="455" height="380">
+
+
+
 **App description:**
-* TastyPastry is an application that provides you recipes customizable to your
+TastyPastry is an application that provides you recipes customizable to your
 needs and desires-- from spices you have in your cabinet to your dietary needs.
 You are able to navigate through loads of pastries with just a swipe of 
 a fingertip until you have found the "golden ticket." Once that is said and 
-done, save it to your favorites to revist later. Oh, and don't forget to 
+done, save it to your favorites to revisit later. Oh, and don't forget to 
 share that recipe with your friends and family!
 
 
@@ -41,7 +47,7 @@ share that recipe with your friends and family!
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
 * [Scrums](https://docs.google.com/document/d/1GOGbstIiELH-WrhknsiAPiqFx0DwTkWk-BMCDCdkev0/edit?usp=sharing)
-* [Apk](Sprint1apk.zip)
+* [Apk](https://github.com/paceuniversity/cs389s2021team4/blob/89d72a608c5eae7801fb83843296d117d98bbc40/Sprint1apk.zip)
 * [Demo video](https://youtu.be/OcDgR__dIRU)
 * [Sprint Retrospective](https://docs.google.com/document/d/1mWPM_wn3rYNUgnoGLSwjg7eper2Lk2AenLWYyJSupvw/edit?usp=sharing)
 
@@ -50,13 +56,14 @@ share that recipe with your friends and family!
 
 * [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit#gid=2114772481)
 * [Scrums](https://docs.google.com/document/d/1sqbBSqMJrJ6Y8xRk3IfUjQlc-arVyf2sGsLKEhAuKMc/edit?usp=sharing)
-* Sprint demo - video and apk (or equivalent)
-* Sprint retrospective
+* [Apk](https://github.com/paceuniversity/cs389s2021team4/blob/89d72a608c5eae7801fb83843296d117d98bbc40/Sprint2apk.zip)
+* [Demo video](https://youtu.be/WyPhXanq0g8)
+* [Sprint Retrospective](https://docs.google.com/document/d/1FeoPX6Lw6UP9bvWm2olhHtuI3St0hxdHrzFp7L0cyUk/edit?usp=sharing)
 
 **Sprint 3** 
 
-* Sprint planning
-* Scrums
+* [Sprint planning](https://docs.google.com/spreadsheets/d/1FYRjFa7cPw5xhYlIALcr-UL23jYdrvWT9XfYUnLm4R8/edit?usp=sharing)
+* [Scrums](https://docs.google.com/document/d/1GVLS4jndPjJ1B3d0sJiRzZhpo81ZC6qtOeGPfHVu29M/edit?usp=sharing)
 * Sprint demo - video and apk (or equivalent)
 * Sprint retrospective
 

@@ -23,7 +23,9 @@ public class Profile {
     @Expose
     private String ingredients;
 
-
+    @SerializedName("key")
+    @Expose
+    private String key;
 
     public String getName() {
         return name;
@@ -55,6 +57,9 @@ public class Profile {
     public void setIngredients(String recipe) {
         this.ingredients = ingredients;
     }
+
+    public String getKey() { return key; }
+    public void setKey(String key) { this.key = key; }
 
 }
 

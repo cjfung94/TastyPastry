@@ -2,11 +2,13 @@ package com.example.tastypastry;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
@@ -19,8 +21,13 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+
+import org.json.JSONObject;
+
+import java.io.Serializable;
+
 //Put this back after done testing
-@NonReusable
+//@NonReusable
 @Layout(R.layout.pictures)
 public class SwipeFunction {
 
@@ -30,12 +37,13 @@ public class SwipeFunction {
     @View(R.id.pictureName)
     private TextView pictureName;
 
-    private Profile testProfile;
+    protected Profile testProfile; //Changed to protected temp
+    protected Profile prevTestProfile;
     private Context testContext;
     private SwipePlaceHolderView testSwipe;
     private String swipeKey;
+    private boolean undo;
     DashBoardActivity dashBoardActivity = new DashBoardActivity();
-
 
     public SwipeFunction(Context context, Profile profile, SwipePlaceHolderView swipeView, String nodeKey) {
         testProfile = profile;
@@ -55,28 +63,42 @@ public class SwipeFunction {
         intent.putExtra("recipe", testProfile.getRecipe());
         intent.putExtra("pastryName", testProfile.getName());
         intent.putExtra("ingredients", testProfile.getIngredients());
+        intent.putExtra("key", testProfile.getKey());
+        intent.putExtra("image", testProfile.getImage());
+        String s = (new Gson().toJson(testProfile));
+        intent.putExtra("profile", s);
         //Starts activity from context rather than a class
         testContext.startActivity(intent);
     }
 
     @Resolve
     private void onResolved() {
+//        undo = dashBoardActivity.getUndo();
+//        Log.d("undo","undo" + undo);
+//        if(undo)
+//        {
+//            testProfile = prevTestProfile;
+//        }
+
         Glide.with(testContext).load(testProfile.getImage()).into(pictureView);
         pictureName.setText(testProfile.getName());
     }
 
+
+//    private void chooseProfile(String profile){
+//        if(profile.equals("previous"))
+//        {
+//
+//        }
+//
+//    }
+
     // When card is rejected
     @SwipeOut
     private void SwipedOut() {
-
         Log.d("EVENT", "SwipedOut");
-        //testSwipe.removeView(this); --> this is for when delete is implemented
-        //might need to use @NonReusable
-//        testSwipe.addView(this);
-        //Delete child using node ID reference
         dashBoardActivity.deleteFromUserListRecipe(swipeKey);
-
-        //Swipe out adds it back to the list for some reason
+        prevTestProfile = testProfile;
     }
 
     // When card isn't swiped completely left or right
@@ -85,16 +107,12 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipeCancelState");
     }
 
-    // When card is accepted/liked
-
     @SwipeIn
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
         dashBoardActivity.addRecipeToDatabase(testProfile);
         dashBoardActivity.deleteFromUserListRecipe(swipeKey);
-        //Deprecated so we're using the long long way...
-//        testSwipe.removeView(testSwipe);
-
+        prevTestProfile = testProfile;
     }
 
     // Pings method til card is in Swiped in State
@@ -109,6 +127,7 @@ public class SwipeFunction {
         Log.d("EVENT", "SwipeOutState");
     }
 
-    // If we don't want to re add a view, then just put @NonReusable
-
+    private Profile getTestProfile(){
+        return testProfile;
+    }
 }

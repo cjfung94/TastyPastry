@@ -49,6 +49,8 @@ public class TutorialActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TutorialActivity.this, DashBoardActivity.class);
+                //might need to put extra class name if changes made to DashboardActivity - null parameter?
+                intent.putExtra("className", this.getClass().getSimpleName());
                 startActivity(intent);
                 finish();
             }
