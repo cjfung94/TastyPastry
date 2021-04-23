@@ -97,7 +97,7 @@ public class SwipeFunction {
     @SwipeOut
     private void SwipedOut() {
         Log.d("EVENT", "SwipedOut");
-        dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+        dashBoardActivity.deleteFromUserListRecipe(swipeKey, testProfile);
         prevTestProfile = testProfile;
     }
 
@@ -111,7 +111,7 @@ public class SwipeFunction {
     private void SwipeIn() {
         Log.d("EVENT", "SwipedIn");
         dashBoardActivity.addRecipeToDatabase(testProfile);
-        dashBoardActivity.deleteFromUserListRecipe(swipeKey);
+        dashBoardActivity.deleteFromUserListRecipe(swipeKey, testProfile);
         prevTestProfile = testProfile;
     }
 
