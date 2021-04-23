@@ -230,7 +230,7 @@ public class DashBoardActivity extends Activity {
     }
 
     // Delete from user's display list after a left or right swipe
-    public void deleteFromUserListRecipe(String nodeKey) {
+    public void deleteFromUserListRecipe(String nodeKey, Profile profile) {
         Log.d("nodekey", "is " + nodeKey);
        // firebaseAuth = FirebaseAuth.getInstance();
        // userID = firebaseAuth.getCurrentUser().getUid();
@@ -240,6 +240,7 @@ public class DashBoardActivity extends Activity {
 
         //Set Current Node Key
         currentNodeKey = nodeKey;
+        currentProfile = profile;
 
     }
 
@@ -260,10 +261,6 @@ public class DashBoardActivity extends Activity {
                     .child("Favorites");
             favoriteDatabase.child(currentNodeKey).removeValue();
         }
-
-
-
-
     }
 
 
